@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+<extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Atlas Toolbox"
+            id="Atlas Toolbox">
+      </category>
+      <view
+            category="Atlas Toolbox"
+            class="toolbox.android.essentials.views.PermissionUsageView"
+            icon="icons/main-icon.gif"
+            id="toolbox.android.essentials.views.PermissionUsageView"
+            name="Permission Usage">
+      </view>
+   </extension>
+   
+
+</plugin>

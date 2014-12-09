@@ -1,0 +1,38 @@
+#Entire directories to ignore
+bin/
+gen/
+tmp/
+
+#Local configuration file
+local.properties
+
+#Backup, swap, MacOS dir file, etc.
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
+*.cache
+Thumbs.db
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# Eclipse-specific
+*.pydevproject
+.metadata
+*.tmp
+*.bak
+*.swp
+*~.nib
+*.loadpath
+*.cache
+
+#ignore binaries
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
