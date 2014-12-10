@@ -22,6 +22,8 @@ import com.ensoftcorp.atlas.java.core.script.Common;
 
 public class PermissionMapping {
 	
+	public static final int HIGHEST_AVAILABLE_MAPPING = 19;
+	
 	private static final String MAPPING_FILENAME_PREFIX = "API";
 	
 	/**
@@ -101,7 +103,7 @@ public class PermissionMapping {
 		case 18:
 		case 19:
 		default: // default to the highest known mapping
-			prefix = "19-";
+			prefix = HIGHEST_AVAILABLE_MAPPING + "-";
 		}
 		return prefix;
 	}
@@ -163,7 +165,7 @@ public class PermissionMapping {
 		case 18:
 		case 19:
 		default: // default to the highest known mapping
-			apiVersion = 19;
+			apiVersion = HIGHEST_AVAILABLE_MAPPING;
 		}
 		
 		// apply the mapping tags

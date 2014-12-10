@@ -19,4 +19,5 @@ Require-Bundle:
  com.ensoftcorp.atlas.java.ui;bundle-version="2.0.2",
  com.ensoftcorp.atlas.ui;bundle-version="2.0.1",
  com.ensoftcorp.atlas.ui.shell;bundle-version="2.0.1",
- toolbox.android.essentials;bundle-version="2.0.2"
+ toolbox.android.essentials;bundle-version="2.0.2",
+ toolbox.analysis;bundle-version="2.0.2"

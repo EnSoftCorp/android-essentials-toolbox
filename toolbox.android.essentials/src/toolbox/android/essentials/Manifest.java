@@ -15,6 +15,9 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import toolbox.android.essentials.permissions.Permission;
+import toolbox.android.essentials.permissions.mappings.PermissionMapping;
+
 /**
  * This is a container object for encapsulating data and logic for parsing an Android Manifest file
  */
@@ -52,8 +55,21 @@ public class Manifest {
 	private File projectDirectory;
 	private File manifestLocation;
 	private Document androidManifest;
-	private HashSet<String> androidUsesPermissions = new HashSet<String>();
+	private Collection<Permission> manifestUsesPermissions = new LinkedList<Permission>();
+	private HashSet<String> manifestUnidentifedPermissions = new HashSet<String>();
 	private File appIcon;
+	// Google: If you do not declare this attribute, the system assumes a default value of "1",
+	// which indicates that your application is compatible with all versions of Android.
+	private int minSDKVersion = 1;
+	// Google: Declaring this attribute is not recommended. First, there is no need to set the
+	// attribute as means of blocking deployment of your application onto new versions of the
+	// Android platform as they are released. By design, new versions of the platform are fully
+	// backward-compatible....Future versions of Android (beyond Android 2.0.1) will no longer
+	// check or enforce the maxSdkVersion attribute during installation or re-validation.
+	private int maxSDKVersion = PermissionMapping.HIGHEST_AVAILABLE_MAPPING;
+	// Google: If not set, the default value equals that given to minSdkVersion.
+	private int targetSDKVersion = minSDKVersion;
+	
 
 	public Manifest(File androidManifestFile) throws Exception {
 		projectDirectory = androidManifestFile.getParentFile();
@@ -71,13 +87,18 @@ public class Manifest {
 
 		// parse out the uses permissions
 		parseUsesPermissions();
+		parseUsesSDK();
 
 		// parse out the app icon
 		appIcon = getAppIconFile();
 	}
 
-	public Collection<String> getUsesPermissions() {
-		return androidUsesPermissions;
+	public Collection<Permission> getUsesPermissions() {
+		return manifestUsesPermissions;
+	}
+	
+	public HashSet<String> getUnidentifedUsesPermissions(){
+		return manifestUnidentifedPermissions;
 	}
 
 	public File getAppIcon() {
@@ -86,6 +107,18 @@ public class Manifest {
 
 	public File getManifestLocation() {
 		return manifestLocation;
+	}
+	
+	public int getMinSDKVersion() {
+		return minSDKVersion;
+	}
+
+	public int getMaxSDKVersion() {
+		return maxSDKVersion;
+	}
+
+	public int getTargetSDKVersion() {
+		return targetSDKVersion;
 	}
 
 	private void parseUsesPermissions() {
@@ -96,7 +129,56 @@ public class Manifest {
 					Node node = usesPermissions.item(i);
 					if (node.getNodeType() == Node.ELEMENT_NODE) {
 						Element element = (Element) node;
-						androidUsesPermissions.add(element.getAttribute("android:name"));
+						String qualifiedPermissionName = element.getAttribute("android:name");
+						Permission permission = Permission.getPermissionByQualifiedName(qualifiedPermissionName);
+						if(permission != null){
+							manifestUsesPermissions.add(permission);
+						} else {
+							manifestUnidentifedPermissions.add(qualifiedPermissionName);
+						}
+					}
+				}
+			} catch (Exception e) {
+				// manifest is malformed
+			}
+		}
+	}
+	
+	
+	
+	private void parseUsesSDK(){
+		NodeList usesSdk = androidManifest.getElementsByTagName("uses-sdk");
+		if (usesSdk.getLength() != 0) {
+			try {
+				for (int i = 0; i < usesSdk.getLength(); i++) {
+					Node node = usesSdk.item(i);
+					if (node.getNodeType() == Node.ELEMENT_NODE) {
+						Element element = (Element) node;
+						
+						// check for specified min sdk version
+						if(element.hasAttribute("android:minSdkVersion")){
+							String minSDK = element.getAttribute("android:minSdkVersion");
+							try {
+								minSDKVersion = Integer.parseInt(minSDK);
+								targetSDKVersion = minSDKVersion;
+							} catch (Exception e){}
+						}
+						
+						// check for specified max sdk version
+						if(element.hasAttribute("android:maxSdkVersion")){
+							String maxSDK = element.getAttribute("android:maxSdkVersion");
+							try {
+								maxSDKVersion = Integer.parseInt(maxSDK);
+							} catch (Exception e){}
+						}
+						
+						// check for specified target sdk version
+						if(element.hasAttribute("android:targetSdkVersion")){
+							String targetSDK = element.getAttribute("android:targetSdkVersion");
+							try {
+								targetSDKVersion = Integer.parseInt(targetSDK);
+							} catch (Exception e){}
+						}
 					}
 				}
 			} catch (Exception e) {
