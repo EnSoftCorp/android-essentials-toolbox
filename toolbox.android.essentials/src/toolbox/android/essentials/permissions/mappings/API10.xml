@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<<!-- API level: 10, version: 2.3.3, code name: Gingerbread -->
+<!-- API level: 10, version: 2.3.3, code name: Gingerbread -->
 <permissions>
   <permission name="android.permission.CHANGE_WIFI_STATE">
     <call>

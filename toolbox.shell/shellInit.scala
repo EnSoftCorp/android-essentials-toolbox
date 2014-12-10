@@ -11,8 +11,12 @@ import com.ensoftcorp.atlas.core.query.Q
 import com.ensoftcorp.atlas.core.query.Attr
 import com.ensoftcorp.atlas.core.query.Attr.Edge
 import com.ensoftcorp.atlas.core.query.Attr.Node
+import com.ensoftcorp.atlas.core.script.Common
 import com.ensoftcorp.atlas.core.script.Common._
+import com.ensoftcorp.atlas.ui.shell.lib.Common
 import com.ensoftcorp.atlas.ui.shell.lib.Common._
+import com.ensoftcorp.atlas.core.script.CommonQueries
+import com.ensoftcorp.atlas.core.script.CommonQueries._
 import com.ensoftcorp.atlas.core.db.Accuracy._
 import com.ensoftcorp.atlas.core.db.graph.Graph
 

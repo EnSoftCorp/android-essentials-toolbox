@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<<!-- API level: 8, version: 2.2, code name: Froyo -->
+<!-- API level: 8, version: 2.2, code name: Froyo -->
 <permissions>
   <permission name="android.permission.CHANGE_WIFI_STATE">
     <call>

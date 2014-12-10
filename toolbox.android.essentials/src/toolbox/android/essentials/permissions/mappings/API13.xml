@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<<!-- API level: 13, version: 3.2, code name: Honeycomb -->
+<!-- API level: 13, version: 3.2, code name: Honeycomb -->
 <permissions>
   <permission name="android.permission.CHANGE_WIFI_STATE">
     <call>
