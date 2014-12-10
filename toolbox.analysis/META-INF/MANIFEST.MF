@@ -17,4 +17,4 @@ Require-Bundle:
  toolbox.android.essentials;bundle-version="2.0.2"
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .
-Bundle-Activator: toolbox.Activator
+Bundle-Activator: toolbox.analysis.Activator

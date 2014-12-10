@@ -23,3 +23,8 @@ import java.awt.Color
 import toolbox.android.essentials._
 import toolbox.android.essentials.permissions._
 import toolbox.android.essentials.permissions.mappings._
+
+// toolbox.analysis project
+import toolbox.analysis._
+import toolbox.analysis.support._
+import toolbox.analysis.support.SetDefinitions

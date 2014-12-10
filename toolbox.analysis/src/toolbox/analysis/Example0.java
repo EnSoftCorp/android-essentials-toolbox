@@ -1,4 +1,4 @@
-package toolbox;
+package toolbox.analysis;
 
 import java.util.HashMap;
 import java.util.Map.Entry;

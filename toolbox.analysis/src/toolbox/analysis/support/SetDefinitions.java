@@ -1,4 +1,4 @@
-package toolbox.support;
+package toolbox.analysis.support;
 
 import com.ensoftcorp.atlas.core.query.Attr.Edge;
 import com.ensoftcorp.atlas.core.query.Attr.Node;
