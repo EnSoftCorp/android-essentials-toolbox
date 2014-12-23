@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Basic Shell
 Bundle-SymbolicName: toolbox.shell
-Bundle-Version: 2.0.2.qualifier
+Bundle-Version: 2.0.4.qualifier
 Bundle-Vendor: Iowa State University
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: 
@@ -13,11 +13,11 @@ Require-Bundle:
  org.scala-ide.sdt.aspects;bundle-version="3.0.3",
  org.scala-ide.sdt.core;bundle-version="3.0.3",
  org.scala-refactoring.library;bundle-version="0.6.2",
- com.ensoftcorp.atlas.scalaide;bundle-version="2.0.2",
- com.ensoftcorp.atlas.core;bundle-version="2.0.2",
- com.ensoftcorp.atlas.java.core;bundle-version="2.0.2",
- com.ensoftcorp.atlas.java.ui;bundle-version="2.0.2",
- com.ensoftcorp.atlas.ui;bundle-version="2.0.1",
- com.ensoftcorp.atlas.ui.shell;bundle-version="2.0.1",
- toolbox.android.essentials;bundle-version="2.0.2",
- toolbox.analysis;bundle-version="2.0.2"
+ com.ensoftcorp.atlas.scalaide;bundle-version="2.0.4",
+ com.ensoftcorp.atlas.core;bundle-version="2.0.4",
+ com.ensoftcorp.atlas.java.core;bundle-version="2.0.4",
+ com.ensoftcorp.atlas.java.ui;bundle-version="2.0.4",
+ com.ensoftcorp.atlas.ui;bundle-version="2.0.4",
+ com.ensoftcorp.atlas.ui.shell;bundle-version="2.0.4",
+ toolbox.android.essentials;bundle-version="2.0.4",
+ toolbox.analysis;bundle-version="2.0.4"
