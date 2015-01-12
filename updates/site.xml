@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/AndroidEssentialsToolbox_2.0.2.201412092228.jar" id="AndroidEssentialsToolbox" version="2.0.2.201412092228">
+      <category name="Android Essentials Toolbox"/>
+   </feature>
+   <feature url="features/AndroidEssentialsToolbox_2.0.4.201412231217.jar" id="AndroidEssentialsToolbox" version="2.0.4.201412231217">
+      <category name="Android Essentials Toolbox"/>
+   </feature>
+   <category-def name="Android Essentials Toolbox" label="Android Essentials Toolbox">
+      <description>
+         The Android Essentials Toolbox is a collection program analysis tools specifically developed for analyzing Android applications.
+      </description>
+   </category-def>
+</site>
