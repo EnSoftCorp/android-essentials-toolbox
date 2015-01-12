@@ -3,7 +3,7 @@ Android Essentials Toolbox
 
 The Android Essentials Toolbox is an Atlas toolbox containing logic for Android Permissions, Manifest, and other Android domain specific logic useful in program analysis.
 
-For more details see [https://android-essentials-toolbox.github.io](https://android-essentials-toolbox.github.io).
+For more details see [https://ensoftcorp.github.io/android-essentials-toolbox](https://ensoftcorp.github.io/android-essentials-toolbox).
 
 ## Overview
 This feature contains encoded mappings recovered from the Android source code (as of API version 19) to map [Protection Levels](https://developer.android.com/guide/topics/manifest/permission-element.html#plevel) and [Permission Groups](https://developer.android.com/guide/topics/manifest/permission-element.html#pgroup) to the corresponding [manifest permissions](https://developer.android.com/guide/topics/manifest/permission-element.html).  Permission details (simple name, quaified name, description, etc.) are encoded from information found in the [Google documentation](https://developer.android.com/reference/android/Manifest.permission.html). Using the [University of Toronto's PScout utility](http://pscout.csl.toronto.edu/) this feature also includes mappings from permissions to Android permission restricted API methods.
