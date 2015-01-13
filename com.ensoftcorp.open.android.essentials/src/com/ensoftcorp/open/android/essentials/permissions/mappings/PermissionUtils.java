@@ -1,4 +1,4 @@
-package toolbox.android.essentials.permissions.mappings;
+package com.ensoftcorp.open.android.essentials.permissions.mappings;
 
 import java.util.ArrayList;
 import java.util.List;

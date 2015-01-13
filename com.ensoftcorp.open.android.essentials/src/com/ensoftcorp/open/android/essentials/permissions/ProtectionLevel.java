@@ -1,4 +1,4 @@
-package toolbox.android.essentials.permissions;
+package com.ensoftcorp.open.android.essentials.permissions;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -1,4 +1,4 @@
-package toolbox.android.essentials;
+package com.ensoftcorp.open.android.essentials;
 
 import java.io.File;
 import java.util.Collection;
@@ -15,8 +15,8 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import toolbox.android.essentials.permissions.Permission;
-import toolbox.android.essentials.permissions.mappings.PermissionMapping;
+import com.ensoftcorp.open.android.essentials.permissions.Permission;
+import com.ensoftcorp.open.android.essentials.permissions.mappings.PermissionMapping;
 
 /**
  * This is a container object for encapsulating data and logic for parsing an Android Manifest file

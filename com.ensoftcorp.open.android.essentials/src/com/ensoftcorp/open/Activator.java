@@ -1,4 +1,4 @@
-package toolbox;
+package com.ensoftcorp.open;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;

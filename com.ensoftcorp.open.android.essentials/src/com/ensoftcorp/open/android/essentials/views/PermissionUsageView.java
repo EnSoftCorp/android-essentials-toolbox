@@ -1,4 +1,4 @@
-package toolbox.android.essentials.views;
+package com.ensoftcorp.open.android.essentials.views;
 
 import static com.ensoftcorp.atlas.java.core.script.Common.extend;
 
@@ -25,10 +25,6 @@ import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 
-import toolbox.android.essentials.permissions.Permission;
-import toolbox.android.essentials.permissions.PermissionGroup;
-import toolbox.android.essentials.permissions.ProtectionLevel;
-
 import com.ensoftcorp.atlas.core.db.graph.GraphElement;
 import com.ensoftcorp.atlas.core.highlight.Highlighter;
 import com.ensoftcorp.atlas.core.query.Attr.Edge;
@@ -37,6 +33,9 @@ import com.ensoftcorp.atlas.core.query.Q;
 import com.ensoftcorp.atlas.java.core.script.Common;
 import com.ensoftcorp.atlas.java.core.script.CommonQueries;
 import com.ensoftcorp.atlas.ui.viewer.graph.DisplayUtil;
+import com.ensoftcorp.open.android.essentials.permissions.Permission;
+import com.ensoftcorp.open.android.essentials.permissions.PermissionGroup;
+import com.ensoftcorp.open.android.essentials.permissions.ProtectionLevel;
 
 @SuppressWarnings("restriction")
 public class PermissionUsageView extends ViewPart {
