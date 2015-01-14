@@ -11,9 +11,9 @@ import java.util.HashSet;
  */
 public class ProtectionLevel {
 	
-	public static int LAST_SUPPORTED_API_VERSION = 19;
-	public static String[] REFERENCE_SOURCES = {};
-	public static Date REFERENCE_DATE = new Date();
+	public static int REFERENCE_API_VERSION = 21;
+	public static String[] REFERENCE_SOURCES = { "https://developer.android.com/guide/topics/manifest/permission-element.html" };
+	public static Date REFERENCE_DATE = new Date(1421257800); // 1-14-2015
 	
 	private String name;
 	private int level;

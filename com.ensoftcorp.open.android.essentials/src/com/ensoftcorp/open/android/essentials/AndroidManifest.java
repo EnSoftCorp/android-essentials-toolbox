@@ -12,6 +12,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -50,9 +51,9 @@ public class AndroidManifest {
 	 * Returns File objects pointing to AndroidManifest.xml files of projects the given Eclipse Android workspace project depends upon
 	 * @param project
 	 * @return
-	 * @throws Exception
+	 * @throws CoreException
 	 */
-	public static Collection<File> getDependentManifestFiles(String project) throws Exception {
+	public static Collection<File> getDependentManifestFiles(String project) throws CoreException {
 		Collection<File> files = new LinkedList<File>();
 		for (IProject dependency : ResourcesPlugin.getWorkspace().getRoot().getProject(project).getReferencedProjects()) {
 			if (dependency.getFile(ANDROID_MANIFEST_FILENAME).exists()) {

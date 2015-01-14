@@ -10,19 +10,21 @@ import java.util.HashSet;
  */
 public class PermissionGroup {
 
-	public static int LAST_SUPPORTED_API_VERSION = 19;
-	public static String[] REFERENCE_SOURCES = {};
-	public static Date REFERENCE_DATE = new Date();
+	public static int REFERENCE_API_VERSION = 19;
+	public static String[] REFERENCE_SOURCES = { "https://developer.android.com/reference/android/Manifest.permission_group.html" };
+	public static Date REFERENCE_DATE = new Date(1421257800); // 1-14-2015
 	
 	private String qualifiedName;
 	private int addedInLevel;
 	private String description;
+	private String reference;
 	private HashSet<Permission> permissions = new HashSet<Permission>();
 
-	private PermissionGroup(String qualifiedName, int addedInLevel, String description) {
+	private PermissionGroup(String qualifiedName, int addedInLevel, String description, String reference) {
 		this.qualifiedName = qualifiedName;
 		this.addedInLevel = addedInLevel;
 		this.description = description;
+		this.reference = reference;
 	}
 
 	/**
@@ -48,6 +50,14 @@ public class PermissionGroup {
 	public String getSimpleName() {
 		int pos = qualifiedName.lastIndexOf('.');
 		return qualifiedName.substring(pos + 1);
+	}
+	
+	/**
+	 * Returns the reference information for the source of this permission group or an empty string if there is no available reference
+	 * @return
+	 */
+	public String getReference(){
+		return reference;
 	}
 	
 	/**
@@ -96,38 +106,38 @@ public class PermissionGroup {
 		return null; // permission not found
 	}
 
-	// define the PermissionGroup static objects
-	public static final PermissionGroup ACCESSIBILITY_FEATURES = new PermissionGroup("android.permission-group.ACCESSIBILITY_FEATURES", 18, "Used for permissions that allow requesting certain accessibility features.");
-	public static final PermissionGroup ACCOUNTS = new PermissionGroup("android.permission-group.ACCOUNTS", 1, "Permissions for direct access to the accounts managed by the Account Manager.");
-	public static final PermissionGroup AFFECTS_BATTERY = new PermissionGroup("android.permission-group.AFFECTS_BATTERY", 17, "Used for permissions that provide direct access to the hardware on the device that has an effect on battery life. This includes vibrator, flashlight, etc.");
-	public static final PermissionGroup APP_INFO = new PermissionGroup("android.permission-group.APP_INFO", 17, "Group of permissions that are related to the other applications installed on the system. Examples include such as listing running apps, or killing background processes.");
-	public static final PermissionGroup AUDIO_SETTINGS = new PermissionGroup("android.permission-group.AUDIO_SETTINGS", 17, "Used for permissions that provide direct access to speaker settings the device.");
-	public static final PermissionGroup BLUETOOTH_NETWORK = new PermissionGroup("android.permission-group.BLUETOOTH_NETWORK", 17, "Used for permissions that provide access to other devices through Bluetooth.");
-	public static final PermissionGroup BOOKMARKS = new PermissionGroup("android.permission-group.BOOKMARKS", 17, "Used for permissions that provide access to the user bookmarks and browser history.");
-	public static final PermissionGroup CALENDAR = new PermissionGroup("android.permission-group.CALENDAR", 17, "Used for permissions that provide access to the device calendar to create / view events.");
-	public static final PermissionGroup CAMERA = new PermissionGroup("android.permission-group.CAMERA", 17, "Used for permissions that are associated with accessing camera or capturing images/video from the device.");
-	public static final PermissionGroup COST_MONEY = new PermissionGroup("android.permission-group.COST_MONEY", 1, "Used for permissions that can be used to make the user spend money without their direct involvement.");
-	public static final PermissionGroup DEVELOPMENT_TOOLS = new PermissionGroup("android.permission-group.DEVELOPMENT_TOOLS", 1, "Group of permissions that are related to development features. These are not permissions that should appear in third-party applications; they protect APIs that are intended only to be used for development purposes.");
-	public static final PermissionGroup DEVICE_ALARMS = new PermissionGroup("android.permission-group.DEVICE_ALARMS", 17, "Used for permissions that provide access to the user voicemail box.");
-	public static final PermissionGroup DISPLAY = new PermissionGroup("android.permission-group.DISPLAY", 17, "Group of permissions that allow manipulation of how another application displays UI to the user.");
-	public static final PermissionGroup HARDWARE_CONTROLS = new PermissionGroup("android.permission-group.HARDWARE_CONTROLS", 1, "Used for permissions that provide direct access to the hardware on the device. This includes audio, the camera, vibrator, etc.");
-	public static final PermissionGroup LOCATION = new PermissionGroup("android.permission-group.LOCATION", 1, "Used for permissions that allow access to the user's current location.");
-	public static final PermissionGroup MESSAGES = new PermissionGroup("android.permission-group.MESSAGES", 1, "Used for permissions that allow an application to send messages on behalf of the user or intercept messages being received by the user. This is primarily intended for SMS/MMS messaging, such as receiving or reading an MMS.");
-	public static final PermissionGroup MICROPHONE = new PermissionGroup("android.permission-group.MICROPHONE", 17, "Used for permissions that are associated with accessing microphone audio from the device. Note that phone calls also capture audio but are in a separate (more visible) permission group.");
-	public static final PermissionGroup NETWORK = new PermissionGroup("android.permission-group.NETWORK", 1, "Used for permissions that provide access to networking services. The main permission here is internet access, but this is also an appropriate group for accessing or modifying any network configuration or other related network operations.");
-	public static final PermissionGroup PERSONAL_INFO = new PermissionGroup("android.permission-group.PERSONAL_INFO", 1, "Used for permissions that provide access to information about the device user such as profile information. This includes both reading and writing of this data (which should generally be expressed as two distinct permissions).");
-	public static final PermissionGroup PHONE_CALLS = new PermissionGroup("android.permission-group.PHONE_CALLS", 1, "Used for permissions that are associated with accessing and modifyign telephony state: intercepting outgoing calls, reading and modifying the phone state.");
-	public static final PermissionGroup SCREENLOCK = new PermissionGroup("android.permission-group.SCREENLOCK", 17, "Group of permissions that are related to the screenlock.");
-	public static final PermissionGroup SOCIAL_INFO = new PermissionGroup("android.permission-group.SOCIAL_INFO", 17, "Used for permissions that provide access to the user's social connections, such as contacts, call logs, social stream, etc. This includes both reading and writing of this data (which should generally be expressed as two distinct permissions).");
-	public static final PermissionGroup STATUS_BAR = new PermissionGroup("android.permission-group.STATUS_BAR", 17, "Used for permissions that change the status bar.");
-	public static final PermissionGroup STORAGE = new PermissionGroup("android.permission-group.STORAGE", 4, "Group of permissions that are related to SD card access.");
-	public static final PermissionGroup SYNC_SETTINGS = new PermissionGroup("android.permission-group.SYNC_SETTINGS", 17, "Used for permissions that access the sync settings or sync related information.");
-	public static final PermissionGroup SYSTEM_CLOCK = new PermissionGroup("android.permission-group.SYSTEM_CLOCK", 17, "Group of permissions that are related to system clock.");
-	public static final PermissionGroup SYSTEM_TOOLS = new PermissionGroup("android.permission-group.SYSTEM_TOOLS", 1, "Group of permissions that are related to system APIs. Many of these are not permissions the user will be expected to understand, and such permissions should generally be marked as \"normal\" protection level so they don't get displayed. This can also, however, be used for miscellaneous features that provide access to the operating system, such as writing the global system settings.");
-	public static final PermissionGroup USER_DICTIONARY = new PermissionGroup("android.permission-group.USER_DICTIONARY", 17, "Used for permissions that provide access to the user calendar to create / view events.");
-	public static final PermissionGroup VOICEMAIL = new PermissionGroup("android.permission-group.VOICEMAIL", 17, "Used for permissions that provide access to the user voicemail box.");
-	public static final PermissionGroup WALLPAPER = new PermissionGroup("android.permission-group.WALLPAPER", 17, "Group of permissions that allow manipulation of how another application displays UI to the user.");
-	public static final PermissionGroup WRITE_USER_DICTIONARY = new PermissionGroup("android.permission-group.WRITE_USER_DICTIONARY", 17, "Used for permissions that provide access to the user calendar to create / view events.");
+	// documented Android permission group objects generated from https://developer.android.com/reference/android/Manifest.permission_group.html on Wed Jan 14 15:24:59 CST 2015
+	public static final PermissionGroup ACCESSIBILITY_FEATURES = new PermissionGroup("android.permission-group.ACCESSIBILITY_FEATURES", 18, "Used for permissions that allow requesting certain accessibility features.", "https://developer.android.com/reference/android/Manifest.permission_group.html#ACCESSIBILITY_FEATURES");
+	public static final PermissionGroup ACCOUNTS = new PermissionGroup("android.permission-group.ACCOUNTS", 1, "Permissions for direct access to the accounts managed by the Account Manager.", "https://developer.android.com/reference/android/Manifest.permission_group.html#ACCOUNTS");
+	public static final PermissionGroup AFFECTS_BATTERY = new PermissionGroup("android.permission-group.AFFECTS_BATTERY", 17, "Used for permissions that provide direct access to the hardware on the device that has an effect on battery life. This includes vibrator, flashlight, etc.", "https://developer.android.com/reference/android/Manifest.permission_group.html#AFFECTS_BATTERY");
+	public static final PermissionGroup APP_INFO = new PermissionGroup("android.permission-group.APP_INFO", 17, "Group of permissions that are related to the other applications installed on the system. Examples include such as listing running apps, or killing background processes.", "https://developer.android.com/reference/android/Manifest.permission_group.html#APP_INFO");
+	public static final PermissionGroup AUDIO_SETTINGS = new PermissionGroup("android.permission-group.AUDIO_SETTINGS", 17, "Used for permissions that provide direct access to speaker settings the device.", "https://developer.android.com/reference/android/Manifest.permission_group.html#AUDIO_SETTINGS");
+	public static final PermissionGroup BLUETOOTH_NETWORK = new PermissionGroup("android.permission-group.BLUETOOTH_NETWORK", 17, "Used for permissions that provide access to other devices through Bluetooth.", "https://developer.android.com/reference/android/Manifest.permission_group.html#BLUETOOTH_NETWORK");
+	public static final PermissionGroup BOOKMARKS = new PermissionGroup("android.permission-group.BOOKMARKS", 17, "Used for permissions that provide access to the user bookmarks and browser history.", "https://developer.android.com/reference/android/Manifest.permission_group.html#BOOKMARKS");
+	public static final PermissionGroup CALENDAR = new PermissionGroup("android.permission-group.CALENDAR", 17, "Used for permissions that provide access to the device calendar to create / view events.", "https://developer.android.com/reference/android/Manifest.permission_group.html#CALENDAR");
+	public static final PermissionGroup CAMERA = new PermissionGroup("android.permission-group.CAMERA", 17, "Used for permissions that are associated with accessing camera or capturing images/video from the device.", "https://developer.android.com/reference/android/Manifest.permission_group.html#CAMERA");
+	public static final PermissionGroup COST_MONEY = new PermissionGroup("android.permission-group.COST_MONEY", 1, "Used for permissions that can be used to make the user spend money without their direct involvement.", "https://developer.android.com/reference/android/Manifest.permission_group.html#COST_MONEY");
+	public static final PermissionGroup DEVELOPMENT_TOOLS = new PermissionGroup("android.permission-group.DEVELOPMENT_TOOLS", 1, "Group of permissions that are related to development features. These are not permissions that should appear in third-party applications; they protect APIs that are intended only to be used for development purposes.", "https://developer.android.com/reference/android/Manifest.permission_group.html#DEVELOPMENT_TOOLS");
+	public static final PermissionGroup DEVICE_ALARMS = new PermissionGroup("android.permission-group.DEVICE_ALARMS", 17, "Used for permissions that provide access to device alarms.", "https://developer.android.com/reference/android/Manifest.permission_group.html#DEVICE_ALARMS");
+	public static final PermissionGroup DISPLAY = new PermissionGroup("android.permission-group.DISPLAY", 17, "Group of permissions that allow manipulation of how another application displays UI to the user.", "https://developer.android.com/reference/android/Manifest.permission_group.html#DISPLAY");
+	public static final PermissionGroup HARDWARE_CONTROLS = new PermissionGroup("android.permission-group.HARDWARE_CONTROLS", 1, "Used for permissions that provide direct access to the hardware on the device. This includes audio, the camera, vibrator, etc.", "https://developer.android.com/reference/android/Manifest.permission_group.html#HARDWARE_CONTROLS");
+	public static final PermissionGroup LOCATION = new PermissionGroup("android.permission-group.LOCATION", 1, "Used for permissions that allow access to the user's current location.", "https://developer.android.com/reference/android/Manifest.permission_group.html#LOCATION");
+	public static final PermissionGroup MESSAGES = new PermissionGroup("android.permission-group.MESSAGES", 1, "Used for permissions that allow an application to send messages on behalf of the user or intercept messages being received by the user. This is primarily intended for SMS/MMS messaging, such as receiving or reading an MMS.", "https://developer.android.com/reference/android/Manifest.permission_group.html#MESSAGES");
+	public static final PermissionGroup MICROPHONE = new PermissionGroup("android.permission-group.MICROPHONE", 17, "Used for permissions that are associated with accessing microphone audio from the device. Note that phone calls also capture audio but are in a separate (more visible) permission group.", "https://developer.android.com/reference/android/Manifest.permission_group.html#MICROPHONE");
+	public static final PermissionGroup NETWORK = new PermissionGroup("android.permission-group.NETWORK", 1, "Used for permissions that provide access to networking services. The main permission here is internet access, but this is also an appropriate group for accessing or modifying any network configuration or other related network operations.", "https://developer.android.com/reference/android/Manifest.permission_group.html#NETWORK");
+	public static final PermissionGroup PERSONAL_INFO = new PermissionGroup("android.permission-group.PERSONAL_INFO", 1, "Used for permissions that provide access to information about the device user such as profile information. This includes both reading and writing of this data (which should generally be expressed as two distinct permissions).", "https://developer.android.com/reference/android/Manifest.permission_group.html#PERSONAL_INFO");
+	public static final PermissionGroup PHONE_CALLS = new PermissionGroup("android.permission-group.PHONE_CALLS", 1, "Used for permissions that are associated with accessing and modifying telephony state: placing calls, intercepting outgoing calls, reading and modifying the phone state.", "https://developer.android.com/reference/android/Manifest.permission_group.html#PHONE_CALLS");
+	public static final PermissionGroup SCREENLOCK = new PermissionGroup("android.permission-group.SCREENLOCK", 17, "Group of permissions that are related to the screenlock.", "https://developer.android.com/reference/android/Manifest.permission_group.html#SCREENLOCK");
+	public static final PermissionGroup SOCIAL_INFO = new PermissionGroup("android.permission-group.SOCIAL_INFO", 17, "Used for permissions that provide access to the user's social connections, such as contacts, call logs, social stream, etc. This includes both reading and writing of this data (which should generally be expressed as two distinct permissions).", "https://developer.android.com/reference/android/Manifest.permission_group.html#SOCIAL_INFO");
+	public static final PermissionGroup STATUS_BAR = new PermissionGroup("android.permission-group.STATUS_BAR", 17, "Used for permissions that change the status bar.", "https://developer.android.com/reference/android/Manifest.permission_group.html#STATUS_BAR");
+	public static final PermissionGroup STORAGE = new PermissionGroup("android.permission-group.STORAGE", 4, "Group of permissions that are related to SD card access.", "https://developer.android.com/reference/android/Manifest.permission_group.html#STORAGE");
+	public static final PermissionGroup SYNC_SETTINGS = new PermissionGroup("android.permission-group.SYNC_SETTINGS", 17, "Used for permissions that access the sync settings or sync related information.", "https://developer.android.com/reference/android/Manifest.permission_group.html#SYNC_SETTINGS");
+	public static final PermissionGroup SYSTEM_CLOCK = new PermissionGroup("android.permission-group.SYSTEM_CLOCK", 17, "Group of permissions that are related to system clock.", "https://developer.android.com/reference/android/Manifest.permission_group.html#SYSTEM_CLOCK");
+	public static final PermissionGroup SYSTEM_TOOLS = new PermissionGroup("android.permission-group.SYSTEM_TOOLS", 1, "Group of permissions that are related to system APIs. Many of these are not permissions the user will be expected to understand, and such permissions should generally be marked as \"normal\" protection level so they don't get displayed. This can also, however, be used for miscellaneous features that provide access to the operating system, such as writing the global system settings.", "https://developer.android.com/reference/android/Manifest.permission_group.html#SYSTEM_TOOLS");
+	public static final PermissionGroup USER_DICTIONARY = new PermissionGroup("android.permission-group.USER_DICTIONARY", 17, "Used for permissions that provide access to the user calendar to create / view events.", "https://developer.android.com/reference/android/Manifest.permission_group.html#USER_DICTIONARY");
+	public static final PermissionGroup VOICEMAIL = new PermissionGroup("android.permission-group.VOICEMAIL", 17, "Used for permissions that provide access to the user voicemail box.", "https://developer.android.com/reference/android/Manifest.permission_group.html#VOICEMAIL");
+	public static final PermissionGroup WALLPAPER = new PermissionGroup("android.permission-group.WALLPAPER", 17, "Group of permissions that allow manipulation of how another application displays UI to the user.", "https://developer.android.com/reference/android/Manifest.permission_group.html#WALLPAPER");
+	public static final PermissionGroup WRITE_USER_DICTIONARY = new PermissionGroup("android.permission-group.WRITE_USER_DICTIONARY", 17, "Used for permissions that provide access to the user calendar to create / view events.", "https://developer.android.com/reference/android/Manifest.permission_group.html#WRITE_USER_DICTIONARY");
 
 	// add Permission objects to the PermissionGroup objects
 	static {
@@ -312,37 +322,37 @@ public class PermissionGroup {
 
 	private static Collection<PermissionGroup> allPermissionGroups() {
 		Collection<PermissionGroup> allPermissionGroups = new HashSet<PermissionGroup>();
-		allPermissionGroups.add(ACCESSIBILITY_FEATURES);
-		allPermissionGroups.add(ACCOUNTS);
-		allPermissionGroups.add(AFFECTS_BATTERY);
-		allPermissionGroups.add(APP_INFO);
-		allPermissionGroups.add(AUDIO_SETTINGS);
-		allPermissionGroups.add(BLUETOOTH_NETWORK);
-		allPermissionGroups.add(BOOKMARKS);
-		allPermissionGroups.add(CALENDAR);
-		allPermissionGroups.add(CAMERA);
-		allPermissionGroups.add(COST_MONEY);
+		allPermissionGroups.add(PHONE_CALLS);
 		allPermissionGroups.add(DEVELOPMENT_TOOLS);
+		allPermissionGroups.add(MICROPHONE);
+		allPermissionGroups.add(WRITE_USER_DICTIONARY);
+		allPermissionGroups.add(MESSAGES);
+		allPermissionGroups.add(SCREENLOCK);
+		allPermissionGroups.add(ACCOUNTS);
+		allPermissionGroups.add(APP_INFO);
+		allPermissionGroups.add(ACCESSIBILITY_FEATURES);
+		allPermissionGroups.add(NETWORK);
+		allPermissionGroups.add(VOICEMAIL);
+		allPermissionGroups.add(SOCIAL_INFO);
+		allPermissionGroups.add(WALLPAPER);
+		allPermissionGroups.add(SYNC_SETTINGS);
+		allPermissionGroups.add(COST_MONEY);
+		allPermissionGroups.add(STORAGE);
+		allPermissionGroups.add(USER_DICTIONARY);
+		allPermissionGroups.add(BOOKMARKS);
+		allPermissionGroups.add(SYSTEM_TOOLS);
+		allPermissionGroups.add(STATUS_BAR);
+		allPermissionGroups.add(CAMERA);
+		allPermissionGroups.add(AUDIO_SETTINGS);
+		allPermissionGroups.add(HARDWARE_CONTROLS);
 		allPermissionGroups.add(DEVICE_ALARMS);
 		allPermissionGroups.add(DISPLAY);
-		allPermissionGroups.add(HARDWARE_CONTROLS);
+		allPermissionGroups.add(CALENDAR);
+		allPermissionGroups.add(AFFECTS_BATTERY);
 		allPermissionGroups.add(LOCATION);
-		allPermissionGroups.add(MESSAGES);
-		allPermissionGroups.add(MICROPHONE);
-		allPermissionGroups.add(NETWORK);
-		allPermissionGroups.add(PERSONAL_INFO);
-		allPermissionGroups.add(PHONE_CALLS);
-		allPermissionGroups.add(SCREENLOCK);
-		allPermissionGroups.add(SOCIAL_INFO);
-		allPermissionGroups.add(STATUS_BAR);
-		allPermissionGroups.add(STORAGE);
-		allPermissionGroups.add(SYNC_SETTINGS);
+		allPermissionGroups.add(BLUETOOTH_NETWORK);
 		allPermissionGroups.add(SYSTEM_CLOCK);
-		allPermissionGroups.add(SYSTEM_TOOLS);
-		allPermissionGroups.add(USER_DICTIONARY);
-		allPermissionGroups.add(VOICEMAIL);
-		allPermissionGroups.add(WALLPAPER);
-		allPermissionGroups.add(WRITE_USER_DICTIONARY);
+		allPermissionGroups.add(PERSONAL_INFO);
 		return allPermissionGroups;
 	}
 
