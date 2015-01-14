@@ -2,9 +2,19 @@ package com.ensoftcorp.open.android.essentials.permissions;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashSet;
 
+/**
+ * An convenience object that encodes Android Protection Level property values
+ * @author Ben Holland, Vani Bojja
+ */
 public class ProtectionLevel {
+	
+	public static int LAST_SUPPORTED_API_VERSION = 19;
+	public static String[] REFERENCE_SOURCES = {};
+	public static Date REFERENCE_DATE = new Date();
+	
 	private String name;
 	private int level;
 	private String description;

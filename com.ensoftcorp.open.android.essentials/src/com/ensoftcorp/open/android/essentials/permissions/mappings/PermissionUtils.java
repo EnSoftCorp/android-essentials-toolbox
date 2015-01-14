@@ -13,6 +13,10 @@ import com.ensoftcorp.atlas.core.query.Attr.Node;
 import com.ensoftcorp.atlas.core.query.Q;
 import com.ensoftcorp.atlas.java.core.script.Common;
 
+/**
+ * A helper class for applying Permission protected API method tags
+ * @author Yuqing Chen, Jon Mathews, Ben Holland, Zach Lones
+ */
 public class PermissionUtils {
 	
 	/**

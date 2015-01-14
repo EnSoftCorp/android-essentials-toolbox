@@ -1,12 +1,22 @@
 package com.ensoftcorp.open.android.essentials.permissions;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashSet;
 
+/**
+ * An convenience object that encodes Android Permission property values
+ * @author Ben Holland, Vani Bojja
+ */
 public class Permission {
+	
+	public static int LAST_SUPPORTED_API_VERSION = 19;
+	public static String[] REFERENCE_SOURCES = {};
+	public static Date REFERENCE_DATE = new Date();
+	
 	private String qualifiedName;
 	private int addedInAPILevel;
-	boolean isDeprecated;
+	private boolean isDeprecated;
 	private String description;
 
 	private Permission(String qualifiedName, int addedInLevel, boolean isDeprecated, String description) {

@@ -19,6 +19,11 @@ import com.ensoftcorp.open.android.essentials.permissions.Permission;
 import com.ensoftcorp.open.android.essentials.permissions.PermissionGroup;
 import com.ensoftcorp.open.android.essentials.permissions.ProtectionLevel;
 
+/**
+ * 
+ * @author Ben Holland
+ *
+ */
 public class PermissionMapping {
 	
 	public static final int HIGHEST_AVAILABLE_MAPPING = 19;

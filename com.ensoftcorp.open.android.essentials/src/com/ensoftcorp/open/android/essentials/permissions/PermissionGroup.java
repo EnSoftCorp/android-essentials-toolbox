@@ -1,10 +1,19 @@
 package com.ensoftcorp.open.android.essentials.permissions;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashSet;
 
+/**
+ * An convenience object that encodes Android Permission Group property values
+ * @author Ben Holland, Vani Bojja
+ */
 public class PermissionGroup {
 
+	public static int LAST_SUPPORTED_API_VERSION = 19;
+	public static String[] REFERENCE_SOURCES = {};
+	public static Date REFERENCE_DATE = new Date();
+	
 	private String qualifiedName;
 	private int addedInLevel;
 	private String description;

@@ -37,6 +37,10 @@ import com.ensoftcorp.open.android.essentials.permissions.Permission;
 import com.ensoftcorp.open.android.essentials.permissions.PermissionGroup;
 import com.ensoftcorp.open.android.essentials.permissions.ProtectionLevel;
 
+/**
+ * An Eclipse view for searching and viewing apply permission mapping values in the Atlas index
+ * @author Ben Holland
+ */
 @SuppressWarnings("restriction")
 public class PermissionUsageView extends ViewPart {
 	public PermissionUsageView() {}
@@ -46,7 +50,7 @@ public class PermissionUsageView extends ViewPart {
 	/**
 	 * The ID of the view as specified by the extension.
 	 */
-	public static final String ID = "toolbox.android.essentials.views.PermissionUsageView";
+	public static final String ID = "com.ensoftcorp.open.android.essentials.views.PermissionUsageView";
 
 	private boolean usageFilterEnabled = false;
 	private boolean expandTreeEnabled = true;
@@ -257,6 +261,12 @@ public class PermissionUsageView extends ViewPart {
 		populatePermissionsTree(tree);
 	}
 
+	/**
+	 * Helper method for repopulating the permission group and protection level subtrees without the search results
+	 * @param tree
+	 * @param detailsText
+	 * @param searchBar
+	 */
 	private void repopulatePermissionTreeWithSearchResults(final Tree tree, final StyledText detailsText, final Combo searchBar){
 		detailsText.setText(""); // clear out the details view
 		tree.removeAll(); // clear the tree contents
@@ -305,14 +315,21 @@ public class PermissionUsageView extends ViewPart {
 		tree.update(); // force an update, sometimes the tree needs a hint...
 	}
 	
-	// helper method for repopulating the permission group and protection level subtrees
+	/**
+	 * Helper method for repopulating the permission group and protection level subtrees
+	 * @param tree
+	 * @param detailsText
+	 */
 	private void repopulatePermissionsTree(final Tree tree, final StyledText detailsText) {
 		detailsText.setText(""); // clear out the details view
 		tree.removeAll(); // clear the tree contents
 		populatePermissionsTree(tree);
 	}
 	
-	// helper method for populating the permission group and protection level subtrees
+	/**
+	 * Helper method for populating the permission group and protection level subtrees
+	 * @param tree
+	 */
 	private void populatePermissionsTree(final Tree tree) {
 		// populate the protection level item sub tree
 		TreeItem protectionLevelRootItem = new TreeItem(tree, SWT.NONE);
@@ -381,7 +398,10 @@ public class PermissionUsageView extends ViewPart {
 		tree.update(); // force an update, sometimes the tree needs a hint...
 	}
 
-	// helper method to prune the tree for nodes not colored PERMISSION_USAGE_COLOR
+	/**
+	 * Helper method to prune the tree for nodes not colored PERMISSION_USAGE_COLOR
+	 * @param tree
+	 */
 	private void pruneUnusedElements(TreeItem tree){
 		if(tree.getForeground().equals(tree.getDisplay().getSystemColor(PERMISSION_USAGE_COLOR))){
 			// tree has used elements
@@ -395,7 +415,11 @@ public class PermissionUsageView extends ViewPart {
 		}
 	}
 	
-	// helper method to color a tree or subtree the given color
+	/**
+	 * Helper method to color a tree or subtree the given color
+	 * @param tree
+	 * @param color
+	 */
 	private void colorTree(TreeItem tree, int color){
 		tree.setForeground(tree.getDisplay().getSystemColor(color));
 		int itemCount = tree.getItemCount();
@@ -405,8 +429,12 @@ public class PermissionUsageView extends ViewPart {
 		}
 	}
 	
-	// helper method for populating the permission restricted methods under a permission
-	// returns true if the permission methods are called
+	/**
+	 * Helper method for populating the permission restricted methods under a permission
+	 * @param permission
+	 * @param permissionItem
+	 * @return returns true if the permission methods are called
+	 */
 	private boolean populatePermissionMethodsSubtree(Permission permission, TreeItem permissionItem) {
 		boolean hasCallsites = false;
 		Q methods = Common.universe().nodesTaggedWithAny(permission.getQualifiedName()).retainNodes();
@@ -433,7 +461,11 @@ public class PermissionUsageView extends ViewPart {
 		return hasCallsites;
 	}
 
-	// helper method to get the qualified name of the method
+	/**
+	 * Helper method to get the qualified name of the method
+	 * @param method
+	 * @return
+	 */
 	private static String getQualifiedMethodName(GraphElement method) {
 		String result = method.attr().get(Node.NAME).toString();
 		Q declaresEdges = Common.universe().edgesTaggedWithAny(Edge.DECLARES).retainEdges();
