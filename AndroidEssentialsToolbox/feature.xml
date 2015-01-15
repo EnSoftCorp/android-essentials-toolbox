@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="AndroidEssentialsToolbox"
-      label="AndroidEssentialsToolbox"
-      version="2.0.4.qualifier"
-      provider-name="Iowa State University">
+      id="com.ensoftcorp.open.android.essentials"
+      label="Android Essentials Toolbox"
+      version="2.0.5.qualifier"
+      provider-name="EnSoft Corp.">
 
-   <description url="https://android-essentials-toolbox.github.io">
+   <description url="https://ensoftcorp.github.io/android-essentials-toolbox">
       The Android Essentials Toolbox is a collection program analysis tools specifically developed for analyzing Android applications. The toolbox aids in mapping Android Permission Groups and Protection Levels to Permissions as well as Permissions to the respective permission protected Android APIs. These relationships are encoded in the tool and seamlessly applied to a program graph by leveraging the Atlas framework.
    </description>
 
-   <copyright url="https://android-essentials-toolbox.github.io">
-      Copyright 2014
+   <copyright url="https://ensoftcorp.github.io/android-essentials-toolbox">
+      Copyright 2014 EnSoft Corp.
    </copyright>
 
-   <license url="https://github.com/android-essentials-toolbox/android-essentials-toolbox/LICENSE">
+   <license url="https://raw.githubusercontent.com/EnSoftCorp/android-essentials-toolbox/master/LICENSE">
       The MIT License (MIT)
 
-Copyright (c) 2014
+Copyright (c) 2014 EnSoft Corp.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the &quot;Software&quot;), to deal
@@ -38,15 +38,15 @@ SOFTWARE.
    </license>
 
    <url>
-      <update label="android-essentials-toolbox.github.io" url="https://android-essentials-toolbox.github.io/updates/"/>
-      <discovery label="android-essentials-toolbox.github.io" url="https://android-essentials-toolbox.github.io/updates/"/>
+      <update label="ensoftcorp.github.io" url="https://ensoftcorp.github.io/android-essentials-toolbox/updates/"/>
+      <discovery label="ensoftcorp.github.io" url="https://ensoftcorp.github.io/android-essentials-toolbox/updates/"/>
    </url>
 
    <plugin
-         id="toolbox.android.essentials"
+         id="com.ensoftcorp.open.android.essentials"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="2.0.5.qualifier"
          unpack="false"/>
 
 </feature>
