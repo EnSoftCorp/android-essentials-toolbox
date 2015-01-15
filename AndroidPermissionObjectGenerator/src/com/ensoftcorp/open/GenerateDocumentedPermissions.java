@@ -10,8 +10,7 @@ import org.jsoup.select.Elements;
 
 /**
  * A helper utility for parsing online Android documentation and generating documented Android permission objects
- * @author Ben
- *
+ * @author Ben Holland
  */
 public class GenerateDocumentedPermissions {
 
