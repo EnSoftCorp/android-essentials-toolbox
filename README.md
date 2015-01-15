@@ -46,11 +46,15 @@ Like permissions, permission groups come in two flavors (documented and undocume
 
 To generate the documented permission groups run the main method of the `GenerateDocumentedPermissionGroups` class.  The class writes to stdout and outputs a series of PermissionGroup instantiations and a collection just like the `GenerateDocumentedPermissions` and `GenerateUndocumentedPermissions` classes.  You should copy and paste the results, updating the appropriate places in the `PermissionGroup` class.
 
+To generate the mapping between a permission group and permissions run the main method of the `GeneratePermissionGroupToPermissionMapping` class.  Copy the two outputs written to stdout and paste them in the appropriate places in the `PermissionGroup` class.
+
 #### Updating Protection Levels and Mappings
-TODO
+Since there are only a few protection levels and the Android documentation only covers the 4 main protection levels (normal, dangerous, signature, and signatureOrSystem), the information for protection levels is gathered soley from the AndroidManifest.xml Android source file.
+
+To generate the mapping between a protection level and permissions run the main method of the `GenerateProtectionLevelToPermissionMapping` class.  Copy the two outputs written to stdout and paste them in the appropriate places in the `ProtectionLevel` class.  If a new protection level has been introduced (not likely) you will be responsible for adding it manually to fix the compiler errors for the missing protection level type.
 
 #### Running Sanity Checks (Unit Tests)
-TODO
+After updating the Permission, PermissionGroup, and ProtectionLevel classes it is highly reccommended to the the `SanityChecks` JUnit tests and fix any errors.
 
 #### Updating Protected API Method Permission Mappings
 TODO
