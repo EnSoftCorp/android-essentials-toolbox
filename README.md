@@ -34,12 +34,22 @@ The Permission, PermissionGroup, and ProtectionLevel objects are primarily gener
 - https://raw.githubusercontent.com/android/platform_frameworks_base/master/core/res/AndroidManifest.xml
 
 #### Updating Permissions
-TODO
+Permissions come in two flavors (documented and undocumented).  A documented permission exists in the constants table at [https://developer.android.com/reference/android/Manifest.permission.html](https://developer.android.com/reference/android/Manifest.permission.html).  An undocumented permission is not present in the constants table, but is referred to in the AndroidManifest.xml file at [https://raw.githubusercontent.com/android/platform_frameworks_base/master/core/res/AndroidManifest.xml](https://raw.githubusercontent.com/android/platform_frameworks_base/master/core/res/AndroidManifest.xml).
+
+1) To generate the documented permissions, run the main method of the `GenerateDocumentedPermissions` class.  If successful the class prints to stdout a series of Permission instantiations that can be cut and pasted into the `Permission` class.  The `GenerateDocumentedPermissions` also prints code to add each Permission instantiation to the `allDocumentedPermissions` collection, which needs to be cut and pasted into the appropriate place in the `Permission` class as well.
+
+2) To generate the undocumented permissions, run the main method of the `GenerateUndocumentedPermissions` class.  The output and process for updating the code in the `Permission` class is the same as updating the documented permissions.
+IMPORTANT: Generate and update the documented permissions first!  The code for generating undocumented permissions was lazily written and just uses the updated documented permissions list to identify undocumented permissions in the AndroidManifest.xml Android source file.  This code could be rewritten to break this dependency...someday.
 
 #### Updating Permission Groups and Mappings
-TODO
+Like permissions, permission groups come in two flavors (documented and undocumented).  A documented permission group exists in the constants table at [https://developer.android.com/reference/android/Manifest.permission_group.html](https://developer.android.com/reference/android/Manifest.permission_group.html).  An undocumented permission group is a permission group that does not exist in the constants table, but is referred to in the AndroidManifest.xml file at [https://raw.githubusercontent.com/android/platform_frameworks_base/master/core/res/AndroidManifest.xml](https://raw.githubusercontent.com/android/platform_frameworks_base/master/core/res/AndroidManifest.xml).  However at the time of this writing, no undocumented permission groups were discovered to exist.
+
+To generate the documented permission groups run the main method of the `GenerateDocumentedPermissionGroups` class.  The class writes to stdout and outputs a series of PermissionGroup instantiations and a collection just like the `GenerateDocumentedPermissions` and `GenerateUndocumentedPermissions` classes.  You should copy and paste the results, updating the appropriate places in the `PermissionGroup` class.
 
 #### Updating Protection Levels and Mappings
+TODO
+
+#### Running Sanity Checks (Unit Tests)
 TODO
 
 #### Updating Protected API Method Permission Mappings
