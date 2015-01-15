@@ -54,7 +54,7 @@ Since there are only a few protection levels and the Android documentation only 
 To generate the mapping between a protection level and permissions run the main method of the `GenerateProtectionLevelToPermissionMapping` class.  Copy the two outputs written to stdout and paste them in the appropriate places in the `ProtectionLevel` class.  If a new protection level has been introduced (not likely) you will be responsible for adding it manually to fix the compiler errors for the missing protection level type.
 
 #### Running Sanity Checks (Unit Tests)
-After updating the Permission, PermissionGroup, and ProtectionLevel classes it is highly recommended to the `SanityChecks` JUnit tests and fix any errors.
+After updating the Permission, PermissionGroup, and ProtectionLevel classes it is highly recommended to run the `SanityChecks` JUnit tests and fix any errors.
 
 #### Updating Protected API Method Permission Mappings
 TODO
