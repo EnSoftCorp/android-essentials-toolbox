@@ -10,7 +10,6 @@ import java.util.HashSet;
  */
 public class PermissionGroup {
 
-	public static int REFERENCE_API_VERSION = 21;
 	public static String[] REFERENCE_SOURCES = { "https://developer.android.com/reference/android/Manifest.permission_group.html" };
 	public static Date REFERENCE_DATE = new Date(1421257800); // 1-14-2015
 	

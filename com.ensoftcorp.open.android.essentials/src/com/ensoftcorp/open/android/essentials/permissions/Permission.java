@@ -10,7 +10,6 @@ import java.util.HashSet;
  */
 public class Permission {
 	
-	public static int REFERENCE_API_VERSION = 21;
 	public static String[] REFERENCE_SOURCES = { "https://developer.android.com/reference/android/Manifest.permission.html" };
 	public static Date REFERENCE_DATE = new Date(1421257800); // 1-14-2015
 	
@@ -122,20 +121,24 @@ public class Permission {
 	
 	@Override
 	public boolean equals(Object obj) {
-		if (obj == null)
+		if (obj == null){
 			return false;
-		if (!(obj instanceof Permission))
+		}
+		if (!(obj instanceof Permission)){
 			return false;
+		}
 		Permission other = (Permission) obj;
-		if (this.qualifiedName == null)
+		if (this.qualifiedName == null){
 			return other.qualifiedName == null;
+		}
 		return this.qualifiedName.equals(other.qualifiedName);
 	}
 
 	@Override
 	public int hashCode() {
-		if (this.qualifiedName == null)
+		if (this.qualifiedName == null){
 			return 0;
+		}
 		return this.qualifiedName.hashCode();
 	}
 
@@ -412,24 +415,30 @@ public class Permission {
 	
 	/**
 	 * A collection of all known permissions (the union of all known documented and undocumented permissions)
+	 * Note: Making changes to this collection may have unintended side effects.  Make a deep copy first or
+	 * call the Permission.allPermissions() method for a fresh instance.
 	 */
 	public static final Collection<Permission> allPermissions = allPermissions();
 	
 	/**
 	 * A collection of all known documented permissions
+	 * Note: Making changes to this collection may have unintended side effects.  Make a deep copy first or
+	 * call the Permission.allDocumentedPermissions() method for a fresh instance.
 	 */
 	public static final Collection<Permission> allDocumentedPermissions = allDocumentedPermissions();
 	
 	/**
 	 * A collection of all known undocumented permissions
+	 * Note: Making changes to this collection may have unintended side effects.  Make a deep copy first or
+	 * call the Permission.allUndocumentedPermissions() method for a fresh copy.
 	 */
 	public static final Collection<Permission> allUndocumentedPermissions = allUndocumentedPermissions();
 	
 	/**
-	 * Helper method for creating a static field with all known permissions (the union of all known documented and undocumented permissions)
+	 * Returns a collection of all known permissions (the union of all known documented and undocumented permissions)
 	 * @return
 	 */
-	private static Collection<Permission> allPermissions() {
+	public static Collection<Permission> allPermissions() {
 		Collection<Permission> allPermissions = new HashSet<Permission>();
 		allPermissions.addAll(allDocumentedPermissions());
 		allPermissions.addAll(allUndocumentedPermissions());
@@ -437,10 +446,10 @@ public class Permission {
 	}
 		
 	/**
-	 * Helper method for creating a static field with all known documented permissions
+	 * Returns a collection of all known documented permissions
 	 * @return
 	 */
-	private static Collection<Permission> allDocumentedPermissions() {
+	public static Collection<Permission> allDocumentedPermissions() {
 		Collection<Permission> allDocumentedPermissions = new HashSet<Permission>();
 		allDocumentedPermissions.add(ADD_VOICEMAIL);
 		allDocumentedPermissions.add(INSTALL_SHORTCUT);
@@ -597,26 +606,18 @@ public class Permission {
 	}
 	
 	/**
-	 * Helper method for creating a static field with all known undocumented permissions
+	 * Returns a collection of all known undocumented permissions
 	 * @return
 	 */
-	private static Collection<Permission> allUndocumentedPermissions() {
+	public static Collection<Permission> allUndocumentedPermissions() {
 		Collection<Permission> allUndocumentedPermissions = new HashSet<Permission>();
 		allUndocumentedPermissions.add(PROVIDE_TRUST_AGENT);
-		allUndocumentedPermissions.add(CHANGE_WIFI_MULTICAST_STATE);
-		allUndocumentedPermissions.add(WRITE_CALL_LOG);
-		allUndocumentedPermissions.add(CLEAR_APP_CACHE);
-		allUndocumentedPermissions.add(AUTHENTICATE_ACCOUNTS);
 		allUndocumentedPermissions.add(ACCESS_WIMAX_STATE);
 		allUndocumentedPermissions.add(ASEC_ACCESS);
 		allUndocumentedPermissions.add(MODIFY_PARENTAL_CONTROLS);
 		allUndocumentedPermissions.add(BIND_INCALL_SERVICE);
-		allUndocumentedPermissions.add(WRITE_HISTORY_BOOKMARKS);
-		allUndocumentedPermissions.add(INTERNAL_SYSTEM_WINDOW);
 		allUndocumentedPermissions.add(ACCESS_ALL_EXTERNAL_STORAGE);
 		allUndocumentedPermissions.add(CAMERA_DISABLE_TRANSMIT_LED);
-		allUndocumentedPermissions.add(ACCESS_MOCK_LOCATION);
-		allUndocumentedPermissions.add(ACCESS_NETWORK_STATE);
 		allUndocumentedPermissions.add(READ_SEARCH_INDEXABLES);
 		allUndocumentedPermissions.add(CHANGE_BACKGROUND_DATA_SETTING);
 		allUndocumentedPermissions.add(CAPTURE_TV_INPUT);
@@ -625,248 +626,105 @@ public class Permission {
 		allUndocumentedPermissions.add(MOVE_PACKAGE);
 		allUndocumentedPermissions.add(LAUNCH_TRUST_AGENT_SETTINGS);
 		allUndocumentedPermissions.add(RECOVERY);
-		allUndocumentedPermissions.add(UNINSTALL_SHORTCUT);
 		allUndocumentedPermissions.add(FORCE_STOP_PACKAGES);
 		allUndocumentedPermissions.add(GLOBAL_SEARCH_CONTROL);
 		allUndocumentedPermissions.add(CONTROL_WIFI_DISPLAY);
-		allUndocumentedPermissions.add(DISABLE_KEYGUARD);
 		allUndocumentedPermissions.add(READ_PRECISE_PHONE_STATE);
-		allUndocumentedPermissions.add(READ_SYNC_STATS);
 		allUndocumentedPermissions.add(FRAME_STATS);
-		allUndocumentedPermissions.add(READ_INPUT_STATE);
 		allUndocumentedPermissions.add(WRITE_DREAM_STATE);
 		allUndocumentedPermissions.add(MANAGE_ACTIVITY_STACKS);
-		allUndocumentedPermissions.add(GET_TOP_ACTIVITY_INFO);
 		allUndocumentedPermissions.add(NET_TUNNELING);
-		allUndocumentedPermissions.add(BIND_VOICE_INTERACTION);
-		allUndocumentedPermissions.add(BLUETOOTH_ADMIN);
-		allUndocumentedPermissions.add(DIAGNOSTIC);
 		allUndocumentedPermissions.add(START_ANY_ACTIVITY);
-		allUndocumentedPermissions.add(BROADCAST_WAP_PUSH);
-		allUndocumentedPermissions.add(REBOOT);
-		allUndocumentedPermissions.add(WRITE_SMS);
 		allUndocumentedPermissions.add(FILTER_EVENTS);
-		allUndocumentedPermissions.add(STATUS_BAR);
-		allUndocumentedPermissions.add(BIND_DREAM_SERVICE);
-		allUndocumentedPermissions.add(MOUNT_UNMOUNT_FILESYSTEMS);
-		allUndocumentedPermissions.add(GLOBAL_SEARCH);
 		allUndocumentedPermissions.add(START_TASKS_FROM_RECENTS);
 		allUndocumentedPermissions.add(STOP_APP_SWITCHES);
-		allUndocumentedPermissions.add(BIND_VPN_SERVICE);
-		allUndocumentedPermissions.add(MANAGE_APP_TOKENS);
 		allUndocumentedPermissions.add(SET_KEYBOARD_LAYOUT);
 		allUndocumentedPermissions.add(BLUETOOTH_STACK);
 		allUndocumentedPermissions.add(ASEC_CREATE);
 		allUndocumentedPermissions.add(RECEIVE_EMERGENCY_BROADCAST);
 		allUndocumentedPermissions.add(ACCESS_INPUT_FLINGER);
 		allUndocumentedPermissions.add(BIND_PACKAGE_VERIFIER);
-		allUndocumentedPermissions.add(BATTERY_STATS);
-		allUndocumentedPermissions.add(READ_PROFILE);
 		allUndocumentedPermissions.add(ACCESS_KEYGUARD_SECURE_STORAGE);
-		allUndocumentedPermissions.add(SEND_RESPOND_VIA_MESSAGE);
-		allUndocumentedPermissions.add(MANAGE_DOCUMENTS);
 		allUndocumentedPermissions.add(COPY_PROTECTED_DATA);
-		allUndocumentedPermissions.add(READ_HISTORY_BOOKMARKS);
 		allUndocumentedPermissions.add(ASEC_RENAME);
-		allUndocumentedPermissions.add(SET_ALARM);
-		allUndocumentedPermissions.add(MOUNT_FORMAT_FILESYSTEMS);
-		allUndocumentedPermissions.add(SIGNAL_PERSISTENT_PROCESSES);
-		allUndocumentedPermissions.add(MASTER_CLEAR);
 		allUndocumentedPermissions.add(RETRIEVE_WINDOW_TOKEN);
 		allUndocumentedPermissions.add(REMOTE_AUDIO_PLAYBACK);
-		allUndocumentedPermissions.add(READ_LOGS);
 		allUndocumentedPermissions.add(MODIFY_NETWORK_ACCOUNTING);
-		allUndocumentedPermissions.add(GET_ACCOUNTS);
-		allUndocumentedPermissions.add(READ_CONTACTS);
 		allUndocumentedPermissions.add(READ_NETWORK_USAGE_HISTORY);
-		allUndocumentedPermissions.add(RESTART_PACKAGES);
 		allUndocumentedPermissions.add(REMOVE_DRM_CERTIFICATES);
 		allUndocumentedPermissions.add(MANAGE_USERS);
-		allUndocumentedPermissions.add(CAMERA);
-		allUndocumentedPermissions.add(SUBSCRIBED_FEEDS_READ);
 		allUndocumentedPermissions.add(MODIFY_AUDIO_ROUTING);
 		allUndocumentedPermissions.add(UPDATE_APP_OPS_STATS);
-		allUndocumentedPermissions.add(WAKE_LOCK);
-		allUndocumentedPermissions.add(RECEIVE_WAP_PUSH);
-		allUndocumentedPermissions.add(ADD_VOICEMAIL);
-		allUndocumentedPermissions.add(INJECT_EVENTS);
-		allUndocumentedPermissions.add(ACCOUNT_MANAGER);
 		allUndocumentedPermissions.add(READ_INSTALL_SESSIONS);
-		allUndocumentedPermissions.add(SET_ALWAYS_FINISH);
-		allUndocumentedPermissions.add(WRITE_SECURE_SETTINGS);
-		allUndocumentedPermissions.add(WRITE_CALENDAR);
-		allUndocumentedPermissions.add(INSTALL_LOCATION_PROVIDER);
-		allUndocumentedPermissions.add(WRITE_SYNC_SETTINGS);
-		allUndocumentedPermissions.add(MODIFY_PHONE_STATE);
 		allUndocumentedPermissions.add(UPDATE_LOCK);
 		allUndocumentedPermissions.add(CONFIRM_FULL_BACKUP);
 		allUndocumentedPermissions.add(PACKAGE_USAGE_STATS);
-		allUndocumentedPermissions.add(ACCESS_SURFACE_FLINGER);
 		allUndocumentedPermissions.add(CONTROL_KEYGUARD);
-		allUndocumentedPermissions.add(CHANGE_NETWORK_STATE);
 		allUndocumentedPermissions.add(TRUST_LISTENER);
 		allUndocumentedPermissions.add(PACKAGE_VERIFICATION_AGENT);
-		allUndocumentedPermissions.add(READ_EXTERNAL_STORAGE);
-		allUndocumentedPermissions.add(GET_TASKS);
-		allUndocumentedPermissions.add(PROCESS_OUTGOING_CALLS);
 		allUndocumentedPermissions.add(C2D_MESSAGE);
 		allUndocumentedPermissions.add(RECEIVE_BLUETOOTH_MAP);
 		allUndocumentedPermissions.add(BIND_REMOTE_DISPLAY);
-		allUndocumentedPermissions.add(SET_WALLPAPER_HINTS);
-		allUndocumentedPermissions.add(BLUETOOTH_PRIVILEGED);
 		allUndocumentedPermissions.add(ALLOW_ANY_CODEC_FOR_PLAYBACK);
-		allUndocumentedPermissions.add(BIND_TEXT_SERVICE);
 		allUndocumentedPermissions.add(BIND_JOB_SERVICE);
 		allUndocumentedPermissions.add(GRANT_REVOKE_PERMISSIONS);
-		allUndocumentedPermissions.add(BROADCAST_STICKY);
-		allUndocumentedPermissions.add(READ_FRAME_BUFFER);
-		allUndocumentedPermissions.add(WRITE_USER_DICTIONARY);
-		allUndocumentedPermissions.add(GET_PACKAGE_SIZE);
-		allUndocumentedPermissions.add(FORCE_BACK);
-		allUndocumentedPermissions.add(UPDATE_DEVICE_STATS);
-		allUndocumentedPermissions.add(NFC);
 		allUndocumentedPermissions.add(ACCESS_DRM_CERTIFICATES);
 		allUndocumentedPermissions.add(READ_WIFI_CREDENTIAL);
-		allUndocumentedPermissions.add(WRITE_APN_SETTINGS);
-		allUndocumentedPermissions.add(CAPTURE_SECURE_VIDEO_OUTPUT);
-		allUndocumentedPermissions.add(SET_ANIMATION_SCALE);
-		allUndocumentedPermissions.add(SET_ORIENTATION);
 		allUndocumentedPermissions.add(TV_INPUT_HARDWARE);
-		allUndocumentedPermissions.add(FACTORY_TEST);
-		allUndocumentedPermissions.add(WRITE_VOICEMAIL);
-		allUndocumentedPermissions.add(REORDER_TASKS);
 		allUndocumentedPermissions.add(GET_APP_OPS_STATS);
 		allUndocumentedPermissions.add(BIND_KEYGUARD_APPWIDGET);
 		allUndocumentedPermissions.add(MODIFY_APPWIDGET_BIND_PERMISSIONS);
 		allUndocumentedPermissions.add(ASEC_MOUNT_UNMOUNT);
-		allUndocumentedPermissions.add(SET_PROCESS_LIMIT);
-		allUndocumentedPermissions.add(CHANGE_WIFI_STATE);
-		allUndocumentedPermissions.add(BIND_DEVICE_ADMIN);
-		allUndocumentedPermissions.add(READ_CALL_LOG);
-		allUndocumentedPermissions.add(SUBSCRIBED_FEEDS_WRITE);
 		allUndocumentedPermissions.add(MANAGE_VOICE_KEYPHRASES);
-		allUndocumentedPermissions.add(CLEAR_APP_USER_DATA);
 		allUndocumentedPermissions.add(MANAGE_MEDIA_PROJECTION);
 		allUndocumentedPermissions.add(OEM_UNLOCK_STATE);
 		allUndocumentedPermissions.add(SHUTDOWN);
-		allUndocumentedPermissions.add(MEDIA_CONTENT_CONTROL);
-		allUndocumentedPermissions.add(READ_SOCIAL_STREAM);
-		allUndocumentedPermissions.add(BIND_INPUT_METHOD);
-		allUndocumentedPermissions.add(READ_USER_DICTIONARY);
-		allUndocumentedPermissions.add(WRITE_CONTACTS);
-		allUndocumentedPermissions.add(BIND_ACCESSIBILITY_SERVICE);
-		allUndocumentedPermissions.add(READ_PHONE_STATE);
-		allUndocumentedPermissions.add(SET_PREFERRED_APPLICATIONS);
 		allUndocumentedPermissions.add(SET_SCREEN_COMPATIBILITY);
-		allUndocumentedPermissions.add(MANAGE_ACCOUNTS);
-		allUndocumentedPermissions.add(PERSISTENT_ACTIVITY);
-		allUndocumentedPermissions.add(FLASHLIGHT);
 		allUndocumentedPermissions.add(SERIAL_PORT);
 		allUndocumentedPermissions.add(BIND_DIRECTORY_SEARCH);
-		allUndocumentedPermissions.add(SEND_SMS);
 		allUndocumentedPermissions.add(CONFIGURE_WIFI_DISPLAY);
 		allUndocumentedPermissions.add(CONTROL_INCALL_EXPERIENCE);
-		allUndocumentedPermissions.add(HARDWARE_TEST);
-		allUndocumentedPermissions.add(CAPTURE_AUDIO_OUTPUT);
-		allUndocumentedPermissions.add(ACCESS_CHECKIN_PROPERTIES);
-		allUndocumentedPermissions.add(KILL_BACKGROUND_PROCESSES);
 		allUndocumentedPermissions.add(CRYPT_KEEPER);
-		allUndocumentedPermissions.add(EXPAND_STATUS_BAR);
-		allUndocumentedPermissions.add(BLUETOOTH);
-		allUndocumentedPermissions.add(BIND_APPWIDGET);
-		allUndocumentedPermissions.add(ACCESS_LOCATION_EXTRA_COMMANDS);
 		allUndocumentedPermissions.add(SCORE_NETWORKS);
-		allUndocumentedPermissions.add(BROADCAST_SMS);
-		allUndocumentedPermissions.add(DEVICE_POWER);
-		allUndocumentedPermissions.add(CHANGE_CONFIGURATION);
-		allUndocumentedPermissions.add(DELETE_PACKAGES);
 		allUndocumentedPermissions.add(ACCESS_CACHE_FILESYSTEM);
-		allUndocumentedPermissions.add(READ_VOICEMAIL);
-		allUndocumentedPermissions.add(ACCESS_WIFI_STATE);
-		allUndocumentedPermissions.add(ACCESS_COARSE_LOCATION);
-		allUndocumentedPermissions.add(READ_SMS);
-		allUndocumentedPermissions.add(BIND_NFC_SERVICE);
 		allUndocumentedPermissions.add(BLUETOOTH_MAP);
-		allUndocumentedPermissions.add(CONTROL_LOCATION_UPDATES);
 		allUndocumentedPermissions.add(MANAGE_USB);
 		allUndocumentedPermissions.add(CHANGE_WIMAX_STATE);
 		allUndocumentedPermissions.add(SET_WALLPAPER_COMPONENT);
-		allUndocumentedPermissions.add(DELETE_CACHE_FILES);
-		allUndocumentedPermissions.add(CAPTURE_VIDEO_OUTPUT);
 		allUndocumentedPermissions.add(ACCESS_NETWORK_CONDITIONS);
 		allUndocumentedPermissions.add(READ_PRIVILEGED_PHONE_STATE);
 		allUndocumentedPermissions.add(INTERACT_ACROSS_USERS);
-		allUndocumentedPermissions.add(READ_SYNC_SETTINGS);
 		allUndocumentedPermissions.add(ASEC_DESTROY);
-		allUndocumentedPermissions.add(WRITE_SOCIAL_STREAM);
 		allUndocumentedPermissions.add(INVOKE_CARRIER_SETUP);
-		allUndocumentedPermissions.add(SET_TIME_ZONE);
 		allUndocumentedPermissions.add(RECEIVE_DATA_ACTIVITY_CHANGE);
 		allUndocumentedPermissions.add(RETRIEVE_WINDOW_CONTENT);
 		allUndocumentedPermissions.add(ACCESS_NOTIFICATIONS);
-		allUndocumentedPermissions.add(LOCATION_HARDWARE);
-		allUndocumentedPermissions.add(BRICK);
-		allUndocumentedPermissions.add(SET_ACTIVITY_WATCHER);
-		allUndocumentedPermissions.add(RECEIVE_SMS);
-		allUndocumentedPermissions.add(CALL_PHONE);
 		allUndocumentedPermissions.add(BACKUP);
-		allUndocumentedPermissions.add(READ_CALENDAR);
-		allUndocumentedPermissions.add(RECEIVE_BOOT_COMPLETED);
-		allUndocumentedPermissions.add(SET_TIME);
-		allUndocumentedPermissions.add(ACCESS_FINE_LOCATION);
 		allUndocumentedPermissions.add(STATUS_BAR_SERVICE);
 		allUndocumentedPermissions.add(NFC_HANDOVER_STATUS);
 		allUndocumentedPermissions.add(CONNECTIVITY_INTERNAL);
 		allUndocumentedPermissions.add(MANAGE_DEVICE_ADMINS);
-		allUndocumentedPermissions.add(RECORD_AUDIO);
 		allUndocumentedPermissions.add(PERFORM_CDMA_PROVISIONING);
 		allUndocumentedPermissions.add(CAPTURE_AUDIO_HOTWORD);
-		allUndocumentedPermissions.add(INSTALL_SHORTCUT);
-		allUndocumentedPermissions.add(INSTALL_PACKAGES);
-		allUndocumentedPermissions.add(BIND_NOTIFICATION_LISTENER_SERVICE);
-		allUndocumentedPermissions.add(USE_CREDENTIALS);
-		allUndocumentedPermissions.add(BODY_SENSORS);
-		allUndocumentedPermissions.add(SET_POINTER_SPEED);
 		allUndocumentedPermissions.add(INTERACT_ACROSS_USERS_FULL);
 		allUndocumentedPermissions.add(REMOVE_TASKS);
-		allUndocumentedPermissions.add(RECEIVE_MMS);
-		allUndocumentedPermissions.add(MODIFY_AUDIO_SETTINGS);
 		allUndocumentedPermissions.add(ACCESS_MTP);
 		allUndocumentedPermissions.add(HDMI_CEC);
-		allUndocumentedPermissions.add(SYSTEM_ALERT_WINDOW);
-		allUndocumentedPermissions.add(INTERNET);
-		allUndocumentedPermissions.add(WRITE_SETTINGS);
 		allUndocumentedPermissions.add(BROADCAST_SCORE_NETWORKS);
 		allUndocumentedPermissions.add(BIND_CONNECTION_SERVICE);
 		allUndocumentedPermissions.add(BIND_CONDITION_PROVIDER_SERVICE);
-		allUndocumentedPermissions.add(CALL_PRIVILEGED);
 		allUndocumentedPermissions.add(READ_DREAM_STATE);
-		allUndocumentedPermissions.add(CHANGE_COMPONENT_ENABLED_STATE);
-		allUndocumentedPermissions.add(SET_WALLPAPER);
-		allUndocumentedPermissions.add(DUMP);
-		allUndocumentedPermissions.add(WRITE_EXTERNAL_STORAGE);
 		allUndocumentedPermissions.add(USER_ACTIVITY);
 		allUndocumentedPermissions.add(BIND_PRINT_SPOOLER_SERVICE);
 		allUndocumentedPermissions.add(MANAGE_CA_CERTIFICATES);
-		allUndocumentedPermissions.add(BIND_PRINT_SERVICE);
 		allUndocumentedPermissions.add(MANAGE_NETWORK_POLICY);
-		allUndocumentedPermissions.add(WRITE_GSERVICES);
-		allUndocumentedPermissions.add(BIND_TV_INPUT);
-		allUndocumentedPermissions.add(USE_SIP);
 		allUndocumentedPermissions.add(NET_ADMIN);
 		allUndocumentedPermissions.add(FREEZE_SCREEN);
-		allUndocumentedPermissions.add(TRANSMIT_IR);
-		allUndocumentedPermissions.add(BIND_WALLPAPER);
-		allUndocumentedPermissions.add(BIND_REMOTEVIEWS);
-		allUndocumentedPermissions.add(BROADCAST_PACKAGE_REMOVED);
 		allUndocumentedPermissions.add(REAL_GET_TASKS);
-		allUndocumentedPermissions.add(WRITE_PROFILE);
-		allUndocumentedPermissions.add(SET_DEBUG_APP);
 		allUndocumentedPermissions.add(SET_INPUT_CALIBRATION);
 		allUndocumentedPermissions.add(TEMPORARY_ENABLE_ACCESSIBILITY);
 		allUndocumentedPermissions.add(ACCESS_CONTENT_PROVIDERS_EXTERNALLY);
 		allUndocumentedPermissions.add(LOOP_RADIO);
-		allUndocumentedPermissions.add(VIBRATE);
 		allUndocumentedPermissions.add(BIND_TRUST_AGENT);
 		allUndocumentedPermissions.add(READ_CELL_BROADCASTS);
 		return allUndocumentedPermissions;

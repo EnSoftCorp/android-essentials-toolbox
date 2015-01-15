@@ -70,7 +70,9 @@ public class GenerateUndocumentedPermissions {
 		System.out.println("-----------------");
 		
 		for(String qualifiedPermissionName : qualifiedPermissionNames){
-			System.out.println("allUndocumentedPermissions.add(" + getSimplePermissionName(qualifiedPermissionName) + ");");
+			if(isUndocumentedPermission(qualifiedPermissionName)){
+				System.out.println("allUndocumentedPermissions.add(" + getSimplePermissionName(qualifiedPermissionName) + ");");
+			}
 		}
 	}
 	

@@ -50,7 +50,7 @@ public class GeneratePermissionGroupToPermissionMapping {
 				permissionGroupToPermissionsMapping.put(permissionGroup, permissionNames);
 			}
 		}
-
+		
 		for (String key : permissionGroupToPermissionsMapping.keySet()) {
 			System.out.println("// " + (key.equals("") ? "UNASSIGNED" : key) + " permission group mappings generated from " + ANDROID_SOURCE_MANIFEST + " on " + new Date().toString());
 			for (String value : permissionGroupToPermissionsMapping.get(key)) {
