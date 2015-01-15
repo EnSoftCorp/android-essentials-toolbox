@@ -1,7 +1,7 @@
 This material is based on research sponsored by DARPA under agreement number FA8750-12-2-0126. The U.S. Government is authorized to reproduce and distribute reprints for Governmental purposes notwithstanding any copyright notation thereon. 
 
 Contributors
-Ben Holland - Permission object design and implementation, Manifest parsing, PermissionUsageView implementation
+Ben Holland - Permission object design, implementation, and web documentation scrapers, Manifest parsing, PermissionUsageView
 Yuqing Chen - Permission tagging implementation, API19 permission mapping
 Jon Mathews - Atlas query optimizations, API19 permission mapping
 Vani Bojja - Permission object implementation
