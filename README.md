@@ -6,12 +6,14 @@ The Android Essentials Toolbox is an Atlas toolbox containing logic for Android 
 For more details see [https://ensoftcorp.github.io/android-essentials-toolbox](https://ensoftcorp.github.io/android-essentials-toolbox).
 
 ## Overview
-This feature contains encoded mappings recovered from the Android source code (as of API version 19) to map [Protection Levels](https://developer.android.com/guide/topics/manifest/permission-element.html#plevel) and [Permission Groups](https://developer.android.com/guide/topics/manifest/permission-element.html#pgroup) to the corresponding [manifest permissions](https://developer.android.com/guide/topics/manifest/permission-element.html).  Permission details (simple name, quaified name, description, etc.) are encoded from information found in the [Google documentation](https://developer.android.com/reference/android/Manifest.permission.html). Using the [University of Toronto's PScout utility](http://pscout.csl.toronto.edu/) this feature also includes mappings from permissions to Android permission restricted API methods.
+This feature contains encoded mappings recovered from the Android source code to map [Protection Levels](https://developer.android.com/guide/topics/manifest/permission-element.html#plevel) and [Permission Groups](https://developer.android.com/guide/topics/manifest/permission-element.html#pgroup) to the corresponding [manifest permissions](https://developer.android.com/guide/topics/manifest/permission-element.html).  Permission details (simple name, quaified name, description, etc.) are encoded from information found in the [Google documentation](https://developer.android.com/reference/android/Manifest.permission.html). Using the [University of Toronto's PScout utility](http://pscout.csl.toronto.edu/) this feature also includes mappings from permissions to Android permission restricted API methods.
 
-## Setup
+## Manual Installation
 The `com.ensoftcorp.open.android.essentials` project is an Eclipse plugin that can be installed into the Eclipse environment.  To install the Eclipse plugin from the workspace right click on the project and navigate to `Export`->`Plug-in Development`->`Deployable plug-ins and fragments`.  Select `Next` and make sure only the `com.ensoftcorp.open.android.essentials` project is selected.  Then select the `Install into host.` radio and click `Finish`.  You will need to restart Eclipse.
 
 Alternatively if you have a toolbox project that depends on the Android Essentials Toolbox keeping both projects in the workspace is enough, but you should note that confusion may occur if there is an installed version and a version in the workspace.  The Atlas interpreter tends to give priority to the version in the workspace.
+
+Note: Unless you want bleeding edge changes, installing from the project's plugin update site is much easier.  For more details see [https://ensoftcorp.github.io/android-essentials-toolbox/install.html](https://ensoftcorp.github.io/android-essentials-toolbox/install.html).
 
 ## Example Usage
 
