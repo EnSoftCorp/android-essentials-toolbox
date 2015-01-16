@@ -408,7 +408,7 @@ public class PermissionUsageView extends ViewPart {
 					+ "\nLine number: " + ((lines.contains("-") ? "lines " : "line ") + lines) 
 					+ "\nTags: " + tags;
 		}
-		return  getContentDescription().toString();
+		return ge.toString();
 	}
 
 	/**
