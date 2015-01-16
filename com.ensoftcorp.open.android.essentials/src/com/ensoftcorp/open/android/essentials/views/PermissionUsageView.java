@@ -401,7 +401,14 @@ public class PermissionUsageView extends ViewPart {
 	
 	private String prettyPrintGraphElement(GraphElement ge){
 		String tags = ge.tags().toString();
-		return FormattedSourceCorrespondence.getSourceCorrespondent(ge).toString() + "\nTags: " + tags;
+		FormattedSourceCorrespondence sc = FormattedSourceCorrespondence.getSourceCorrespondent(ge);
+		if(sc != null){
+			String lines = sc.getLineNumbers();
+			return  "File: " + sc.getFile()
+					+ "\nLine number: " + ((lines.contains("-") ? "lines " : "line ") + lines) 
+					+ "\nTags: " + tags;
+		}
+		return  getContentDescription().toString();
 	}
 
 	/**
