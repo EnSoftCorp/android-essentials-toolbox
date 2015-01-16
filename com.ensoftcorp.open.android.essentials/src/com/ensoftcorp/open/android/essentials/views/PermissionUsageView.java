@@ -405,7 +405,7 @@ public class PermissionUsageView extends ViewPart {
 		if(sc != null){
 			String lines = sc.getLineNumbers();
 			return  "File: " + sc.getFile()
-					+ "\nLine number: " + ((lines.contains("-") ? "lines " : "line ") + lines) 
+					+ "\nLine number" + ((lines.contains("-") ? "s: " : ": ") + lines) 
 					+ "\nTags: " + tags;
 		}
 		return ge.toString();
