@@ -3,13 +3,12 @@ package toolbox.analysis;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-import toolbox.android.essentials.Manifest;
-import toolbox.android.essentials.permissions.Permission;
-import toolbox.android.essentials.permissions.mappings.PermissionMapping;
-
 import com.ensoftcorp.atlas.core.db.graph.GraphElement;
 import com.ensoftcorp.atlas.core.db.set.AtlasHashSet;
 import com.ensoftcorp.atlas.core.script.CommonQueries;
+import com.ensoftcorp.open.android.essentials.AndroidManifest;
+import com.ensoftcorp.open.android.essentials.permissions.Permission;
+import com.ensoftcorp.open.android.essentials.permissions.mappings.PermissionMapping;
 
 public class Example0 {
 
@@ -47,7 +46,7 @@ public class Example0 {
 	 */
 	public static int getApplicationTargetSDKVersion(String projectName) throws Exception {
 		// parse the manifest for the target sdk version
-		Manifest manifest = new Manifest(Manifest.getManifestFile(projectName));
+		AndroidManifest manifest = new AndroidManifest(AndroidManifest.getManifestFile(projectName));
 		return manifest.getTargetSDKVersion();
 	}
 	

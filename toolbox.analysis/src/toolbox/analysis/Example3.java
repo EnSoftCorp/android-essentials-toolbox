@@ -3,8 +3,8 @@ package toolbox.analysis;
 import java.util.Collection;
 import java.util.LinkedList;
 
-import toolbox.android.essentials.Manifest;
-import toolbox.android.essentials.permissions.Permission;
+import com.ensoftcorp.open.android.essentials.AndroidManifest;
+import com.ensoftcorp.open.android.essentials.permissions.Permission;
 
 public class Example3 {
 	
@@ -16,7 +16,7 @@ public class Example3 {
 	 */
 	public static Collection<Permission> getUsedPermissions(String projectName) throws Exception {
 		// parse the manifest for the target sdk version and the requested permissions
-		Manifest manifest = new Manifest(Manifest.getManifestFile(projectName));
+		AndroidManifest manifest = new AndroidManifest(AndroidManifest.getManifestFile(projectName));
 		int targetSDKVersion = manifest.getTargetSDKVersion();
 		Collection<Permission> requestedPermissions = manifest.getUsesPermissions();
 		// create a collection of unused permissions
@@ -37,7 +37,7 @@ public class Example3 {
 	 */
 	public static Collection<Permission> getUnusedPermissions(String projectName) throws Exception {
 		// parse the manifest for the target sdk version and the requested permissions
-		Manifest manifest = new Manifest(Manifest.getManifestFile(projectName));
+		AndroidManifest manifest = new AndroidManifest(AndroidManifest.getManifestFile(projectName));
 		int targetSDKVersion = manifest.getTargetSDKVersion();
 		Collection<Permission> requestedPermissions = manifest.getUsesPermissions();
 		// create a collection of unused permissions

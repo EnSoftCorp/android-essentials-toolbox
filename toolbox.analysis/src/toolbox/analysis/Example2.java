@@ -3,9 +3,9 @@ package toolbox.analysis;
 import java.util.Collection;
 import java.util.LinkedList;
 
-import toolbox.android.essentials.permissions.Permission;
-import toolbox.android.essentials.permissions.PermissionGroup;
-import toolbox.android.essentials.permissions.ProtectionLevel;
+import com.ensoftcorp.open.android.essentials.permissions.Permission;
+import com.ensoftcorp.open.android.essentials.permissions.PermissionGroup;
+import com.ensoftcorp.open.android.essentials.permissions.ProtectionLevel;
 
 public class Example2 {
 

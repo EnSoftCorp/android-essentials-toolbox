@@ -1,23 +1,22 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Basic Shell
+Bundle-Name: Example Shell
 Bundle-SymbolicName: toolbox.shell
-Bundle-Version: 2.0.4.qualifier
-Bundle-Vendor: Iowa State University
+Bundle-Version: 2.0.5.qualifier
+Bundle-Vendor: EnSoft Corp.
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: 
  org.eclipse.core.runtime,
- org.scala-ide.scala.library;bundle-version="2.10.4",
- org.scala-ide.sbt.full.library;bundle-version="0.13.1",
- org.scala-ide.scala.compiler;bundle-version="2.10.4",
- org.scala-ide.sdt.aspects;bundle-version="3.0.3",
- org.scala-ide.sdt.core;bundle-version="3.0.3",
- org.scala-refactoring.library;bundle-version="0.6.2",
- com.ensoftcorp.atlas.scalaide;bundle-version="2.0.4",
- com.ensoftcorp.atlas.core;bundle-version="2.0.4",
- com.ensoftcorp.atlas.java.core;bundle-version="2.0.4",
- com.ensoftcorp.atlas.java.ui;bundle-version="2.0.4",
- com.ensoftcorp.atlas.ui;bundle-version="2.0.4",
- com.ensoftcorp.atlas.ui.shell;bundle-version="2.0.4",
- toolbox.android.essentials;bundle-version="2.0.4",
- toolbox.analysis;bundle-version="2.0.4"
+ org.scala-ide.scala.library,
+ org.scala-ide.sbt.full.library,
+ org.scala-ide.scala.compiler,
+ org.scala-ide.sdt.aspects,
+ org.scala-ide.sdt.core,
+ org.scala-refactoring.library,
+ com.ensoftcorp.atlas.scalaide;bundle-version="2.0.5",
+ com.ensoftcorp.atlas.core;bundle-version="2.0.5",
+ com.ensoftcorp.atlas.java.core;bundle-version="2.0.5",
+ com.ensoftcorp.atlas.java.ui;bundle-version="2.0.5",
+ com.ensoftcorp.atlas.ui;bundle-version="2.0.5",
+ com.ensoftcorp.atlas.ui.shell;bundle-version="2.0.5",
+ toolbox.analysis;bundle-version="2.0.5"

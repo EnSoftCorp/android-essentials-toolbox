@@ -1,12 +1,11 @@
 package toolbox.analysis;
 
-import toolbox.analysis.support.SetDefinitions;
-import toolbox.android.essentials.permissions.Permission;
-import toolbox.android.essentials.permissions.mappings.PermissionMapping;
-
 import com.ensoftcorp.atlas.core.query.Attr.Edge;
 import com.ensoftcorp.atlas.core.query.Q;
 import com.ensoftcorp.atlas.core.script.Common;
+import com.ensoftcorp.open.android.essentials.permissions.Permission;
+import com.ensoftcorp.open.android.essentials.permissions.mappings.PermissionMapping;
+import com.ensoftcorp.open.toolbox.commons.SetDefinitions;
 
 public class Example1 {
 

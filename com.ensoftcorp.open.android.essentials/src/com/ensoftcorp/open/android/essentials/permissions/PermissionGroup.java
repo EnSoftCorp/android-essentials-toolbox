@@ -139,7 +139,7 @@ public class PermissionGroup {
 	public static final PermissionGroup WRITE_USER_DICTIONARY = new PermissionGroup("android.permission-group.WRITE_USER_DICTIONARY", 17, "Used for permissions that provide access to the user calendar to create / view events.", "https://developer.android.com/reference/android/Manifest.permission_group.html#WRITE_USER_DICTIONARY");
 
 	// END GENERATED CODE -----------------------
-	public static final PermissionGroup UNASSIGNED = new PermissionGroup("UNASSIGNED", -1, "This permission group does not officially exist.  It contains permissions that do not belong to any permission groups.", "No reference available.");
+	public static final PermissionGroup UNASSIGNED = new PermissionGroup("android.permission-group.UNASSIGNED", -1, "NOTE: This permission group does not officially exist.  It contains permissions that do not belong to any permission groups.", "No reference available.");
 	
 	// add Permission objects to the PermissionGroup objects
 	static {

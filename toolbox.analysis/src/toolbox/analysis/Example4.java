@@ -2,8 +2,8 @@ package toolbox.analysis;
 
 import java.util.Collection;
 
-import toolbox.android.essentials.Manifest;
-import toolbox.android.essentials.permissions.Permission;
+import com.ensoftcorp.open.android.essentials.AndroidManifest;
+import com.ensoftcorp.open.android.essentials.permissions.Permission;
 
 public class Example4 {
 	
@@ -25,7 +25,7 @@ public class Example4 {
 	 */
 	public static boolean isUnderprivileged(String projectName) throws Exception {
 		// parse the manifest for the target sdk version and the requested permissions
-		Manifest manifest = new Manifest(Manifest.getManifestFile(projectName));
+		AndroidManifest manifest = new AndroidManifest(AndroidManifest.getManifestFile(projectName));
 		int targetSDKVersion = manifest.getTargetSDKVersion();
 		Collection<Permission> requestedPermissions = manifest.getUsesPermissions();
 		// search for permissions that are used but not requested

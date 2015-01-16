@@ -36,6 +36,7 @@ import com.ensoftcorp.atlas.ui.viewer.graph.DisplayUtil;
 import com.ensoftcorp.open.android.essentials.permissions.Permission;
 import com.ensoftcorp.open.android.essentials.permissions.PermissionGroup;
 import com.ensoftcorp.open.android.essentials.permissions.ProtectionLevel;
+import com.ensoftcorp.open.toolbox.commons.FormattedSourceCorrespondence;
 
 /**
  * An Eclipse view for searching and viewing apply permission mapping values in the Atlas index
@@ -151,7 +152,7 @@ public class PermissionUsageView extends ViewPart {
 				Object data = tree.getSelection()[0].getData();
 				if (data instanceof GraphElement) {
 					GraphElement graphElement = (GraphElement) data;
-					detailsText.setText(graphElement.toString());
+					detailsText.setText(prettyPrintGraphElement(graphElement));
 					Q q = Common.toQ(Common.toGraph(graphElement));
 					String graphElementName = getQualifiedMethodName(graphElement);
 					show(q, null, true, graphElementName);
@@ -180,7 +181,7 @@ public class PermissionUsageView extends ViewPart {
 					detailsText.setText(displayText);
 				} else if (data instanceof GraphElement) {
 					GraphElement graphElement = (GraphElement) data;
-					detailsText.setText(graphElement.toString());
+					detailsText.setText(prettyPrintGraphElement(graphElement));
 				} else {
 					// unknown data, just clear out the text display
 					detailsText.setText("");
@@ -396,6 +397,11 @@ public class PermissionUsageView extends ViewPart {
 		}
 		
 		tree.update(); // force an update, sometimes the tree needs a hint...
+	}
+	
+	private String prettyPrintGraphElement(GraphElement ge){
+		String tags = ge.tags().toString();
+		return FormattedSourceCorrespondence.getSourceCorrespondent(ge).toString() + "\nTags: " + tags;
 	}
 
 	/**

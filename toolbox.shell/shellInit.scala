@@ -24,11 +24,9 @@ import com.ensoftcorp.atlas.core.db.graph.Graph
 import java.awt.Color
 
 // android essentials
-import toolbox.android.essentials._
-import toolbox.android.essentials.permissions._
-import toolbox.android.essentials.permissions.mappings._
+import com.ensoftcorp.open.android.essentials._
+import com.ensoftcorp.open.android.essentials.permissions._
+import com.ensoftcorp.open.android.essentials.permissions.mappings._
 
 // toolbox.analysis project
 import toolbox.analysis._
-import toolbox.analysis.support._
-import toolbox.analysis.support.SetDefinitions

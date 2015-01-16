@@ -21,6 +21,7 @@ public class ProtectionLevel {
 	
 	private ProtectionLevel(String name, int level, String description) {
 		this.name = name;
+		this.level = level;
 		this.description = description;
 	}
 
@@ -76,7 +77,7 @@ public class ProtectionLevel {
 	// these may be upcoming permissions that have not been officially assigned a protection level in an official Android release
 	// or they are hidden permissions which are intended for system level apps but for some reason were not assigned a protection level
 	// this protection level does not officially exist!
-	public static final ProtectionLevel UNASSIGNED = new ProtectionLevel("Unassigned", -1, "This protection level does not officially exist!  It was created to hold permissions that for some reason have not been assigned a protection level.");
+	public static final ProtectionLevel UNASSIGNED = new ProtectionLevel("Unassigned", -1, "NOTE: This protection level does not officially exist!  It was created to hold permissions that for some reason have not been assigned a protection level.");
 	
 	// add the permissions for each protection level
 	static {
