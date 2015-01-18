@@ -1,7 +1,5 @@
 package com.ensoftcorp.open.android.essentials.views;
 
-import static com.ensoftcorp.atlas.java.core.script.Common.extend;
-
 import org.eclipse.debug.internal.ui.DebugPluginImages;
 import org.eclipse.debug.internal.ui.IInternalDebugUIConstants;
 import org.eclipse.jface.action.Action;
@@ -26,10 +24,10 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 
 import com.ensoftcorp.atlas.core.db.graph.GraphElement;
-import com.ensoftcorp.atlas.core.highlight.Highlighter;
-import com.ensoftcorp.atlas.core.query.Attr.Edge;
-import com.ensoftcorp.atlas.core.query.Attr.Node;
-import com.ensoftcorp.atlas.core.query.Q;
+import com.ensoftcorp.atlas.java.core.highlight.Highlighter;
+import com.ensoftcorp.atlas.java.core.query.Attr.Edge;
+import com.ensoftcorp.atlas.java.core.query.Attr.Node;
+import com.ensoftcorp.atlas.java.core.query.Q;
 import com.ensoftcorp.atlas.java.core.script.Common;
 import com.ensoftcorp.atlas.java.core.script.CommonQueries;
 import com.ensoftcorp.atlas.ui.viewer.graph.DisplayUtil;
@@ -502,7 +500,7 @@ public class PermissionUsageView extends ViewPart {
 		if (h == null) {
 			h = new Highlighter();
 		}
-		Q displayExpr = extend ? extend(q, Edge.DECLARES) : q;
+		Q displayExpr = extend ? Common.extend(q, Edge.DECLARES) : q;
 		DisplayUtil.displayGraph(displayExpr.eval(), h, title);
 	}
 

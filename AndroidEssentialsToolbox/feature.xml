@@ -2,7 +2,7 @@
 <feature
       id="com.ensoftcorp.open.android.essentials"
       label="Android Essentials Toolbox"
-      version="2.0.5.qualifier"
+      version="0.28.2.qualifier"
       provider-name="EnSoft Corp.">
 
    <description url="https://ensoftcorp.github.io/android-essentials-toolbox">
@@ -42,11 +42,23 @@ SOFTWARE.
       <discovery label="ensoftcorp.github.io" url="https://ensoftcorp.github.io/android-essentials-toolbox/updates/"/>
    </url>
 
+   <requires>
+      <import plugin="org.eclipse.debug.ui"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="com.ensoftcorp.atlas.java.core" version="0.28.2" match="greaterOrEqual"/>
+      <import plugin="com.ensoftcorp.open.toolbox.commons" version="0.28.2" match="greaterOrEqual"/>
+      <import plugin="com.ensoftcorp.atlas.java.ui" version="0.28.2" match="greaterOrEqual"/>
+      <import plugin="com.ensoftcorp.atlas.core" version="0.28.2" match="greaterOrEqual"/>
+      <import plugin="com.ensoftcorp.atlas.jimple.ui" version="1.0.0" match="greaterOrEqual"/>
+   </requires>
+
    <plugin
          id="com.ensoftcorp.open.android.essentials"
          download-size="0"
          install-size="0"
-         version="2.0.5.qualifier"
+         version="0.28.2.qualifier"
          unpack="false"/>
 
 </feature>

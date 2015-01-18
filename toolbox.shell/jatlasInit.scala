@@ -7,16 +7,12 @@
  * 
  * You do not need to put initialization code in a scala object or class.
  */
-import com.ensoftcorp.atlas.core.query.Q
-import com.ensoftcorp.atlas.core.query.Attr
-import com.ensoftcorp.atlas.core.query.Attr.Edge
-import com.ensoftcorp.atlas.core.query.Attr.Node
-import com.ensoftcorp.atlas.core.script.Common
-import com.ensoftcorp.atlas.core.script.Common._
-import com.ensoftcorp.atlas.ui.shell.lib.Common
-import com.ensoftcorp.atlas.ui.shell.lib.Common._
-import com.ensoftcorp.atlas.core.script.CommonQueries
-import com.ensoftcorp.atlas.core.script.CommonQueries._
+import com.ensoftcorp.atlas.java.core.query.Q
+import com.ensoftcorp.atlas.java.core.query.Attr
+import com.ensoftcorp.atlas.java.core.query.Attr.Edge
+import com.ensoftcorp.atlas.java.core.query.Attr.Node
+import com.ensoftcorp.atlas.java.core.script.Common._
+import com.ensoftcorp.atlas.java.interpreter.lib.Common._
 import com.ensoftcorp.atlas.core.db.Accuracy._
 import com.ensoftcorp.atlas.core.db.graph.Graph
 

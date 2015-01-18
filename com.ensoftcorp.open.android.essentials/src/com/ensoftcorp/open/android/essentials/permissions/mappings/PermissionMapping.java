@@ -13,7 +13,7 @@ import org.w3c.dom.NodeList;
 
 import com.ensoftcorp.atlas.core.db.graph.GraphElement;
 import com.ensoftcorp.atlas.core.db.set.AtlasHashSet;
-import com.ensoftcorp.atlas.core.query.Q;
+import com.ensoftcorp.atlas.java.core.query.Q;
 import com.ensoftcorp.atlas.java.core.script.Common;
 import com.ensoftcorp.open.android.essentials.permissions.Permission;
 import com.ensoftcorp.open.android.essentials.permissions.PermissionGroup;
