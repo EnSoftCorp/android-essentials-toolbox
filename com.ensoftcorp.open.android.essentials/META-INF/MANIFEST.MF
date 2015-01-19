@@ -14,10 +14,12 @@ Require-Bundle:
  com.ensoftcorp.atlas.java.ui;bundle-version="0.28.2";visibility:=reexport,
  com.ensoftcorp.atlas.core;bundle-version="0.28.2";visibility:=reexport,
  com.ensoftcorp.atlas.jimple.ui;bundle-version="1.0.0";visibility:=reexport,
- com.ensoftcorp.open.toolbox.commons;bundle-version="0.28.2"
+ com.ensoftcorp.open.toolbox.commons;bundle-version="0.28.2",
+ com.qc.libanalysis.toolbox;bundle-version="0.28.2"
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .
 Bundle-Activator: com.ensoftcorp.open.Activator
 Export-Package: com.ensoftcorp.open.android.essentials,
  com.ensoftcorp.open.android.essentials.permissions,
- com.ensoftcorp.open.android.essentials.permissions.mappings
+ com.ensoftcorp.open.android.essentials.permissions.mappings,
+ com.ensoftcorp.open.android.essentials.views

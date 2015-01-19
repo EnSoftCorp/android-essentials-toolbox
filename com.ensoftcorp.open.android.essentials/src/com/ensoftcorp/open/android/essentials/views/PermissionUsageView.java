@@ -53,6 +53,16 @@ public class PermissionUsageView extends ViewPart {
 	private boolean usageFilterEnabled = false;
 	private boolean expandTreeEnabled = true;
 
+	protected Q callsiteFilter = getCallsiteFilter();
+	
+	/**
+	 * Filters out callsite results (by default, unless overridden, this does no filtering)
+	 * @return
+	 */
+	protected Q getCallsiteFilter() {
+		return Common.empty();
+	}
+	
 	@Override
 	public void createPartControl(final Composite parent) {
 		parent.setLayout(new GridLayout(1, false));
@@ -283,7 +293,7 @@ public class PermissionUsageView extends ViewPart {
 					// add call sites of the permission method
 					Q methodQ = Common.toQ(Common.toGraph(method));
 					Q callEdges = Common.universe().edgesTaggedWithAny(Edge.CALL).retainEdges();
-					Q callsites = callEdges.predecessors(methodQ).nodesTaggedWithAny(Node.CONTROL_FLOW);
+					Q callsites = callEdges.predecessors(methodQ).nodesTaggedWithAny(Node.CONTROL_FLOW).difference(callsiteFilter);
 					for (GraphElement callsite : callsites.eval().nodes()) {
 						String qualifiedCallerName = getQualifiedMethodName(callsite);
 						TreeItem callsiteItem = new TreeItem(methodItem, SWT.NONE);
@@ -456,7 +466,7 @@ public class PermissionUsageView extends ViewPart {
 			// add call sites of the permission method
 			Q methodQ = Common.toQ(Common.toGraph(method));
 			Q callEdges = Common.universe().edgesTaggedWithAny(Edge.CALL).retainEdges();
-			Q callsites = callEdges.predecessors(methodQ).nodesTaggedWithAny(Node.CONTROL_FLOW);
+			Q callsites = callEdges.predecessors(methodQ).nodesTaggedWithAny(Node.CONTROL_FLOW).difference(callsiteFilter);
 			for (GraphElement callsite : callsites.eval().nodes()) {
 				hasCallsites = true;
 				methodItem.setForeground(methodItem.getDisplay().getSystemColor(PERMISSION_USAGE_COLOR));
