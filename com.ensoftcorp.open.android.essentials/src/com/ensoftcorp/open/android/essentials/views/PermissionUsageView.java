@@ -24,17 +24,16 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 
 import com.ensoftcorp.atlas.core.db.graph.GraphElement;
-import com.ensoftcorp.atlas.java.core.highlight.Highlighter;
 import com.ensoftcorp.atlas.java.core.query.Attr.Edge;
 import com.ensoftcorp.atlas.java.core.query.Attr.Node;
 import com.ensoftcorp.atlas.java.core.query.Q;
 import com.ensoftcorp.atlas.java.core.script.Common;
 import com.ensoftcorp.atlas.java.core.script.CommonQueries;
-import com.ensoftcorp.atlas.ui.viewer.graph.DisplayUtil;
 import com.ensoftcorp.open.android.essentials.permissions.Permission;
 import com.ensoftcorp.open.android.essentials.permissions.PermissionGroup;
 import com.ensoftcorp.open.android.essentials.permissions.ProtectionLevel;
 import com.ensoftcorp.open.toolbox.commons.FormattedSourceCorrespondence;
+import com.ensoftcorp.open.toolbox.commons.utils.DisplayUtils;
 
 /**
  * An Eclipse view for searching and viewing apply permission mapping values in the Atlas index
@@ -50,7 +49,7 @@ public class PermissionUsageView extends ViewPart {
 	 * The ID of the view as specified by the extension.
 	 */
 	public static final String ID = "com.ensoftcorp.open.android.essentials.views.PermissionUsageView";
-
+	
 	private boolean usageFilterEnabled = false;
 	private boolean expandTreeEnabled = true;
 
@@ -153,7 +152,7 @@ public class PermissionUsageView extends ViewPart {
 					detailsText.setText(prettyPrintGraphElement(graphElement));
 					Q q = Common.toQ(Common.toGraph(graphElement));
 					String graphElementName = getQualifiedMethodName(graphElement);
-					show(q, null, true, graphElementName);
+					DisplayUtils.show(q, null, true, graphElementName);
 				}
 			}
 		});
@@ -487,21 +486,6 @@ public class PermissionUsageView extends ViewPart {
 		}
 		result = parent.eval().nodes().getFirst().attr().get(Node.NAME) + "." + result;
 		return result;
-	}
-
-	/**
-	 * Helper method for showing an Atlas graph of a Q
-	 * @param q
-	 * @param h
-	 * @param extend
-	 * @param title
-	 */
-	private static void show(Q q, Highlighter h, boolean extend, String title) {
-		if (h == null) {
-			h = new Highlighter();
-		}
-		Q displayExpr = extend ? Common.extend(q, Edge.DECLARES) : q;
-		DisplayUtil.displayGraph(displayExpr.eval(), h, title);
 	}
 
 	@Override
