@@ -485,13 +485,11 @@ public class ProtectionLevel {
 		SIGNATURE_OR_SYSTEM.permissions.addAll(SIGNATURE.getPermissions()); // add SIGNATURE only permissions
 		SIGNATURE_OR_SYSTEM.permissions.addAll(SYSTEM.getPermissions()); // add SYSTEM only permissions
 	}
-	
-	/**
-	 * A collection of all known protection levels
-	 */
-	public static final Collection<ProtectionLevel> allProtectionLevels = allProtectionLevels();
 
-	private static Collection<ProtectionLevel> allProtectionLevels() {
+	/**
+	 * Returns a collection of all known protection levels
+	 */
+	public static Collection<ProtectionLevel> getAllProtectionLevels() {
 		Collection<ProtectionLevel> allProtectionLevels = new ArrayList<ProtectionLevel>();
 		allProtectionLevels.add(UNASSIGNED);
 		allProtectionLevels.add(SIGNATURE_OR_SYSTEM);

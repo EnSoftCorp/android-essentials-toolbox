@@ -133,7 +133,7 @@ public class PermissionUsageView extends ViewPart {
 						}
 
 						// add the autocomplete suggestions for each matching permission
-						for(Permission permission : Permission.allPermissions){
+						for(Permission permission : Permission.getAllPermissions()){
 							if(permission.getQualifiedName().toLowerCase().contains(searchText.toLowerCase())){
 								searchBar.add(permission.getQualifiedName());
 							}
@@ -268,7 +268,7 @@ public class PermissionUsageView extends ViewPart {
 	private void repopulatePermissionTreeWithSearchResults(final Tree tree, final StyledText detailsText, final Combo searchBar){
 		detailsText.setText(""); // clear out the details view
 		tree.removeAll(); // clear the tree contents
-		for(Permission permission : Permission.allPermissions){
+		for(Permission permission : Permission.getAllPermissions()){
 			// case insensitive search
 			if(permission.getQualifiedName().toLowerCase().contains(searchBar.getText().toLowerCase())){
 				TreeItem permissionItem = new TreeItem(tree, SWT.NONE);
@@ -339,7 +339,7 @@ public class PermissionUsageView extends ViewPart {
 		permissionGroupRootItem.setText("Permission Group");
 		permissionGroupRootItem.setData(null);
 
-		for (ProtectionLevel protectionLevel : ProtectionLevel.allProtectionLevels) {
+		for (ProtectionLevel protectionLevel : ProtectionLevel.getAllProtectionLevels()) {
 			TreeItem protectionLevelItem = new TreeItem(protectionLevelRootItem, SWT.NONE);
 			protectionLevelItem.setText(protectionLevel.getName());
 			protectionLevelItem.setData(protectionLevel);
@@ -360,7 +360,7 @@ public class PermissionUsageView extends ViewPart {
 				}
 			}
 		}
-		for (PermissionGroup permissionGroup : PermissionGroup.allPermissionGroups) {
+		for (PermissionGroup permissionGroup : PermissionGroup.getAllPermissionGroups()) {
 			TreeItem permissionGroupItem = new TreeItem(permissionGroupRootItem, SWT.NONE);
 			permissionGroupItem.setText(permissionGroup.getQualifiedName());
 			permissionGroupItem.setData(permissionGroup);
