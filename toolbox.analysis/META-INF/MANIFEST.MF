@@ -14,6 +14,7 @@ Require-Bundle:
  com.ensoftcorp.atlas.ui;bundle-version="2.0.5";visibility:=reexport,
  com.ensoftcorp.atlas.java.ui;bundle-version="2.0.5";visibility:=reexport,
  com.ensoftcorp.atlas.core;bundle-version="2.0.5";visibility:=reexport,
- com.ensoftcorp.open.android.essentials;bundle-version="2.0.5";visibility:=reexport
+ com.ensoftcorp.open.android.essentials;bundle-version="2.0.5";visibility:=reexport,
+ com.ensoftcorp.open.toolbox.commons;bundle-version="2.0.5";visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .

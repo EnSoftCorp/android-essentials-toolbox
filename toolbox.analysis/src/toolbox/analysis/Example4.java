@@ -29,7 +29,7 @@ public class Example4 {
 		int targetSDKVersion = manifest.getTargetSDKVersion();
 		Collection<Permission> requestedPermissions = manifest.getUsesPermissions();
 		// search for permissions that are used but not requested
-		for(Permission permission : Permission.allPermissions){
+		for(Permission permission : Permission.getAllPermissions()){
 			if(Example1.isPermissionUsed(permission, targetSDKVersion)){
 				if(!requestedPermissions.contains(permission)){
 					return true;

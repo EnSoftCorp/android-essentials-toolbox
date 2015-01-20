@@ -121,7 +121,7 @@ public class GenerateUndocumentedPermissions {
 	 * @return
 	 */
 	private static boolean isUndocumentedPermission(String qualifiedPermissionName){
-		for(Permission permission : Permission.allDocumentedPermissions){
+		for(Permission permission : Permission.getAllDocumentedPermissions()){
 			if(permission.getQualifiedName().equals(qualifiedPermissionName)){
 				return false;
 			}

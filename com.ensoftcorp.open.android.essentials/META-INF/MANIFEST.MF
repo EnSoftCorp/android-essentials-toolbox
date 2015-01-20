@@ -12,12 +12,13 @@ Require-Bundle:
  org.eclipse.core.resources;visibility:=reexport,
  com.ensoftcorp.atlas.java.core;bundle-version="2.0.5";visibility:=reexport,
  com.ensoftcorp.atlas.ui;bundle-version="2.0.5";visibility:=reexport,
- com.ensoftcorp.open.toolbox.commons;bundle-version="2.0.5";visibility:=reexport,
  com.ensoftcorp.atlas.java.ui;bundle-version="2.0.5";visibility:=reexport,
- com.ensoftcorp.atlas.core;bundle-version="2.0.5";visibility:=reexport
+ com.ensoftcorp.atlas.core;bundle-version="2.0.5";visibility:=reexport,
+ com.ensoftcorp.open.toolbox.commons;bundle-version="2.0.5"
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .
 Bundle-Activator: com.ensoftcorp.open.Activator
 Export-Package: com.ensoftcorp.open.android.essentials,
  com.ensoftcorp.open.android.essentials.permissions,
- com.ensoftcorp.open.android.essentials.permissions.mappings
+ com.ensoftcorp.open.android.essentials.permissions.mappings,
+ com.ensoftcorp.open.android.essentials.views

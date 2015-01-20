@@ -82,7 +82,7 @@ public class PermissionGroup {
 	 * @return
 	 */
 	public static PermissionGroup getPermissionGroupByQualifiedName(String qualifiedName){
-		for(PermissionGroup permissionGroup : allPermissionGroups){
+		for(PermissionGroup permissionGroup : getAllPermissionGroups()){
 			if(permissionGroup.getQualifiedName().equals(qualifiedName)){
 				return permissionGroup;
 			}
@@ -97,7 +97,7 @@ public class PermissionGroup {
 	 * @return
 	 */
 	public static PermissionGroup getPermissionGroupBySimpleName(String simpleName){
-		for(PermissionGroup permissionGroup : allPermissionGroups){
+		for(PermissionGroup permissionGroup : getAllPermissionGroups()){
 			if(permissionGroup.getSimpleName().equals(simpleName)){
 				return permissionGroup;
 			}
@@ -470,11 +470,10 @@ public class PermissionGroup {
 	}
 	
 	/**
-	 * A collection of all known permission groups
+	 * Returns a collection of all known permission groups
+	 * @return
 	 */
-	public static final Collection<PermissionGroup> allPermissionGroups = allPermissionGroups();
-
-	private static Collection<PermissionGroup> allPermissionGroups() {
+	public static Collection<PermissionGroup> getAllPermissionGroups() {
 		Collection<PermissionGroup> allPermissionGroups = new HashSet<PermissionGroup>();
 		allPermissionGroups.add(UNASSIGNED);
 		allPermissionGroups.add(DEVELOPMENT_TOOLS);

@@ -10,13 +10,13 @@
    </description>
 
    <copyright url="https://ensoftcorp.github.io/android-essentials-toolbox">
-      Copyright 2014 EnSoft Corp.
+      Copyright 2015 EnSoft Corp.
    </copyright>
 
    <license url="https://raw.githubusercontent.com/EnSoftCorp/android-essentials-toolbox/master/LICENSE">
       The MIT License (MIT)
 
-Copyright (c) 2014 EnSoft Corp.
+Copyright (c) 2015 EnSoft Corp.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the &quot;Software&quot;), to deal
@@ -41,6 +41,18 @@ SOFTWARE.
       <update label="ensoftcorp.github.io" url="https://ensoftcorp.github.io/android-essentials-toolbox/updates/"/>
       <discovery label="ensoftcorp.github.io" url="https://ensoftcorp.github.io/android-essentials-toolbox/updates/"/>
    </url>
+
+   <requires>
+      <import plugin="org.eclipse.debug.ui"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="com.ensoftcorp.atlas.java.core" version="2.0.5" match="greaterOrEqual"/>
+      <import plugin="com.ensoftcorp.atlas.ui" version="2.0.5" match="greaterOrEqual"/>
+      <import plugin="com.ensoftcorp.atlas.java.ui" version="2.0.5" match="greaterOrEqual"/>
+      <import plugin="com.ensoftcorp.atlas.core" version="2.0.5" match="greaterOrEqual"/>
+      <import plugin="com.ensoftcorp.open.toolbox.commons" version="2.0.5" match="greaterOrEqual"/>
+   </requires>
 
    <plugin
          id="com.ensoftcorp.open.android.essentials"

@@ -1,7 +1,5 @@
 package com.ensoftcorp.open.android.essentials.views;
 
-import static com.ensoftcorp.atlas.java.core.script.Common.extend;
-
 import org.eclipse.debug.internal.ui.DebugPluginImages;
 import org.eclipse.debug.internal.ui.IInternalDebugUIConstants;
 import org.eclipse.jface.action.Action;
@@ -26,17 +24,16 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 
 import com.ensoftcorp.atlas.core.db.graph.GraphElement;
-import com.ensoftcorp.atlas.core.highlight.Highlighter;
 import com.ensoftcorp.atlas.core.query.Attr.Edge;
 import com.ensoftcorp.atlas.core.query.Attr.Node;
 import com.ensoftcorp.atlas.core.query.Q;
 import com.ensoftcorp.atlas.java.core.script.Common;
 import com.ensoftcorp.atlas.java.core.script.CommonQueries;
-import com.ensoftcorp.atlas.ui.viewer.graph.DisplayUtil;
 import com.ensoftcorp.open.android.essentials.permissions.Permission;
 import com.ensoftcorp.open.android.essentials.permissions.PermissionGroup;
 import com.ensoftcorp.open.android.essentials.permissions.ProtectionLevel;
 import com.ensoftcorp.open.toolbox.commons.FormattedSourceCorrespondence;
+import com.ensoftcorp.open.toolbox.commons.utils.DisplayUtils;
 
 /**
  * An Eclipse view for searching and viewing apply permission mapping values in the Atlas index
@@ -52,10 +49,20 @@ public class PermissionUsageView extends ViewPart {
 	 * The ID of the view as specified by the extension.
 	 */
 	public static final String ID = "com.ensoftcorp.open.android.essentials.views.PermissionUsageView";
-
+	
 	private boolean usageFilterEnabled = false;
 	private boolean expandTreeEnabled = true;
 
+	protected Q callsiteFilter = getCallsiteFilter();
+	
+	/**
+	 * Filters out callsite results (by default, unless overridden, this does no filtering)
+	 * @return
+	 */
+	protected Q getCallsiteFilter() {
+		return Common.empty();
+	}
+	
 	@Override
 	public void createPartControl(final Composite parent) {
 		parent.setLayout(new GridLayout(1, false));
@@ -136,7 +143,7 @@ public class PermissionUsageView extends ViewPart {
 						}
 
 						// add the autocomplete suggestions for each matching permission
-						for(Permission permission : Permission.allPermissions){
+						for(Permission permission : Permission.getAllPermissions()){
 							if(permission.getQualifiedName().toLowerCase().contains(searchText.toLowerCase())){
 								searchBar.add(permission.getQualifiedName());
 							}
@@ -155,7 +162,7 @@ public class PermissionUsageView extends ViewPart {
 					detailsText.setText(prettyPrintGraphElement(graphElement));
 					Q q = Common.toQ(Common.toGraph(graphElement));
 					String graphElementName = getQualifiedMethodName(graphElement);
-					show(q, null, true, graphElementName);
+					DisplayUtils.show(q, null, true, graphElementName);
 				}
 			}
 		});
@@ -271,7 +278,7 @@ public class PermissionUsageView extends ViewPart {
 	private void repopulatePermissionTreeWithSearchResults(final Tree tree, final StyledText detailsText, final Combo searchBar){
 		detailsText.setText(""); // clear out the details view
 		tree.removeAll(); // clear the tree contents
-		for(Permission permission : Permission.allPermissions){
+		for(Permission permission : Permission.getAllPermissions()){
 			// case insensitive search
 			if(permission.getQualifiedName().toLowerCase().contains(searchBar.getText().toLowerCase())){
 				TreeItem permissionItem = new TreeItem(tree, SWT.NONE);
@@ -286,7 +293,7 @@ public class PermissionUsageView extends ViewPart {
 					// add call sites of the permission method
 					Q methodQ = Common.toQ(Common.toGraph(method));
 					Q callEdges = Common.universe().edgesTaggedWithAny(Edge.CALL).retainEdges();
-					Q callsites = callEdges.predecessors(methodQ).nodesTaggedWithAny(Node.CONTROL_FLOW);
+					Q callsites = callEdges.predecessors(methodQ).nodesTaggedWithAny(Node.CONTROL_FLOW).difference(callsiteFilter);
 					for (GraphElement callsite : callsites.eval().nodes()) {
 						String qualifiedCallerName = getQualifiedMethodName(callsite);
 						TreeItem callsiteItem = new TreeItem(methodItem, SWT.NONE);
@@ -342,7 +349,7 @@ public class PermissionUsageView extends ViewPart {
 		permissionGroupRootItem.setText("Permission Group");
 		permissionGroupRootItem.setData(null);
 
-		for (ProtectionLevel protectionLevel : ProtectionLevel.allProtectionLevels) {
+		for (ProtectionLevel protectionLevel : ProtectionLevel.getAllProtectionLevels()) {
 			TreeItem protectionLevelItem = new TreeItem(protectionLevelRootItem, SWT.NONE);
 			protectionLevelItem.setText(protectionLevel.getName());
 			protectionLevelItem.setData(protectionLevel);
@@ -363,7 +370,7 @@ public class PermissionUsageView extends ViewPart {
 				}
 			}
 		}
-		for (PermissionGroup permissionGroup : PermissionGroup.allPermissionGroups) {
+		for (PermissionGroup permissionGroup : PermissionGroup.getAllPermissionGroups()) {
 			TreeItem permissionGroupItem = new TreeItem(permissionGroupRootItem, SWT.NONE);
 			permissionGroupItem.setText(permissionGroup.getQualifiedName());
 			permissionGroupItem.setData(permissionGroup);
@@ -459,7 +466,7 @@ public class PermissionUsageView extends ViewPart {
 			// add call sites of the permission method
 			Q methodQ = Common.toQ(Common.toGraph(method));
 			Q callEdges = Common.universe().edgesTaggedWithAny(Edge.CALL).retainEdges();
-			Q callsites = callEdges.predecessors(methodQ).nodesTaggedWithAny(Node.CONTROL_FLOW);
+			Q callsites = callEdges.predecessors(methodQ).nodesTaggedWithAny(Node.CONTROL_FLOW).difference(callsiteFilter);
 			for (GraphElement callsite : callsites.eval().nodes()) {
 				hasCallsites = true;
 				methodItem.setForeground(methodItem.getDisplay().getSystemColor(PERMISSION_USAGE_COLOR));
@@ -489,21 +496,6 @@ public class PermissionUsageView extends ViewPart {
 		}
 		result = parent.eval().nodes().getFirst().attr().get(Node.NAME) + "." + result;
 		return result;
-	}
-
-	/**
-	 * Helper method for showing an Atlas graph of a Q
-	 * @param q
-	 * @param h
-	 * @param extend
-	 * @param title
-	 */
-	private static void show(Q q, Highlighter h, boolean extend, String title) {
-		if (h == null) {
-			h = new Highlighter();
-		}
-		Q displayExpr = extend ? extend(q, Edge.DECLARES) : q;
-		DisplayUtil.displayGraph(displayExpr.eval(), h, title);
 	}
 
 	@Override

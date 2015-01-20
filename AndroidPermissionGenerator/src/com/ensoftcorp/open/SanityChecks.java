@@ -15,8 +15,8 @@ public class SanityChecks {
 
 	@Test
 	public void testPermissionsAreNotDocumentedAndUndocumented() {
-		Collection<Permission> intersection = Permission.allDocumentedPermissions;
-		intersection.retainAll(Permission.allUndocumentedPermissions);
+		Collection<Permission> intersection = Permission.getAllDocumentedPermissions();
+		intersection.retainAll(Permission.getAllUndocumentedPermissions());
 		if(!intersection.isEmpty()){
 			System.err.println("The following permissions are classified as both documented and undocumented!\n" + intersection);
 		}
@@ -26,7 +26,7 @@ public class SanityChecks {
 	@Test
 	public void testUnassignedProtectionLevelPermissionsAreNotAssigned() {
 		Collection<ProtectionLevel> protectionLevels = new LinkedList<ProtectionLevel>();
-		protectionLevels.addAll(ProtectionLevel.allProtectionLevels);
+		protectionLevels.addAll(ProtectionLevel.getAllProtectionLevels());
 		protectionLevels.remove(ProtectionLevel.UNASSIGNED);
 		for(ProtectionLevel pl : protectionLevels){
 			for(Permission permission : pl.getPermissions()){
@@ -40,9 +40,9 @@ public class SanityChecks {
 
 	@Test
 	public void testAllPermissionsAreAccountedForInProtectionLevels() {
-		for(Permission p : Permission.allPermissions){
+		for(Permission p : Permission.getAllPermissions()){
 			boolean permissionAccountedFor = false;
-			for(ProtectionLevel pl : ProtectionLevel.allProtectionLevels){
+			for(ProtectionLevel pl : ProtectionLevel.getAllProtectionLevels()){
 				if(pl.getPermissions().contains(p)){
 					permissionAccountedFor = true;
 					break;
@@ -58,7 +58,7 @@ public class SanityChecks {
 	@Test
 	public void testUnassignedPermissionGroupPermissionsAreNotAssigned() {
 		Collection<PermissionGroup> permissionGroups = new LinkedList<PermissionGroup>();
-		permissionGroups.addAll(PermissionGroup.allPermissionGroups);
+		permissionGroups.addAll(PermissionGroup.getAllPermissionGroups());
 		permissionGroups.remove(PermissionGroup.UNASSIGNED);
 		for(PermissionGroup pg : permissionGroups){
 			for(Permission permission : pg.getPermissions()){
@@ -72,9 +72,9 @@ public class SanityChecks {
 	
 	@Test
 	public void testAllPermissionsAreAccountedForInPermissionGroups() {
-		for(Permission p : Permission.allPermissions){
+		for(Permission p : Permission.getAllPermissions()){
 			boolean permissionAccountedFor = false;
-			for(PermissionGroup pg : PermissionGroup.allPermissionGroups){
+			for(PermissionGroup pg : PermissionGroup.getAllPermissionGroups()){
 				if(pg.getPermissions().contains(p)){
 					permissionAccountedFor = true;
 					break;

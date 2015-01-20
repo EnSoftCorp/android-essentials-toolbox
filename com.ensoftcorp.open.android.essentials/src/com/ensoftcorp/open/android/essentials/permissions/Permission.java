@@ -96,7 +96,7 @@ public class Permission {
 	 * @return
 	 */
 	public static Permission getPermissionByQualifiedName(String qualifiedName){
-		for(Permission permission : allPermissions){
+		for(Permission permission : getAllPermissions()){
 			if(permission.getQualifiedName().equals(qualifiedName)){
 				return permission;
 			}
@@ -111,7 +111,7 @@ public class Permission {
 	 * @return
 	 */
 	public static Permission getPermissionBySimpleName(String simpleName){
-		for(Permission permission : allPermissions){
+		for(Permission permission : getAllPermissions()){
 			if(permission.getSimpleName().equals(simpleName)){
 				return permission;
 			}
@@ -414,34 +414,13 @@ public class Permission {
 	public static final Permission READ_CELL_BROADCASTS = new Permission("android.permission.READ_CELL_BROADCASTS", -1, -1, "This permission is undocumented, its description has been scraped from the Android source.\nAllows an application to read previously received cell broadcast messages and to register a content observer to get notifications when a cell broadcast has been received and added to the database. For emergency alerts, the database is updated immediately after the alert dialog and notification sound/vibration/speech are presented. The \"read\" column is then updated after the user dismisses the alert. This enables supplementary emergency assistance apps to start loading additional emergency information (if Internet access is available) when the alert is first received, and to delay presenting the info to the user until after the initial alert dialog is dismissed. Pending API council approval", "Permission was found in https://raw.githubusercontent.com/android/platform_frameworks_base/master/core/res/AndroidManifest.xml, but not in https://developer.android.com/reference/android/Manifest.permission_group.html.");
 	
 	/**
-	 * A collection of all known permissions (the union of all known documented and undocumented permissions)
-	 * Note: Making changes to this collection may have unintended side effects.  Make a deep copy first or
-	 * call the Permission.allPermissions() method for a fresh instance.
-	 */
-	public static final Collection<Permission> allPermissions = allPermissions();
-	
-	/**
-	 * A collection of all known documented permissions
-	 * Note: Making changes to this collection may have unintended side effects.  Make a deep copy first or
-	 * call the Permission.allDocumentedPermissions() method for a fresh instance.
-	 */
-	public static final Collection<Permission> allDocumentedPermissions = allDocumentedPermissions();
-	
-	/**
-	 * A collection of all known undocumented permissions
-	 * Note: Making changes to this collection may have unintended side effects.  Make a deep copy first or
-	 * call the Permission.allUndocumentedPermissions() method for a fresh copy.
-	 */
-	public static final Collection<Permission> allUndocumentedPermissions = allUndocumentedPermissions();
-	
-	/**
 	 * Returns a collection of all known permissions (the union of all known documented and undocumented permissions)
 	 * @return
 	 */
-	public static Collection<Permission> allPermissions() {
+	public static Collection<Permission> getAllPermissions() {
 		Collection<Permission> allPermissions = new HashSet<Permission>();
-		allPermissions.addAll(allDocumentedPermissions());
-		allPermissions.addAll(allUndocumentedPermissions());
+		allPermissions.addAll(getAllDocumentedPermissions());
+		allPermissions.addAll(getAllUndocumentedPermissions());
 		return allPermissions;
 	}
 		
@@ -449,7 +428,7 @@ public class Permission {
 	 * Returns a collection of all known documented permissions
 	 * @return
 	 */
-	public static Collection<Permission> allDocumentedPermissions() {
+	public static Collection<Permission> getAllDocumentedPermissions() {
 		Collection<Permission> allDocumentedPermissions = new HashSet<Permission>();
 		allDocumentedPermissions.add(ADD_VOICEMAIL);
 		allDocumentedPermissions.add(INSTALL_SHORTCUT);
@@ -609,7 +588,7 @@ public class Permission {
 	 * Returns a collection of all known undocumented permissions
 	 * @return
 	 */
-	public static Collection<Permission> allUndocumentedPermissions() {
+	public static Collection<Permission> getAllUndocumentedPermissions() {
 		Collection<Permission> allUndocumentedPermissions = new HashSet<Permission>();
 		allUndocumentedPermissions.add(PROVIDE_TRUST_AGENT);
 		allUndocumentedPermissions.add(ACCESS_WIMAX_STATE);
