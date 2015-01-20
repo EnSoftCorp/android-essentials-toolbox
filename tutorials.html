@@ -40,12 +40,12 @@
 
 		<h3><a name="Setup" class="anchor" href="#Setup"><span class="octicon octicon-link"></span></a>Setup</h3>
 		<p>If you haven't already, <a href="./install.html">install</a> the Android Essentials Toolbox plugin into Eclipse.</p>
-		<p>Some example code exists in the sample <code>toolbox.analysis</code> and <code>toolbox.shell</code> projects.  The <code>toolbox.analysis</code> project contains Java examples that can be invoked on the sample <code>toolbox.shell</code> Atlas Shell project.</p>
+		<p>Some example code exists in the sample <code>example.analysis</code> and <code>example.shell</code> projects.  The <code>example.analysis</code> project contains Java examples that can be invoked on the sample <code>example.shell</code> Atlas Shell project.</p>
 		<pre><code>git clone https://github.com/android-essentials-toolbox/android-essentials-toolbox.git</code></pre>
-		<p>Import the <code>toolbox.analysis</code> and <code>toolbox.shell</code> projects into the Eclipse workspace.  Navigate to <code>Window</code> > <code>Show View</code> > <code>Other...</code> > <code>Atlas</code> > <code>Atlas Shell</code>.  Select the <code>toolbox.shell</code> project and press <code>OK</code>.  You should also import an Android Eclipse project.  There are several open source projects compiled for API level 15 at <a href="https://github.com/benjholla/Android-Applications">https://github.com/benjholla/Android-Applications</a>.</p>
+		<p>Import the <code>example.analysis</code> and <code>example.shell</code> projects into the Eclipse workspace.  Navigate to <code>Window</code> > <code>Show View</code> > <code>Other...</code> > <code>Atlas</code> > <code>Atlas Shell</code>.  Select the <code>example.shell</code> project and press <code>OK</code>.  You should also import an Android Eclipse project.  There are several open source projects compiled for API level 15 at <a href="https://github.com/benjholla/Android-Applications">https://github.com/benjholla/Android-Applications</a>.</p>
 		<p>Navigate to <code>Atlas</code> > <code>Manage Project Settings</code> and ensure that only the Android Eclipse project is in the window on the right for projects to be indexed.  Next index the Android application by pressing the Index Workspace button or navigating to <code>Atlas</code> > <code>Index Workspace</code>.</p>
-		<p>When indexing is complete, restart the Atlas Shell by pressing the red restart button in the Atlas Shell window.  Apply an Android API level permission mapping by running the following command on the Atlas Shell.  Replace 15 with your desired API level to be applied.</p>
-		<pre><code>PermissionMapping.applyTags(15)</code></pre>
+		<p>When indexing is complete, restart the Atlas Shell by pressing the red restart button in the Atlas Shell window.  Apply an Android API level permission mapping by running the following command on the Atlas Shell.  Replace 19 with your desired API level to be applied.</p>
+		<pre><code>PermissionMapping.applyTags(19)</code></pre>
 
 		<h3><a name="PermissionUsageView" class="anchor" href="#PermissionUsageView"><span class="octicon octicon-link"></span></a>Permission Usage View</h3>
 		<p>To open the Permission Usage View navigate to <code>Window</code> > <code>Show View</code> > <code>Other...</code> > <code>Atlas Toolbox</code> > <code>Permission Usage View</code>.  If the Permission Usage View was opened before the permission mapping was applied, you will need to refresh the view by pressing the red refresh button at the top right hand corner of the view.</p>
@@ -59,7 +59,7 @@
 		<br />
 		
         <h3><a name="RunningExamples" class="anchor" href="#RunningExamples"><span class="octicon octicon-link"></span></a>Running Examples</h3>
-		<p>Import the <code>toolbox.analysis</code> and <code>toolbox.shell</code> projects into the Eclipse workspace as outlined in the <a href="#Setup">Setup</a>.  To invoke the examples from the Atlas Shell project run the following commands. Assume that the workspace contains an indexed Android Eclipse project named <code>ConnectBot</code>.</p>
+		<p>Import the <code>example.analysis</code> and <code>example.shell</code> projects into the Eclipse workspace as outlined in the <a href="#Setup">Setup</a>.  To invoke the examples from the Atlas Shell project run the following commands. Assume that the workspace contains an indexed Android Eclipse project named <code>ConnectBot</code>.</p>
 		<pre><code>var targetSDKVersion = Example0.getApplicationTargetSDKVersion("ConnectBot")
 var success = Example0.applySDKPermissionMapping(targetSDKVersion)
 var internetPermissionUsed = Example1.isPermissionUsed(Permission.INTERNET, targetSDKVersion)
@@ -92,10 +92,10 @@ var underprivileged = Example4.isUnderprivileged("ConnectBot")
 	return success;
 }
 </code></pre>
-<p>To avoid manually entering the API levels, we can use the <code>Manifest</code> object's <code>getMinSDKVersion()</code>, <code>getMaxSDKVersion()</code>, or <code>getTargetSDKVersion()</code> to extract the appropriate API level from an Android Eclipse project's <code>AndroidManifest.xml</code> file.</p>
+<p>To avoid manually entering the API levels, we can use the <code>AndroidManifest</code> object's <code>getMinSDKVersion()</code>, <code>getMaxSDKVersion()</code>, or <code>getTargetSDKVersion()</code> to extract the appropriate API level from an Android Eclipse project's <code>AndroidManifest.xml</code> file.</p>
 <pre><code>public static int getApplicationTargetSDKVersion(String projectName) throws Exception {
 	// parse the manifest for the target sdk version
-	Manifest manifest = new Manifest(Manifest.getManifestFile(projectName));
+	AndroidManifest manifest = new AndroidManifest(AndroidManifest.getManifestFile(projectName));
 	return manifest.getTargetSDKVersion();
 }
 </code></pre>
@@ -152,7 +152,7 @@ public static Collection&lt;Permission&gt; getUsedProtectionLevelPermissions(Pro
 		<p>With support for parsing the requested permissions from an application's AndroidManifest.xml file, we can automatically detect used and unused permissions.</p>
 		<pre><code>public static Collection&lt;Permission&gt; getUsedPermissions(String projectName) throws Exception {
 	// parse the manifest for the target sdk version and the requested permissions
-	Manifest manifest = new Manifest(Manifest.getManifestFile(projectName));
+	AndroidManifest manifest = new AndroidManifest(AndroidManifest.getManifestFile(projectName));
 	int targetSDKVersion = manifest.getTargetSDKVersion();
 	Collection&lt;Permission&gt; requestedPermissions = manifest.getUsesPermissions();
 	// create a collection of unused permissions
@@ -167,7 +167,7 @@ public static Collection&lt;Permission&gt; getUsedProtectionLevelPermissions(Pro
 
 public static Collection&lt;Permission&gt; getUnusedPermissions(String projectName) throws Exception {
 	// parse the manifest for the target sdk version and the requested permissions
-	Manifest manifest = new Manifest(Manifest.getManifestFile(projectName));
+	AndroidManifest manifest = new AndroidManifest(AndroidManifest.getManifestFile(projectName));
 	int targetSDKVersion = manifest.getTargetSDKVersion();
 	Collection&lt;Permission&gt; requestedPermissions = manifest.getUsesPermissions();
 	// create a collection of unused permissions
@@ -189,7 +189,7 @@ public static Collection&lt;Permission&gt; getUnusedPermissions(String projectNa
 
 public static boolean isUnderprivileged(String projectName) throws Exception {
 	// parse the manifest for the target sdk version and the requested permissions
-	Manifest manifest = new Manifest(Manifest.getManifestFile(projectName));
+	AndroidManifest manifest = new AndroidManifest(AndroidManifest.getManifestFile(projectName));
 	int targetSDKVersion = manifest.getTargetSDKVersion();
 	Collection&lt;Permission&gt; requestedPermissions = manifest.getUsesPermissions();
 	// search for permissions that are used but not requested
