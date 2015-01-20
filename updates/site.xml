@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/com.ensoftcorp.open.android.essentials_2.0.5.201501201531.jar" id="com.ensoftcorp.open.android.essentials" version="2.0.5.201501201531">
+   <feature url="features/com.ensoftcorp.open.android.essentials_2.0.5.201501201548.jar" id="com.ensoftcorp.open.android.essentials" version="2.0.5.201501201548">
       <category name="com.ensoftcorp.open.toolbox.commons"/>
    </feature>
    <category-def name="com.ensoftcorp.open.toolbox.commons" label="Android Essentials Toolbox">
