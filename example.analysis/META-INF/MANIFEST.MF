@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Example Analysis Toolbox
-Bundle-SymbolicName: toolbox.analysis;singleton:=true
+Bundle-SymbolicName: example.analysis;singleton:=true
 Bundle-Version: 2.0.5.qualifier
 Bundle-Vendor: EnSoft Corp.
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

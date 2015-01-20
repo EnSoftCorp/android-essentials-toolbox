@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Example Shell
-Bundle-SymbolicName: toolbox.shell
+Bundle-SymbolicName: example.shell
 Bundle-Version: 2.0.5.qualifier
 Bundle-Vendor: EnSoft Corp.
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
@@ -19,4 +19,4 @@ Require-Bundle:
  com.ensoftcorp.atlas.java.ui;bundle-version="2.0.5",
  com.ensoftcorp.atlas.ui;bundle-version="2.0.5",
  com.ensoftcorp.atlas.ui.shell;bundle-version="2.0.5",
- toolbox.analysis;bundle-version="2.0.5"
+ example.analysis;bundle-version="2.0.5"
