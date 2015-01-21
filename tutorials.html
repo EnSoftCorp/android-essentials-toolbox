@@ -22,45 +22,45 @@
         <header>
           <h1>Android Essentials Toolbox</h1>
           <h2>A set of building blocks for analyzing Android apps</h2>
-		  <br />
-		  <center>
-			<b><a href="./index.html">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./install.html">Install</a>&nbsp;&nbsp;&nbsp;&nbsp;Tutorials</b>
-		  </center>
+          <br />
+          <center>
+            <b><a href="./index.html">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./install.html">Install</a>&nbsp;&nbsp;&nbsp;&nbsp;Tutorials</b>
+          </center>
         </header>
-		<center>
-			<b><a href="#Setup">Setup</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PermissionUsageView">Permission Usage View</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#RunningExamples">Running Examples</a></b>
-		</center>
-		<center>
-			<b><a href="#Example0">Example 0</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Example1">Example 1</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Example2">Example 2</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Example3">Example 3</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Example4">Example 4</a></b>
-		</center>
-		
+        <center>
+            <b><a href="#Setup">Setup</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#PermissionUsageView">Permission Usage View</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#RunningExamples">Running Examples</a></b>
+        </center>
+        <center>
+            <b><a href="#Example0">Example 0</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Example1">Example 1</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Example2">Example 2</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Example3">Example 3</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Example4">Example 4</a></b>
+        </center>
+        
         <hr>
 
         <section id="main_content">
 
-		<h3><a name="Setup" class="anchor" href="#Setup"><span class="octicon octicon-link"></span></a>Setup</h3>
-		<p>If you haven't already, <a href="./install.html">install</a> the Android Essentials Toolbox plugin into Eclipse.</p>
-		<p>Some example code exists in the sample <code>example.analysis</code> and <code>example.shell</code> projects.  The <code>example.analysis</code> project contains Java examples that can be invoked on the sample <code>example.shell</code> Atlas Shell project.</p>
-		<pre><code>git clone https://github.com/android-essentials-toolbox/android-essentials-toolbox.git</code></pre>
-		<p>Import the <code>example.analysis</code> and <code>example.shell</code> projects into the Eclipse workspace.  Navigate to <code>Window</code> > <code>Show View</code> > <code>Other...</code> > <code>Atlas</code> > <code>Atlas Shell</code>.  Select the <code>example.shell</code> project and press <code>OK</code>.  You should also import an Android Eclipse project.  There are several open source projects compiled for API level 15 at <a href="https://github.com/benjholla/Android-Applications">https://github.com/benjholla/Android-Applications</a>.</p>
-		<p>Navigate to <code>Atlas</code> > <code>Manage Project Settings</code> and ensure that only the Android Eclipse project is in the window on the right for projects to be indexed.  Next index the Android application by pressing the Index Workspace button or navigating to <code>Atlas</code> > <code>Index Workspace</code>.</p>
-		<p>When indexing is complete, restart the Atlas Shell by pressing the red restart button in the Atlas Shell window.  Apply an Android API level permission mapping by running the following command on the Atlas Shell.  Replace 19 with your desired API level to be applied.</p>
-		<pre><code>PermissionMapping.applyTags(19)</code></pre>
+        <h3><a name="Setup" class="anchor" href="#Setup"><span class="octicon octicon-link"></span></a>Setup</h3>
+        <p>If you haven't already, <a href="./install.html">install</a> the Android Essentials Toolbox plugin into Eclipse.</p>
+        <p>Some example code exists in the sample <code>example.analysis</code> and <code>example.shell</code> projects.  The <code>example.analysis</code> project contains Java examples that can be invoked on the sample <code>example.shell</code> Atlas Shell project.</p>
+        <pre><code>git clone https://github.com/android-essentials-toolbox/android-essentials-toolbox.git</code></pre>
+        <p>Import the <code>example.analysis</code> and <code>example.shell</code> projects into the Eclipse workspace.  Navigate to <code>Window</code> > <code>Show View</code> > <code>Other...</code> > <code>Atlas</code> > <code>Atlas Shell</code>.  Select the <code>example.shell</code> project and press <code>OK</code>.  You should also import an Android Eclipse project.  There are several open source projects compiled for API level 15 at <a href="https://github.com/benjholla/Android-Applications">https://github.com/benjholla/Android-Applications</a>.</p>
+        <p>Navigate to <code>Atlas</code> > <code>Manage Project Settings</code> and ensure that only the Android Eclipse project is in the window on the right for projects to be indexed.  Next index the Android application by pressing the Index Workspace button or navigating to <code>Atlas</code> > <code>Index Workspace</code>.</p>
+        <p>When indexing is complete, restart the Atlas Shell by pressing the red restart button in the Atlas Shell window.  Apply an Android API level permission mapping by running the following command on the Atlas Shell.  Replace 19 with your desired API level to be applied.</p>
+        <pre><code>PermissionMapping.applyTags(19)</code></pre>
 
-		<h3><a name="PermissionUsageView" class="anchor" href="#PermissionUsageView"><span class="octicon octicon-link"></span></a>Permission Usage View</h3>
-		<p>To open the Permission Usage View navigate to <code>Window</code> > <code>Show View</code> > <code>Other...</code> > <code>Atlas Toolbox</code> > <code>Permission Usage View</code>.  If the Permission Usage View was opened before the permission mapping was applied, you will need to refresh the view by pressing the red refresh button at the top right hand corner of the view.</p>
-		<p>By default the Permission Usage View shows used permissions in red, categorized by permission group and protection level.  At the lowest level of the tree is the callsite of the application method that called the permission protected method.  The Permission Usage View contains options for filtering by usage and collapsing nodes in the tree by pressing the filter buttons lcoated in the top right hand corner of the view.  You can also enable keyword searching by selecting the <code>Filter by Permission</code> checkbox.</p>
-		<img src="./images/tutorials/PermissionUsageView1.png" alt="PermissionUsageView1" width="100%" />
-		<br />
-		<br />
-		<p>Double clicking on a callsite in the Permission Usage View opens an Atlas graph window, which can be clicked to jump to the corresponding source code.</p>
-		<img src="./images/tutorials/PermissionUsageView2.png" alt="PermissionUsageView2" width="100%" />
-		<br />
-		<br />
-		
+        <h3><a name="PermissionUsageView" class="anchor" href="#PermissionUsageView"><span class="octicon octicon-link"></span></a>Permission Usage View</h3>
+        <p>To open the Permission Usage View navigate to <code>Window</code> > <code>Show View</code> > <code>Other...</code> > <code>Atlas Toolbox</code> > <code>Permission Usage View</code>.  If the Permission Usage View was opened before the permission mapping was applied, you will need to refresh the view by pressing the red refresh button at the top right hand corner of the view.</p>
+        <p>By default the Permission Usage View shows used permissions in red, categorized by permission group and protection level.  At the lowest level of the tree is the callsite of the application method that called the permission protected method.  The Permission Usage View contains options for filtering by usage and collapsing nodes in the tree by pressing the filter buttons lcoated in the top right hand corner of the view.  You can also enable keyword searching by selecting the <code>Filter by Permission</code> checkbox.</p>
+        <img src="./images/tutorials/PermissionUsageView1.png" alt="PermissionUsageView1" width="100%" />
+        <br />
+        <br />
+        <p>Double clicking on a callsite in the Permission Usage View opens an Atlas graph window, which can be clicked to jump to the corresponding source code.</p>
+        <img src="./images/tutorials/PermissionUsageView2.png" alt="PermissionUsageView2" width="100%" />
+        <br />
+        <br />
+        
         <h3><a name="RunningExamples" class="anchor" href="#RunningExamples"><span class="octicon octicon-link"></span></a>Running Examples</h3>
-		<p>Import the <code>example.analysis</code> and <code>example.shell</code> projects into the Eclipse workspace as outlined in the <a href="#Setup">Setup</a>.  To invoke the examples from the Atlas Shell project run the following commands. Assume that the workspace contains an indexed Android Eclipse project named <code>ConnectBot</code>.</p>
-		<pre><code>var targetSDKVersion = Example0.getApplicationTargetSDKVersion("ConnectBot")
+        <p>Import the <code>example.analysis</code> and <code>example.shell</code> projects into the Eclipse workspace as outlined in the <a href="#Setup">Setup</a>.  To invoke the examples from the Atlas Shell project run the following commands. Assume that the workspace contains an indexed Android Eclipse project named <code>ConnectBot</code>.</p>
+        <pre><code>var targetSDKVersion = Example0.getApplicationTargetSDKVersion("ConnectBot")
 var success = Example0.applySDKPermissionMapping(targetSDKVersion)
 var internetPermissionUsed = Example1.isPermissionUsed(Permission.INTERNET, targetSDKVersion)
 var networkPermissionGroupUsed = Example2.isPermissionGroupUsed(PermissionGroup.NETWORK, targetSDKVersion)
@@ -70,153 +70,143 @@ var unusedPerms = Example3.getUnusedPermissions("ConnectBot")
 var overprivileged = Example4.isOverprivileged("ConnectBot")
 var underprivileged = Example4.isUnderprivileged("ConnectBot")
 </code></pre>
-		
-		<h3><a name="Example0" class="anchor" href="#Example0"><span class="octicon octicon-link"></span></a>Example 0: Applying a permission mapping</h3>
-		<p>Before an application's permissions can be analyzed the Atlas program graph must be annotated (tagged) with a permission mapping.  To do this we simply call <code>PermissionMapping.applyTags(sdkVersion)</code> with the Android API level (ex: 19) that we want to apply.  The method below does this, but makes additional checks to see if the permission mapping is already applied and that the new permission mappings are successfully applied.</p>
+        
+        <h3><a name="Example0" class="anchor" href="#Example0"><span class="octicon octicon-link"></span></a>Example 0: Applying a permission mapping</h3>
+        <p>Before an application's permissions can be analyzed the Atlas program graph must be annotated (tagged) with a permission mapping.  To do this we simply call <code>PermissionMapping.applyTags(sdkVersion)</code> with the Android API level (ex: 19) that we want to apply.  The method below does this, but makes additional checks to see if the permission mapping is already applied and that the new permission mappings are successfully applied.</p>
 <pre><code>public static boolean applySDKPermissionMapping(int sdkVersion) throws Exception {
-	// check if the permission mapping has already been applied
-	String tagPrefix = PermissionMapping.getTagPrefix(sdkVersion);
-	if(!CommonQueries.nodesStartingWith(tagPrefix).eval().nodes().isEmpty()){
-		return true; // permission mapping has already been applied
-	}
-	// need to apply permission mapping
-	HashMap&lt;Permission, AtlasHashSet&lt;GraphElement&gt;&gt; permissionMapping = PermissionMapping.applyTags(sdkVersion);
-	// permission mapping is successful if for at least one permission, a tag was applied to the graph
-	boolean success = false;
-	for(Entry&lt;Permission, AtlasHashSet&lt;GraphElement&gt;&gt; mapping : permissionMapping.entrySet()){
-		if(mapping.getValue().size() &gt; 0){
-			success = true;
-			break;
-		}
-	}
-	return success;
+    // check if the permission mapping has already been applied
+    String tagPrefix = PermissionMapping.getTagPrefix(sdkVersion);
+    if(!CommonQueries.nodesStartingWith(tagPrefix).eval().nodes().isEmpty()){
+        return true; // permission mapping has already been applied
+    }
+    // need to apply permission mapping
+    HashMap&lt;Permission, AtlasHashSet&lt;GraphElement&gt;&gt; permissionMapping = PermissionMapping.applyTags(sdkVersion);
+    // permission mapping is successful if for at least one permission, a tag was applied to the graph
+    boolean success = false;
+    for(Entry&lt;Permission, AtlasHashSet&lt;GraphElement&gt;&gt; mapping : permissionMapping.entrySet()){
+        if(mapping.getValue().size() &gt; 0){
+            success = true;
+            break;
+        }
+    }
+    return success;
 }
 </code></pre>
 <p>To avoid manually entering the API levels, we can use the <code>AndroidManifest</code> object's <code>getMinSDKVersion()</code>, <code>getMaxSDKVersion()</code>, or <code>getTargetSDKVersion()</code> to extract the appropriate API level from an Android Eclipse project's <code>AndroidManifest.xml</code> file.</p>
 <pre><code>public static int getApplicationTargetSDKVersion(String projectName) throws Exception {
-	// parse the manifest for the target sdk version
-	AndroidManifest manifest = new AndroidManifest(AndroidManifest.getManifestFile(projectName));
-	return manifest.getTargetSDKVersion();
+    // parse the manifest for the target sdk version
+    AndroidManifest manifest = new AndroidManifest(AndroidManifest.getManifestFile(projectName));
+    return manifest.getTargetSDKVersion();
 }
 </code></pre>
 
-		<h3><a name="Example1" class="anchor" href="#Example1"><span class="octicon octicon-link"></span></a>Example 1: Permission analysis</h3>
-		<p>Determining if a permission is used (if a direct CALL edge exists to the API protected method in the program graph from a method in the application) we can write a simple graph traversal.</p>
-		<p>Note that this definition excludes uses of permissions through Java Reflection, class loaders, native code, and shell processes (<code>Runtime.exec</code>).</p>
+        <h3><a name="Example1" class="anchor" href="#Example1"><span class="octicon octicon-link"></span></a>Example 1: Permission analysis</h3>
+        <p>Determining if a permission is used (if a direct CALL edge exists to the API protected method in the program graph from a method in the application) we can write a simple graph traversal.</p>
+        <p>Note that this definition excludes uses of permissions through Java Reflection, class loaders, native code, and shell processes (<code>Runtime.exec</code>).</p>
 <pre><code>public static boolean isPermissionUsed(Permission permission, int apiVersion) {
-	// create a subgraph of the complete program graph containing only call edges and the nodes attached to those edges
-	Q callEdges = Common.universe().edgesTaggedWithAny(Edge.CALL).retainEdges();
+    // create a subgraph of the complete program graph containing only call edges and the nodes attached to those edges
+    Q callEdges = Common.universe().edgesTaggedWithAny(Edge.CALL).retainEdges();
 
-	// get the permission protected API methods for the permission and version of Android
-	Q permissionProtectedMethods = PermissionMapping.getMethods(permission, apiVersion);
+    // get the permission protected API methods for the permission and version of Android
+    Q permissionProtectedMethods = PermissionMapping.getMethods(permission, apiVersion);
 
-	// get the calling methods of the permission protected API methods
-	Q permissionProtectedMethodCallers = callEdges.predecessors(permissionProtectedMethods);
+    // get the calling methods of the permission protected API methods
+    Q permissionProtectedMethodCallers = callEdges.predecessors(permissionProtectedMethods);
 
-	// get the calling methods of the permission protected API methods that also exist in the Android app
-	Q permissionProtectedMethodAppCallers = permissionProtectedMethodCallers.intersection(SetDefinitions.app());
+    // get the calling methods of the permission protected API methods that also exist in the Android app
+    Q permissionProtectedMethodAppCallers = permissionProtectedMethodCallers.intersection(SetDefinitions.app());
 
-	// return true if there are callers of the permission protected APIs in the Android app
-	return permissionProtectedMethodAppCallers.eval().nodes().size() != 0;
+    // return true if there are callers of the permission protected APIs in the Android app
+    return permissionProtectedMethodAppCallers.eval().nodes().size() != 0;
 }
 </code></pre>
 
-		<h3><a name="Example2" class="anchor" href="#Example2"><span class="octicon octicon-link"></span></a>Example 2: Permission group and protection level analysis</h3>
-		<p>Since the relationships between permissions and permission groups as well as permissions and protection levels is already encoded into the Android Essentials Toolbox, its trivial to extend our permission analysis to both permission groups and protection levels.</p>
-		<pre><code>public static Collection&lt;Permission&gt; getUsedPermissionGroupPermissions(PermissionGroup permissionGroup, int apiVersion) {
-	Collection&lt;Permission&gt; usedPermissions = new LinkedList&lt;Permission&gt;();
-	// for each permission in the given permission group
-	for(Permission permission : permissionGroup.getPermissions()){
-		// check and add permission if it is used
-		if(Example1.isPermissionUsed(permission, apiVersion)){
-			usedPermissions.add(permission);
-		}
-	}
-	return usedPermissions;
+        <h3><a name="Example2" class="anchor" href="#Example2"><span class="octicon octicon-link"></span></a>Example 2: Permission group and protection level analysis</h3>
+        <p>Since the relationships between permissions and permission groups as well as permissions and protection levels is already encoded into the Android Essentials Toolbox, its trivial to extend our permission analysis to both permission groups and protection levels.</p>
+        <pre><code>public static Collection&lt;Permission&gt; getUsedPermissionGroupPermissions(PermissionGroup permissionGroup, int apiVersion) {
+    Collection&lt;Permission&gt; usedPermissions = new LinkedList&lt;Permission&gt;();
+    // for each permission in the given permission group
+    for(Permission permission : permissionGroup.getPermissions()){
+        // check and add permission if it is used
+        if(Example1.isPermissionUsed(permission, apiVersion)){
+            usedPermissions.add(permission);
+        }
+    }
+    return usedPermissions;
 }
 
 public static Collection&lt;Permission&gt; getUsedProtectionLevelPermissions(ProtectionLevel protectionLevel, int apiVersion) {
-	Collection&lt;Permission&gt; usedPermissions = new LinkedList&lt;Permission&gt;();
-	// for each permission in the given protection level
-	for(Permission permission : protectionLevel.getPermissions()){
-		// check and add permission if it is used
-		if(Example1.isPermissionUsed(permission, apiVersion)){
-			usedPermissions.add(permission);
-		}
-	}
-	return usedPermissions;
+    Collection&lt;Permission&gt; usedPermissions = new LinkedList&lt;Permission&gt;();
+    // for each permission in the given protection level
+    for(Permission permission : protectionLevel.getPermissions()){
+        // check and add permission if it is used
+        if(Example1.isPermissionUsed(permission, apiVersion)){
+            usedPermissions.add(permission);
+        }
+    }
+    return usedPermissions;
 }
 </code></pre>
-		
-		<h3><a name="Example3" class="anchor" href="#Example3"><span class="octicon octicon-link"></span></a>Example 3: Finding used/unused application permissions</h3>
-		<p>With support for parsing the requested permissions from an application's AndroidManifest.xml file, we can automatically detect used and unused permissions.</p>
-		<pre><code>public static Collection&lt;Permission&gt; getUsedPermissions(String projectName) throws Exception {
-	// parse the manifest for the target sdk version and the requested permissions
-	AndroidManifest manifest = new AndroidManifest(AndroidManifest.getManifestFile(projectName));
-	int targetSDKVersion = manifest.getTargetSDKVersion();
-	Collection&lt;Permission&gt; requestedPermissions = manifest.getUsesPermissions();
-	// create a collection of unused permissions
-	Collection&lt;Permission&gt; usedPermissions = new LinkedList&lt;Permission&gt;();
-	for(Permission permission : requestedPermissions){
-		if(Example1.isPermissionUsed(permission, targetSDKVersion)){
-			usedPermissions.add(permission);
-		}
-	}
-	return usedPermissions;
+        
+        <h3><a name="Example3" class="anchor" href="#Example3"><span class="octicon octicon-link"></span></a>Example 3: Finding used/unused application permissions</h3>
+        <p>With support for parsing the requested permissions from an application's AndroidManifest.xml file, we can automatically detect used and unused permissions.</p>
+        <pre><code>public static Collection&lt;Permission&gt; getUsedPermissions(String projectName) throws Exception {
+    // parse the manifest for the target sdk version and the requested permissions
+    AndroidManifest manifest = new AndroidManifest(AndroidManifest.getManifestFile(projectName));
+    int targetSDKVersion = manifest.getTargetSDKVersion();
+    Collection&lt;Permission&gt; requestedPermissions = manifest.getUsesPermissions();
+    // create a collection of unused permissions
+    Collection&lt;Permission&gt; usedPermissions = new LinkedList&lt;Permission&gt;();
+    for(Permission permission : requestedPermissions){
+        if(Example1.isPermissionUsed(permission, targetSDKVersion)){
+            usedPermissions.add(permission);
+        }
+    }
+    return usedPermissions;
 }
 
 public static Collection&lt;Permission&gt; getUnusedPermissions(String projectName) throws Exception {
-	// parse the manifest for the target sdk version and the requested permissions
-	AndroidManifest manifest = new AndroidManifest(AndroidManifest.getManifestFile(projectName));
-	int targetSDKVersion = manifest.getTargetSDKVersion();
-	Collection&lt;Permission&gt; requestedPermissions = manifest.getUsesPermissions();
-	// create a collection of unused permissions
-	Collection&lt;Permission&gt; unusedPermissions = new LinkedList&lt;Permission&gt;();
-	for(Permission permission : requestedPermissions){
-		if(!Example1.isPermissionUsed(permission, targetSDKVersion)){
-			unusedPermissions.add(permission);
-		}
-	}
-	return unusedPermissions;
+    // parse the manifest for the target sdk version and the requested permissions
+    AndroidManifest manifest = new AndroidManifest(AndroidManifest.getManifestFile(projectName));
+    int targetSDKVersion = manifest.getTargetSDKVersion();
+    Collection&lt;Permission&gt; requestedPermissions = manifest.getUsesPermissions();
+    // create a collection of unused permissions
+    Collection&lt;Permission&gt; unusedPermissions = new LinkedList&lt;Permission&gt;();
+    for(Permission permission : requestedPermissions){
+        if(!Example1.isPermissionUsed(permission, targetSDKVersion)){
+            unusedPermissions.add(permission);
+        }
+    }
+    return unusedPermissions;
 }
 </code></pre>
-		
-		<h3><a name="Example4" class="anchor" href="#Example4"><span class="octicon octicon-link"></span></a>Example 4: Analyzing over/under-privileged apps</h3>
-		<p>Finally, if we wanted to replicate a tool similar to Berkeley's <a href="http://www.android-permissions.org/">Stowaway tool</a> for an application <a href="http://www.cs.berkeley.edu/~dawnsong/papers/2011%20Android%20permissions%20demystified.pdf">permission over/under-privileged study</a> the implementation becomes straightforward by building on the previous examples.</p>
-		<pre><code>public static boolean isOverprivileged(String projectName) throws Exception {
-	return !Example3.getUnusedPermissions(projectName).isEmpty();
+        
+        <h3><a name="Example4" class="anchor" href="#Example4"><span class="octicon octicon-link"></span></a>Example 4: Analyzing over/under-privileged apps</h3>
+        <p>Finally, if we wanted to replicate a tool similar to Berkeley's <a href="http://www.android-permissions.org/">Stowaway tool</a> for an application <a href="http://www.cs.berkeley.edu/~dawnsong/papers/2011%20Android%20permissions%20demystified.pdf">permission over/under-privileged study</a> the implementation becomes straightforward by building on the previous examples.</p>
+        <pre><code>public static boolean isOverprivileged(String projectName) throws Exception {
+    return !Example3.getUnusedPermissions(projectName).isEmpty();
 }
 
 public static boolean isUnderprivileged(String projectName) throws Exception {
-	// parse the manifest for the target sdk version and the requested permissions
-	AndroidManifest manifest = new AndroidManifest(AndroidManifest.getManifestFile(projectName));
-	int targetSDKVersion = manifest.getTargetSDKVersion();
-	Collection&lt;Permission&gt; requestedPermissions = manifest.getUsesPermissions();
-	// search for permissions that are used but not requested
-	for(Permission permission : Permission.allPermissions){
-		if(Example1.isPermissionUsed(permission, targetSDKVersion)){
-			if(!requestedPermissions.contains(permission)){
-				return true;
-			}
-		}
-	}
-	return false;
+    // parse the manifest for the target sdk version and the requested permissions
+    AndroidManifest manifest = new AndroidManifest(AndroidManifest.getManifestFile(projectName));
+    int targetSDKVersion = manifest.getTargetSDKVersion();
+    Collection&lt;Permission&gt; requestedPermissions = manifest.getUsesPermissions();
+    // search for permissions that are used but not requested
+    for(Permission permission : Permission.allPermissions){
+        if(Example1.isPermissionUsed(permission, targetSDKVersion)){
+            if(!requestedPermissions.contains(permission)){
+                return true;
+            }
+        }
+    }
+    return false;
 }
 </code></pre>
 
         <footer>
           Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
         </footer>
-
-        <script>
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-		  ga('create', 'UA-58769018-1', 'auto');
-		  ga('send', 'pageview');
-		</script>
 
       </div>
     </div>
