@@ -2,7 +2,7 @@
 <feature
       id="com.ensoftcorp.open.android.essentials"
       label="Android Essentials Toolbox"
-      version="2.0.5.qualifier"
+      version="2.0.6.qualifier"
       provider-name="EnSoft Corp.">
 
    <description url="https://ensoftcorp.github.io/android-essentials-toolbox">
@@ -40,6 +40,7 @@ SOFTWARE.
    <url>
       <update label="ensoftcorp.github.io" url="https://ensoftcorp.github.io/android-essentials-toolbox/updates/"/>
       <discovery label="ensoftcorp.github.io" url="https://ensoftcorp.github.io/android-essentials-toolbox/updates/"/>
+      <discovery label="ensoftcorp.github.io" url="https://ensoftcorp.github.io/toolbox-commons/updates/"/>
    </url>
 
    <requires>
@@ -58,7 +59,7 @@ SOFTWARE.
          id="com.ensoftcorp.open.android.essentials"
          download-size="0"
          install-size="0"
-         version="2.0.5.qualifier"
+         version="2.0.6.qualifier"
          unpack="false"/>
 
 </feature>
