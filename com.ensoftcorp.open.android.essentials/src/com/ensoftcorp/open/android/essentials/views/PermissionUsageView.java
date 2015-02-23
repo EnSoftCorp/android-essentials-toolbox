@@ -1,5 +1,7 @@
 package com.ensoftcorp.open.android.essentials.views;
 
+import java.io.IOException;
+
 import org.eclipse.debug.internal.ui.DebugPluginImages;
 import org.eclipse.debug.internal.ui.IInternalDebugUIConstants;
 import org.eclipse.jface.action.Action;
@@ -159,7 +161,12 @@ public class PermissionUsageView extends ViewPart {
 				Object data = tree.getSelection()[0].getData();
 				if (data instanceof GraphElement) {
 					GraphElement graphElement = (GraphElement) data;
-					detailsText.setText(prettyPrintGraphElement(graphElement));
+					try {
+						detailsText.setText(prettyPrintGraphElement(graphElement));
+					} catch (IOException e) {
+						// unknown data, just clear out the text display
+						detailsText.setText("");
+					}
 					Q q = Common.toQ(Common.toGraph(graphElement));
 					String graphElementName = getQualifiedMethodName(graphElement);
 					DisplayUtils.show(q, null, true, graphElementName);
@@ -188,7 +195,12 @@ public class PermissionUsageView extends ViewPart {
 					detailsText.setText(displayText);
 				} else if (data instanceof GraphElement) {
 					GraphElement graphElement = (GraphElement) data;
-					detailsText.setText(prettyPrintGraphElement(graphElement));
+					try {
+						detailsText.setText(prettyPrintGraphElement(graphElement));
+					} catch (IOException e) {
+						// unknown data, just clear out the text display
+						detailsText.setText("");
+					}
 				} else {
 					// unknown data, just clear out the text display
 					detailsText.setText("");
@@ -406,7 +418,7 @@ public class PermissionUsageView extends ViewPart {
 		tree.update(); // force an update, sometimes the tree needs a hint...
 	}
 	
-	private String prettyPrintGraphElement(GraphElement ge){
+	private String prettyPrintGraphElement(GraphElement ge) throws IOException{
 		String tags = ge.tags().toString();
 		FormattedSourceCorrespondence sc = FormattedSourceCorrespondence.getSourceCorrespondent(ge);
 		if(sc != null){
