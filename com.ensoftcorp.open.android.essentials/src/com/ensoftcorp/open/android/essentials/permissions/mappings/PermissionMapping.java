@@ -26,7 +26,7 @@ import com.ensoftcorp.open.android.essentials.permissions.ProtectionLevel;
  */
 public class PermissionMapping {
 	
-	public static final int HIGHEST_AVAILABLE_MAPPING = 19;
+	public static final int HIGHEST_AVAILABLE_MAPPING = 21;
 	
 	private static final String MAPPING_FILENAME_PREFIX = "API";
 	
@@ -106,6 +106,16 @@ public class PermissionMapping {
 		case 17:
 		case 18:
 		case 19:
+			prefix = "19-";
+			break;
+		case 20:
+			// api 20 seems to have been skipped or is just practically 21?
+			// https://en.wikipedia.org/wiki/Android_version_history#Android_4.4_KitKat_with_wearable_extensions_.28API_level_20.29
+			prefix = "21-"; 
+			break;
+		case 21:
+			prefix = "21-";
+			break;
 		default: // default to the highest known mapping
 			prefix = HIGHEST_AVAILABLE_MAPPING + "-";
 		}
@@ -168,6 +178,16 @@ public class PermissionMapping {
 		case 17:
 		case 18:
 		case 19:
+			apiVersion = 19;
+			break;
+		case 20:
+			// api 20 seems to have been skipped or is just practically 21?
+			// https://en.wikipedia.org/wiki/Android_version_history#Android_4.4_KitKat_with_wearable_extensions_.28API_level_20.29
+			apiVersion = 21;
+			break;
+		case 21:
+			apiVersion = 21;
+			break;
 		default: // default to the highest known mapping
 			apiVersion = HIGHEST_AVAILABLE_MAPPING;
 		}
