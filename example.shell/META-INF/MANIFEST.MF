@@ -2,21 +2,16 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Example Shell
 Bundle-SymbolicName: example.shell
-Bundle-Version: 2.0.6.qualifier
+Bundle-Version: 2.1.2.qualifier
 Bundle-Vendor: EnSoft Corp.
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Require-Bundle: 
- org.eclipse.core.runtime,
- org.scala-ide.scala.library,
- org.scala-ide.sbt.full.library,
- org.scala-ide.scala.compiler,
- org.scala-ide.sdt.aspects,
- org.scala-ide.sdt.core,
- org.scala-refactoring.library,
- com.ensoftcorp.atlas.scalaide;bundle-version="2.0.6",
- com.ensoftcorp.atlas.core;bundle-version="2.0.6",
- com.ensoftcorp.atlas.java.core;bundle-version="2.0.6",
- com.ensoftcorp.atlas.java.ui;bundle-version="2.0.6",
- com.ensoftcorp.atlas.ui;bundle-version="2.0.6",
- com.ensoftcorp.atlas.ui.shell;bundle-version="2.0.6",
- example.analysis;bundle-version="2.0.6"
+Require-Bundle: org.scala-lang.scala-library,
+ com.ensoftcorp.abp;bundle-version="2.1.2",
+ com.ensoftcorp.atlas.core;bundle-version="2.1.2",
+ com.ensoftcorp.atlas.ui.shell;bundle-version="2.1.2",
+ com.ensoftcorp.atlas.java.core;bundle-version="2.1.2",
+ org.eclipse.ui;bundle-version="3.106.1",
+ org.eclipse.jdt.launching;bundle-version="3.7.102",
+ org.eclipse.core.runtime;bundle-version="3.10.0";visibility:=reexport,
+ example.analysis;bundle-version="2.1.2"
+
