@@ -21,8 +21,9 @@ import com.ensoftcorp.open.android.essentials.permissions.PermissionGroup;
 import com.ensoftcorp.open.android.essentials.permissions.ProtectionLevel;
 
 /**
- * @author Ben Holland
- *
+ * Applies permission mapping results on the Atlas program graph
+ * 
+ * @author Ben Holland, Yuqing Chen, Xing Yan
  */
 public class PermissionMapping {
 	
