@@ -104,12 +104,10 @@ public class PermissionMapping {
 	public static int getBestAvailableMapping(int apiVersion) {
 		int version = -1;
 		// search for the requested mapping or next available mapping
-		if(apiVersion > 0){
-			for(int i=apiVersion; i<PERMISSION_MAPPING_RESOURCES.size(); i++){
-				if(PERMISSION_MAPPING_RESOURCES.get(i) != null){
-					version = i;
-					break;
-				}
+		for(int i = (apiVersion-1); i>=0 && i<PERMISSION_MAPPING_RESOURCES.size(); i++){
+			if(PERMISSION_MAPPING_RESOURCES.get(i) != null){
+				version = (i+1);
+				break;
 			}
 		}
 		// if mapping is still not found, just default to the highest available mapping
