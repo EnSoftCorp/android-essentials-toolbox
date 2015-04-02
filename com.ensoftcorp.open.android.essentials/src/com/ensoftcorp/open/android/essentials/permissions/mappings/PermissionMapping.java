@@ -1,5 +1,6 @@
 package com.ensoftcorp.open.android.essentials.permissions.mappings;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -20,15 +21,29 @@ import com.ensoftcorp.open.android.essentials.permissions.PermissionGroup;
 import com.ensoftcorp.open.android.essentials.permissions.ProtectionLevel;
 
 /**
- * 
  * @author Ben Holland
  *
  */
 public class PermissionMapping {
 	
+	/**
+	 * Defines the highest available permission mapping, if no mapping can be found 
+	 * for the requested version this is the default.
+	 */
 	public static final int HIGHEST_AVAILABLE_MAPPING = 21;
 	
 	private static final String MAPPING_FILENAME_PREFIX = "API";
+	private static final ArrayList<InputStream> PERMISSION_MAPPING_RESOURCES = findPermissionMappingResources();
+	
+	// helper method to locate all available mappings up to the highest available mapping
+	private static ArrayList<InputStream> findPermissionMappingResources(){
+		ArrayList<InputStream> permissionMappingResources = new ArrayList<InputStream>();
+		for(int apiVersion = 1; apiVersion <= HIGHEST_AVAILABLE_MAPPING; apiVersion++){
+			String xmlFile = MAPPING_FILENAME_PREFIX + apiVersion + ".xml";
+			permissionMappingResources.add(PermissionMapping.class.getResourceAsStream(xmlFile));
+		}
+		return permissionMappingResources;
+	}
 	
 	/**
 	 * Returns the permission tagged methods for the permission instance
@@ -75,51 +90,32 @@ public class PermissionMapping {
 	 * @return
 	 */
 	public static String getTagPrefix(int apiVersion) {
-		String prefix = null;
-		switch (apiVersion) {
-		case 1:
-		case 2:
-		case 3:
-		case 4:
-		case 5:
-		case 6:
-		case 7:
-		case 8:
-			prefix = "8-";
-			break;
-		case 9:
-		case 10:
-			prefix = "10-";
-			break;
-		case 11:
-		case 12:
-		case 13:
-			prefix = "13-";
-			break;
-		case 14:
-			prefix = "14-";
-			break;
-		case 15:
-		case 16:
-			prefix = "16-";
-			break;
-		case 17:
-		case 18:
-		case 19:
-			prefix = "19-";
-			break;
-		case 20:
-			// api 20 seems to have been skipped or is just practically 21?
-			// https://en.wikipedia.org/wiki/Android_version_history#Android_4.4_KitKat_with_wearable_extensions_.28API_level_20.29
-			prefix = "21-"; 
-			break;
-		case 21:
-			prefix = "21-";
-			break;
-		default: // default to the highest known mapping
-			prefix = HIGHEST_AVAILABLE_MAPPING + "-";
+		return getBestAvailableMapping(apiVersion) + "-";
+	}
+	
+	/**
+	 * Returns the api version of the closest available permission mapping to a given android api version
+	 * Searches for forward for next higher available mapping
+	 * If no mapping is found, defaults to the highest available mapping
+	 * @param apiVersion
+	 * @return
+	 */
+	public static int getBestAvailableMapping(int apiVersion) {
+		int version = -1;
+		// search for the requested mapping or next available mapping
+		if(apiVersion > 0){
+			for(int i=apiVersion; i<PERMISSION_MAPPING_RESOURCES.size(); i++){
+				if(PERMISSION_MAPPING_RESOURCES.get(i) != null){
+					version = i;
+					break;
+				}
+			}
 		}
-		return prefix;
+		// if mapping is still not found, just default to the highest available mapping
+		if(version == -1){
+			version = HIGHEST_AVAILABLE_MAPPING;
+		}
+		return version;
 	}
 	
 	/**
@@ -148,49 +144,7 @@ public class PermissionMapping {
 	 */
 	public static HashMap<Permission, AtlasHashSet<GraphElement>> applyTags(int apiVersion) {
 		// based on the input API version, round up to the nearest available API mapping
-		switch (apiVersion) {
-		case 1:
-		case 2:
-		case 3:
-		case 4:
-		case 5:
-		case 6:
-		case 7:
-		case 8:
-			apiVersion = 8;
-			break;
-		case 9:
-		case 10:
-			apiVersion = 10;
-			break;
-		case 11:
-		case 12:
-		case 13:
-			apiVersion = 13;
-			break;
-		case 14:
-			apiVersion = 14;
-			break;
-		case 15:
-		case 16:
-			apiVersion = 16;
-			break;
-		case 17:
-		case 18:
-		case 19:
-			apiVersion = 19;
-			break;
-		case 20:
-			// api 20 seems to have been skipped or is just practically 21?
-			// https://en.wikipedia.org/wiki/Android_version_history#Android_4.4_KitKat_with_wearable_extensions_.28API_level_20.29
-			apiVersion = 21;
-			break;
-		case 21:
-			apiVersion = 21;
-			break;
-		default: // default to the highest known mapping
-			apiVersion = HIGHEST_AVAILABLE_MAPPING;
-		}
+		apiVersion = getBestAvailableMapping(apiVersion);
 		
 		// apply the mapping tags
 		HashMap<Permission, AtlasHashSet<GraphElement>> permissionMap = new HashMap<Permission, AtlasHashSet<GraphElement>>();
