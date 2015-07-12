@@ -48,11 +48,11 @@ SOFTWARE.
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.core.resources"/>
-      <import plugin="com.ensoftcorp.atlas.java.core" version="2.0.5" match="greaterOrEqual"/>
-      <import plugin="com.ensoftcorp.atlas.ui" version="2.0.5" match="greaterOrEqual"/>
-      <import plugin="com.ensoftcorp.atlas.java.ui" version="2.0.5" match="greaterOrEqual"/>
+      <import plugin="com.ensoftcorp.atlas.java.core" version="2.2.6" match="greaterOrEqual"/>
+      <import plugin="com.ensoftcorp.atlas.ui" version="2.2.6" match="greaterOrEqual"/>
+      <import plugin="com.ensoftcorp.atlas.java.ui" version="2.2.6" match="greaterOrEqual"/>
       <import plugin="com.ensoftcorp.atlas.core" version="2.2.6" match="greaterOrEqual"/>
-      <import plugin="com.ensoftcorp.open.toolbox.commons" version="2.0.5" match="greaterOrEqual"/>
+      <import plugin="com.ensoftcorp.open.toolbox.commons" version="2.2.6" match="greaterOrEqual"/>
    </requires>
 
    <plugin
