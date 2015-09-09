@@ -1,8 +1,8 @@
 package toolbox.analysis;
 
-import com.ensoftcorp.atlas.core.query.Attr.Edge;
 import com.ensoftcorp.atlas.core.query.Q;
 import com.ensoftcorp.atlas.core.script.Common;
+import com.ensoftcorp.atlas.core.xcsg.XCSG;
 import com.ensoftcorp.open.android.essentials.permissions.Permission;
 import com.ensoftcorp.open.android.essentials.permissions.mappings.PermissionMapping;
 import com.ensoftcorp.open.toolbox.commons.SetDefinitions;
@@ -18,7 +18,7 @@ public class Example1 {
 	 */
 	public static boolean isPermissionUsed(Permission permission, int apiVersion) {
 		// create a subgraph of the complete program graph containing only call edges and the nodes attached to those edges
-		Q callEdges = Common.universe().edgesTaggedWithAny(Edge.CALL).retainEdges();
+		Q callEdges = Common.universe().edgesTaggedWithAny(XCSG.Call).retainEdges();
 		// get the permission protected API methods for the permission and version of Android
 		Q permissionProtectedMethods = PermissionMapping.getMethods(permission, apiVersion);
 		// get the calling methods of the permission protected API methods

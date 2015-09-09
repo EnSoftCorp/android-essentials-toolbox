@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Example Shell
 Bundle-SymbolicName: example.shell
-Bundle-Version: 2.2.6.qualifier
+Bundle-Version: 2.4.3.qualifier
 Bundle-Vendor: EnSoft Corp.
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.scala-lang.scala-library,

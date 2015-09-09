@@ -7,18 +7,33 @@
  * 
  * You do not need to put initialization code in a scala object or class.
  */
+import com.ensoftcorp.atlas.core.xcsg.XCSG
+import com.ensoftcorp.atlas.core.db.graph._
+import com.ensoftcorp.atlas.core.db.graph.operation._
+import com.ensoftcorp.atlas.core.db.set._
+import com.ensoftcorp.atlas.core.db.view.View
+import com.ensoftcorp.atlas.core.db.graph.operation._
+import com.ensoftcorp.atlas.core.query.Query
 import com.ensoftcorp.atlas.core.query.Q
 import com.ensoftcorp.atlas.core.query.Attr
+import com.ensoftcorp.atlas.core.query.Attr._
 import com.ensoftcorp.atlas.core.query.Attr.Edge
 import com.ensoftcorp.atlas.core.query.Attr.Node
-import com.ensoftcorp.atlas.core.script.Common
+import com.ensoftcorp.atlas.core.xcsg.XCSG;
+
+import com.ensoftcorp.atlas.java.core.script.Common._
+import com.ensoftcorp.atlas.java.core.script.Common 
+import com.ensoftcorp.atlas.java.core.script.CommonQueries 
+import com.ensoftcorp.atlas.java.core.script.CommonQueries._ 
 import com.ensoftcorp.atlas.core.script.Common._
-import com.ensoftcorp.atlas.ui.shell.lib.Common
+import com.ensoftcorp.atlas.core.script.Common 
+import com.ensoftcorp.atlas.core.script.CommonQueries 
+import com.ensoftcorp.atlas.core.script.CommonQueries._ 
+import com.ensoftcorp.atlas.core.script.CommonQueries.TraversalDirection
+import com.ensoftcorp.atlas.core.script.CommonQueries.TraversalDirection._ 
+import com.ensoftcorp.atlas.core.script.UniverseManipulator
 import com.ensoftcorp.atlas.ui.shell.lib.Common._
-import com.ensoftcorp.atlas.core.script.CommonQueries
-import com.ensoftcorp.atlas.core.script.CommonQueries._
-import com.ensoftcorp.atlas.core.db.Accuracy._
-import com.ensoftcorp.atlas.core.db.graph.Graph
+import com.ensoftcorp.atlas.core.highlight._
 
 // color for graph highlighting
 import java.awt.Color

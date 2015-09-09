@@ -8,9 +8,9 @@ import com.ensoftcorp.atlas.core.db.graph.GraphElement;
 import com.ensoftcorp.atlas.core.db.graph.GraphElement.EdgeDirection;
 import com.ensoftcorp.atlas.core.db.graph.GraphElement.NodeDirection;
 import com.ensoftcorp.atlas.core.db.set.AtlasSet;
-import com.ensoftcorp.atlas.core.query.Attr.Edge;
 import com.ensoftcorp.atlas.core.query.Attr.Node;
 import com.ensoftcorp.atlas.core.query.Q;
+import com.ensoftcorp.atlas.core.xcsg.XCSG;
 import com.ensoftcorp.atlas.java.core.script.Common;
 
 /**
@@ -51,13 +51,13 @@ public class PermissionUtils {
 		// Get all methods with the same name to methodName
 		//if method is constructor, compare to input classNames
 		if (methodName.equals("<init>")){
-			methods = Common.universe().selectNode(Node.NAME, className).nodesTaggedWithAny(Node.IS_CONSTRUCTOR);
+			methods = Common.universe().selectNode(XCSG.name, className).nodesTaggedWithAny(XCSG.Constructor);
 		}else{
 			// FIXME: technically, this search must exclude constructors. XCSG
 			// will have dedicated tags for non-constructors, which will be
 			// faster than using Q.difference(). In the meantime, this corner
 			// case is not affecting PScout mappings.
-			methods = Common.universe().selectNode(Node.NAME, methodName).nodesTaggedWithAll(Node.METHOD);
+			methods = Common.universe().selectNode(XCSG.name, methodName).nodesTaggedWithAll(XCSG.Method);
 		}
 				
 		//find methods nodes with matched parameter type names
@@ -77,8 +77,7 @@ public class PermissionUtils {
 				}
 			}
 			// match parameter type names
-			paramTypeNode = Common.universe().selectNode(Node.BINARY_NAME,
-					elementTypeName);
+			paramTypeNode = Common.universe().selectNode(Node.BINARY_NAME, elementTypeName);
 			
 			//if array type exists, use the array type to represent type node
 			if (arrayDim !=0){
@@ -99,7 +98,7 @@ public class PermissionUtils {
 			GraphElement parent = null;
 			AtlasSet<GraphElement> es = Graph.U.edges(node, NodeDirection.IN);
 			for (GraphElement e : es) {
-				if (e.tags().contains(Edge.DECLARES)) {
+				if (e.tags().contains(XCSG.Contains)) {
 					parent = e.getNode(EdgeDirection.FROM);
 					break;
 				}
