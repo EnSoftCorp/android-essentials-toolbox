@@ -13,7 +13,7 @@
             class="com.ensoftcorp.open.android.essentials.views.PermissionUsageView"
             icon="icons/main-icon.gif"
             id="com.ensoftcorp.open.android.essentials.views.PermissionUsageView"
-            name="Permission Usage">
+            name="Android Permission Usage">
       </view>
    </extension>
    

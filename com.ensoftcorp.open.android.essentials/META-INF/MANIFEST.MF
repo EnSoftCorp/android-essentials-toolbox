@@ -2,12 +2,12 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Android Essentials Toolbox
 Bundle-SymbolicName: com.ensoftcorp.open.android.essentials;singleton:=true
-Bundle-Version: 2.4.3.qualifier
+Bundle-Version: 2.5.2.qualifier
 Bundle-Vendor: EnSoft Corp.
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: 
  org.eclipse.debug.ui,
- com.ensoftcorp.open.toolbox.commons;bundle-version="2.4.3"
+ com.ensoftcorp.open.toolbox.commons;bundle-version="2.5.2"
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .
 Bundle-Activator: com.ensoftcorp.open.Activator

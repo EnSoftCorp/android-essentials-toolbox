@@ -2,11 +2,11 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Example Analysis Toolbox
 Bundle-SymbolicName: example.analysis;singleton:=true
-Bundle-Version: 2.4.3.qualifier
+Bundle-Version: 2.5.2.qualifier
 Bundle-Vendor: EnSoft Corp.
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: 
- com.ensoftcorp.open.android.essentials;bundle-version="2.4.3";visibility:=reexport,
- com.ensoftcorp.open.toolbox.commons;bundle-version="2.4.3";visibility:=reexport
+ com.ensoftcorp.open.android.essentials;bundle-version="2.5.2";visibility:=reexport,
+ com.ensoftcorp.open.toolbox.commons;bundle-version="2.5.2";visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .
