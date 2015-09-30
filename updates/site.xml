@@ -12,6 +12,9 @@
    <feature url="features/com.ensoftcorp.open.android.essentials_2.2.6.201507121551.jar" id="com.ensoftcorp.open.android.essentials" version="2.2.6.201507121551">
       <category name="com.ensoftcorp.open.toolbox.commons"/>
    </feature>
+   <feature url="features/com.ensoftcorp.open.android.essentials_2.5.2.201509301209.jar" id="com.ensoftcorp.open.android.essentials" version="2.5.2.201509301209">
+      <category name="com.ensoftcorp.open.toolbox.commons"/>
+   </feature>
    <category-def name="com.ensoftcorp.open.toolbox.commons" label="Android Essentials Toolbox">
       <description>
          The Android Essentials Toolbox is a collection program analysis tools specifically developed for analyzing Android applications.
