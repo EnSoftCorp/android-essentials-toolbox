@@ -1,4 +1,4 @@
-package com.ensoftcorp.open.android.essentials.views;
+package com.ensoftcorp.open.android.essentials.ui;
 
 import java.io.IOException;
 

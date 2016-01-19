@@ -10,9 +10,9 @@
       </category>
       <view
             category="Atlas Toolbox"
-            class="com.ensoftcorp.open.android.essentials.views.PermissionUsageView"
+            class="com.ensoftcorp.open.android.essentials.ui.PermissionUsageView"
             icon="icons/main-icon.gif"
-            id="com.ensoftcorp.open.android.essentials.views.PermissionUsageView"
+            id="com.ensoftcorp.open.android.essentials.ui.PermissionUsageView"
             name="Android Permission Usage">
       </view>
    </extension>
