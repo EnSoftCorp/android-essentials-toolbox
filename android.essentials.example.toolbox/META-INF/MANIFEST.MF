@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Example Android Analysis
-Bundle-SymbolicName: example.analysis;singleton:=true
+Bundle-SymbolicName: android.essentials.example.toolbox;singleton:=true
 Bundle-Version: 3.0.7.qualifier
 Bundle-Vendor: EnSoft Corp.
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

@@ -2,6 +2,7 @@ package com.ensoftcorp.open.android.essentials.permissions.mappings;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -92,6 +93,22 @@ public class PermissionMapping {
 	 */
 	public static String getTagPrefix(int apiVersion) {
 		return getBestAvailableMapping(apiVersion) + "-";
+	}
+	
+	/**
+	 * Returns a sorted list of Android API versions that mappings exist for
+	 * @return
+	 */
+	public static ArrayList<Integer> getAvailableMappings() {
+		ArrayList<Integer> availableMappings = new ArrayList<Integer>();
+		for(int i = 0; i>=0 && i<PERMISSION_MAPPING_RESOURCES.size(); i++){
+			if(PERMISSION_MAPPING_RESOURCES.get(i) != null){
+				int version = (i+1);
+				availableMappings.add(version);
+			}
+		}
+		Collections.sort(availableMappings);
+		return availableMappings;
 	}
 	
 	/**
