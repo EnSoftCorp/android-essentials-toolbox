@@ -28,7 +28,7 @@ Thumbs.db
 *.loadpath
 *.cache
 
-#ignore binaries
+# ignore binaries
 *.class
 
 # Mobile Tools for Java (J2ME)
