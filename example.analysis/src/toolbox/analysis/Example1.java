@@ -5,7 +5,7 @@ import com.ensoftcorp.atlas.core.script.Common;
 import com.ensoftcorp.atlas.core.xcsg.XCSG;
 import com.ensoftcorp.open.android.essentials.permissions.Permission;
 import com.ensoftcorp.open.android.essentials.permissions.mappings.PermissionMapping;
-import com.ensoftcorp.open.toolbox.commons.SetDefinitions;
+import com.ensoftcorp.open.commons.analysis.SetDefinitions;
 
 public class Example1 {
 

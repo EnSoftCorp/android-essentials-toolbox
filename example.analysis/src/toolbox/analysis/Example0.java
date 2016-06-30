@@ -6,7 +6,7 @@ import java.util.Map.Entry;
 import com.ensoftcorp.atlas.core.db.graph.GraphElement;
 import com.ensoftcorp.atlas.core.db.set.AtlasHashSet;
 import com.ensoftcorp.atlas.core.script.CommonQueries;
-import com.ensoftcorp.open.android.essentials.AndroidManifest;
+import com.ensoftcorp.open.android.essentials.permissions.AndroidManifest;
 import com.ensoftcorp.open.android.essentials.permissions.Permission;
 import com.ensoftcorp.open.android.essentials.permissions.mappings.PermissionMapping;
 

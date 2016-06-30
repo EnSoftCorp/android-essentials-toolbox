@@ -3,7 +3,7 @@ package toolbox.analysis;
 import java.util.Collection;
 import java.util.LinkedList;
 
-import com.ensoftcorp.open.android.essentials.AndroidManifest;
+import com.ensoftcorp.open.android.essentials.permissions.AndroidManifest;
 import com.ensoftcorp.open.android.essentials.permissions.Permission;
 
 public class Example3 {
