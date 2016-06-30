@@ -34,9 +34,9 @@ import com.ensoftcorp.atlas.java.core.script.Common;
 import com.ensoftcorp.open.android.essentials.permissions.Permission;
 import com.ensoftcorp.open.android.essentials.permissions.PermissionGroup;
 import com.ensoftcorp.open.android.essentials.permissions.ProtectionLevel;
-import com.ensoftcorp.open.commons.FormattedSourceCorrespondence;
 import com.ensoftcorp.open.commons.analysis.utils.StandardQueries;
 import com.ensoftcorp.open.commons.utils.DisplayUtils;
+import com.ensoftcorp.open.commons.utils.FormattedSourceCorrespondence;
 
 /**
  * An Eclipse view for searching and viewing apply permission mapping values in the Atlas index
