@@ -25,17 +25,18 @@ import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 
+import com.ensoftcorp.atlas.core.db.graph.Graph;
 import com.ensoftcorp.atlas.core.db.graph.GraphElement;
-import com.ensoftcorp.atlas.core.query.Attr.Edge;
-import com.ensoftcorp.atlas.core.query.Attr.Node;
+import com.ensoftcorp.atlas.core.db.graph.Node;
 import com.ensoftcorp.atlas.core.query.Q;
+import com.ensoftcorp.atlas.core.xcsg.XCSG;
 import com.ensoftcorp.atlas.java.core.script.Common;
-import com.ensoftcorp.atlas.java.core.script.CommonQueries;
 import com.ensoftcorp.open.android.essentials.permissions.Permission;
 import com.ensoftcorp.open.android.essentials.permissions.PermissionGroup;
 import com.ensoftcorp.open.android.essentials.permissions.ProtectionLevel;
-import com.ensoftcorp.open.toolbox.commons.FormattedSourceCorrespondence;
-import com.ensoftcorp.open.toolbox.commons.utils.DisplayUtils;
+import com.ensoftcorp.open.commons.FormattedSourceCorrespondence;
+import com.ensoftcorp.open.commons.analysis.utils.StandardQueries;
+import com.ensoftcorp.open.commons.utils.DisplayUtils;
 
 /**
  * An Eclipse view for searching and viewing apply permission mapping values in the Atlas index
@@ -161,15 +162,16 @@ public class PermissionUsageView extends ViewPart {
 				Object data = tree.getSelection()[0].getData();
 				if (data instanceof GraphElement) {
 					GraphElement graphElement = (GraphElement) data;
+					Graph graph = Common.toGraph(graphElement);
+					Node node = graph.nodes().getFirst();
 					try {
-						detailsText.setText(prettyPrintGraphElement(graphElement));
+						detailsText.setText(prettyPrintGraphElement(node));
 					} catch (IOException e) {
 						// unknown data, just clear out the text display
 						detailsText.setText("");
 					}
-					Q q = Common.toQ(Common.toGraph(graphElement));
-					String graphElementName = getQualifiedMethodName(graphElement);
-					DisplayUtils.show(q, null, true, graphElementName);
+					String nodeName = StandardQueries.getQualifiedMethodName(node);
+					DisplayUtils.show(node, null, true, nodeName);
 				}
 			}
 		});
@@ -297,17 +299,17 @@ public class PermissionUsageView extends ViewPart {
 				permissionItem.setText(permission.getQualifiedName());
 				permissionItem.setData(permission);
 				Q methods = Common.universe().nodesTaggedWithAny(permission.getQualifiedName()).retainNodes();
-				for (GraphElement method : methods.eval().nodes()) {
-					String qualifiedMethodName = getQualifiedMethodName(method);
+				for (Node method : methods.eval().nodes()) {
+					String qualifiedMethodName = StandardQueries.getQualifiedMethodName(method);
 					TreeItem methodItem = new TreeItem(permissionItem, SWT.NONE);
 					methodItem.setText(qualifiedMethodName);
 					methodItem.setData(method);
 					// add call sites of the permission method
 					Q methodQ = Common.toQ(Common.toGraph(method));
-					Q callEdges = Common.universe().edgesTaggedWithAny(Edge.CALL).retainEdges();
-					Q callsites = callEdges.predecessors(methodQ).nodesTaggedWithAny(Node.CONTROL_FLOW).difference(callsiteFilter);
-					for (GraphElement callsite : callsites.eval().nodes()) {
-						String qualifiedCallerName = getQualifiedMethodName(callsite);
+					Q callEdges = Common.universe().edgesTaggedWithAny(XCSG.Call).retainEdges();
+					Q callsites = callEdges.predecessors(methodQ).nodesTaggedWithAny(XCSG.ControlFlow_Node).difference(callsiteFilter);
+					for (Node callsite : callsites.eval().nodes()) {
+						String qualifiedCallerName = StandardQueries.getQualifiedMethodName(callsite);
 						TreeItem callsiteItem = new TreeItem(methodItem, SWT.NONE);
 						callsiteItem.setText(qualifiedCallerName);
 						callsiteItem.setData(callsite);
@@ -470,20 +472,20 @@ public class PermissionUsageView extends ViewPart {
 	private boolean populatePermissionMethodsSubtree(Permission permission, TreeItem permissionItem) {
 		boolean hasCallsites = false;
 		Q methods = Common.universe().nodesTaggedWithAny(permission.getQualifiedName()).retainNodes();
-		for (GraphElement method : methods.eval().nodes()) {
-			String qualifiedMethodName = getQualifiedMethodName(method);
+		for (Node method : methods.eval().nodes()) {
+			String qualifiedMethodName = StandardQueries.getQualifiedMethodName(method);
 			TreeItem methodItem = new TreeItem(permissionItem, SWT.NONE);
 			methodItem.setText(qualifiedMethodName);
 			methodItem.setData(method);
 			// add call sites of the permission method
 			Q methodQ = Common.toQ(Common.toGraph(method));
-			Q callEdges = Common.universe().edgesTaggedWithAny(Edge.CALL).retainEdges();
-			Q callsites = callEdges.predecessors(methodQ).nodesTaggedWithAny(Node.CONTROL_FLOW).difference(callsiteFilter);
-			for (GraphElement callsite : callsites.eval().nodes()) {
+			Q callEdges = Common.universe().edgesTaggedWithAny(XCSG.Call).retainEdges();
+			Q callsites = callEdges.predecessors(methodQ).nodesTaggedWithAny(XCSG.ControlFlow_Node).difference(callsiteFilter);
+			for (Node callsite : callsites.eval().nodes()) {
 				hasCallsites = true;
 				methodItem.setForeground(methodItem.getDisplay().getSystemColor(PERMISSION_USAGE_COLOR));
 				if(expandTreeEnabled) methodItem.setExpanded(true);
-				String qualifiedCallerName = getQualifiedMethodName(callsite);
+				String qualifiedCallerName = StandardQueries.getQualifiedMethodName(callsite);
 				TreeItem callsiteItem = new TreeItem(methodItem, SWT.NONE);
 				callsiteItem.setText(qualifiedCallerName);
 				callsiteItem.setData(callsite);
@@ -492,23 +494,8 @@ public class PermissionUsageView extends ViewPart {
 		}
 		return hasCallsites;
 	}
-
-	/**
-	 * Helper method to get the qualified name of the method
-	 * @param method
-	 * @return
-	 */
-	private static String getQualifiedMethodName(GraphElement method) {
-		String result = method.attr().get(Node.NAME).toString();
-		Q declaresEdges = Common.universe().edgesTaggedWithAny(Edge.DECLARES).retainEdges();
-		Q parent = declaresEdges.predecessors(Common.toQ(Common.toGraph(method)));
-		while (CommonQueries.isEmpty(parent.nodesTaggedWithAny(Node.PACKAGE))) {
-			result = parent.eval().nodes().getFirst().attr().get(Node.NAME) + "." + result;
-			parent = declaresEdges.predecessors(parent);
-		}
-		result = parent.eval().nodes().getFirst().attr().get(Node.NAME) + "." + result;
-		return result;
-	}
+	
+	
 
 	@Override
 	public void setFocus() {}

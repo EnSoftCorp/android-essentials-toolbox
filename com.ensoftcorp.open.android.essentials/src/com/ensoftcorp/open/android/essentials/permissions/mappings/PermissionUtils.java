@@ -3,12 +3,14 @@ package com.ensoftcorp.open.android.essentials.permissions.mappings;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ensoftcorp.atlas.core.db.graph.Edge;
 import com.ensoftcorp.atlas.core.db.graph.Graph;
 import com.ensoftcorp.atlas.core.db.graph.GraphElement;
 import com.ensoftcorp.atlas.core.db.graph.GraphElement.EdgeDirection;
 import com.ensoftcorp.atlas.core.db.graph.GraphElement.NodeDirection;
+import com.ensoftcorp.atlas.core.db.graph.Node;
 import com.ensoftcorp.atlas.core.db.set.AtlasSet;
-import com.ensoftcorp.atlas.core.query.Attr.Node;
+import com.ensoftcorp.atlas.core.query.Attr;
 import com.ensoftcorp.atlas.core.query.Q;
 import com.ensoftcorp.atlas.core.xcsg.XCSG;
 import com.ensoftcorp.atlas.java.core.script.Common;
@@ -52,7 +54,7 @@ public class PermissionUtils {
 		//if method is constructor, compare to input classNames
 		if (methodName.equals("<init>")){
 			methods = Common.universe().selectNode(XCSG.name, className).nodesTaggedWithAny(XCSG.Constructor);
-		}else{
+		} else {
 			// FIXME: technically, this search must exclude constructors. XCSG
 			// will have dedicated tags for non-constructors, which will be
 			// faster than using Q.difference(). In the meantime, this corner
@@ -72,32 +74,34 @@ public class PermissionUtils {
 				elementTypeName = parameter.substring(0, parameter.indexOf("["));
 				//count array dimension
 				for (int i=0; i<parameter.length(); i++){
-					if (parameter.charAt(i) == '[')
+					if (parameter.charAt(i) == '['){
 						arrayDim++;
+					}
 				}
 			}
 			// match parameter type names
-			paramTypeNode = Common.universe().selectNode(Node.BINARY_NAME, elementTypeName);
+			paramTypeNode = Common.universe().selectNode(Attr.Node.BINARY_NAME, elementTypeName);
 			
 			//if array type exists, use the array type to represent type node
 			if (arrayDim !=0){
-				paramTypeNode = Common.universe().reverseStep(paramTypeNode).nodesTaggedWithAll(Node.ARRAY_TYPE).selectNode(Node.DIMENSION, new Integer(arrayDim));
+				paramTypeNode = Common.universe().reverseStep(paramTypeNode).nodesTaggedWithAll(XCSG.ArrayType).selectNode(XCSG.Java.arrayTypeDimension, new Integer(arrayDim));
 			}
-			if (paramTypeNode.eval().nodes().size()!=0)		
+			if (paramTypeNode.eval().nodes().size()!=0){
 				allParamTypeNodes.add(paramTypeNode);
+			}
 		}
 		
 		//use public methods from Common to get matched methods
 		methods = Common.signature(methods, allParamTypeNodes);
 		
 		//Get nodes representing selected methods
-		AtlasSet<GraphElement> nodes = methods.eval().nodes();
+		AtlasSet<Node> nodes = methods.eval().nodes();
 		
-		for (GraphElement node : nodes){
+		for (Node node : nodes){
 			//get the parent of the method node
 			GraphElement parent = null;
-			AtlasSet<GraphElement> es = Graph.U.edges(node, NodeDirection.IN);
-			for (GraphElement e : es) {
+			AtlasSet<Edge> es = Graph.U.edges(node, NodeDirection.IN);
+			for (Edge e : es) {
 				if (e.tags().contains(XCSG.Contains)) {
 					parent = e.getNode(EdgeDirection.FROM);
 					break;
@@ -108,9 +112,9 @@ public class PermissionUtils {
 			// if binary name not available, skip it
 			if (parent == null){
 				continue;
-			} else if (parent.attr().get(Node.BINARY_NAME) == null){
+			} else if (parent.attr().get(Attr.Node.BINARY_NAME) == null){
 				continue;
-			} else if (parent.attr().get(Node.BINARY_NAME).equals(packageName + "." + className)){
+			} else if (parent.attr().get(Attr.Node.BINARY_NAME).equals(packageName + "." + className)){
 				for(String tag : tags){
 					node.tags().add(tag);
 				}

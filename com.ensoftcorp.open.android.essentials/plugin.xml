@@ -4,18 +4,13 @@
 
 <extension
          point="org.eclipse.ui.views">
-      <category
-            name="Atlas Toolbox"
-            id="Atlas Toolbox">
-      </category>
       <view
-            category="Atlas Toolbox"
+            category="com.ensoftcorp.open.commons.views.categories.toolbox"
             class="com.ensoftcorp.open.android.essentials.views.PermissionUsageView"
-            icon="icons/main-icon.gif"
+            icon="icons/toolbox.gif"
             id="com.ensoftcorp.open.android.essentials.views.PermissionUsageView"
             name="Android Permission Usage">
       </view>
    </extension>
    
-
 </plugin>
