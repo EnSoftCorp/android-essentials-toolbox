@@ -1,4 +1,4 @@
-package com.ensoftcorp.open.android.essentials;
+package com.ensoftcorp.open.android.essentials.permissions;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,7 +18,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import com.ensoftcorp.open.android.essentials.permissions.Permission;
 import com.ensoftcorp.open.android.essentials.permissions.mappings.PermissionMapping;
 
 /**

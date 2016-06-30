@@ -10,8 +10,6 @@ Require-Bundle:
  com.ensoftcorp.open.commons;bundle-version="3.0.7"
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .
-Bundle-Activator: com.ensoftcorp.open.Activator
-Export-Package: com.ensoftcorp.open.android.essentials,
- com.ensoftcorp.open.android.essentials.permissions,
- com.ensoftcorp.open.android.essentials.permissions.mappings,
- com.ensoftcorp.open.android.essentials.views
+Bundle-Activator: com.ensoftcorp.open.android.essentials.Activator
+Export-Package: com.ensoftcorp.open.android.essentials.permissions,
+ com.ensoftcorp.open.android.essentials.permissions.mappings
