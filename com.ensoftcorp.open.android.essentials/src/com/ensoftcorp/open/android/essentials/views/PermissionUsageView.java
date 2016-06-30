@@ -25,7 +25,7 @@ import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 
-import com.ensoftcorp.atlas.core.db.graph.Graph;
+import com.ensoftcorp.atlas.core.db.graph.Edge;
 import com.ensoftcorp.atlas.core.db.graph.GraphElement;
 import com.ensoftcorp.atlas.core.db.graph.Node;
 import com.ensoftcorp.atlas.core.query.Q;
@@ -55,16 +55,6 @@ public class PermissionUsageView extends ViewPart {
 	
 	private boolean usageFilterEnabled = false;
 	private boolean expandTreeEnabled = true;
-
-	protected Q callsiteFilter = getCallsiteFilter();
-	
-	/**
-	 * Filters out callsite results (by default, unless overridden, this does no filtering)
-	 * @return
-	 */
-	protected Q getCallsiteFilter() {
-		return Common.empty();
-	}
 	
 	@Override
 	public void createPartControl(final Composite parent) {
@@ -161,17 +151,14 @@ public class PermissionUsageView extends ViewPart {
 			public void handleEvent(Event event) {
 				Object data = tree.getSelection()[0].getData();
 				if (data instanceof GraphElement) {
-					GraphElement graphElement = (GraphElement) data;
-					Graph graph = Common.toGraph(graphElement);
-					Node node = graph.nodes().getFirst();
+					Edge callEdge = (Edge) data;
 					try {
-						detailsText.setText(prettyPrintGraphElement(node));
+						detailsText.setText(prettyPrintGraphElement(callEdge));
 					} catch (IOException e) {
 						// unknown data, just clear out the text display
 						detailsText.setText("");
 					}
-					String nodeName = StandardQueries.getQualifiedMethodName(node);
-					DisplayUtils.show(node, null, true, nodeName);
+					DisplayUtils.show(callEdge, callEdge.from().getAttr(XCSG.name) + " call to " + callEdge.to().getAttr(XCSG.name));
 				}
 			}
 		});
@@ -307,17 +294,16 @@ public class PermissionUsageView extends ViewPart {
 					// add call sites of the permission method
 					Q methodQ = Common.toQ(Common.toGraph(method));
 					Q callEdges = Common.universe().edgesTaggedWithAny(XCSG.Call).retainEdges();
-					Q callsites = callEdges.predecessors(methodQ).nodesTaggedWithAny(XCSG.ControlFlow_Node).difference(callsiteFilter);
-					for (Node callsite : callsites.eval().nodes()) {
-						String qualifiedCallerName = StandardQueries.getQualifiedMethodName(callsite);
-						TreeItem callsiteItem = new TreeItem(methodItem, SWT.NONE);
-						callsiteItem.setText(qualifiedCallerName);
-						callsiteItem.setData(callsite);
+					for (Edge call : callEdges.reverseStep(methodQ).eval().edges()) {
+						String qualifiedCallerName = StandardQueries.getQualifiedMethodName(call.from());
+						TreeItem item = new TreeItem(methodItem, SWT.NONE);
+						item.setText(qualifiedCallerName);
+						item.setData(call);
 						permissionItem.setForeground(permissionItem.getDisplay().getSystemColor(PERMISSION_USAGE_COLOR));
 						if(expandTreeEnabled) permissionItem.setExpanded(true);
 						methodItem.setForeground(methodItem.getDisplay().getSystemColor(PERMISSION_USAGE_COLOR));
 						if(expandTreeEnabled) methodItem.setExpanded(true);
-						callsiteItem.setForeground(callsiteItem.getDisplay().getSystemColor(PERMISSION_USAGE_COLOR));
+						item.setForeground(item.getDisplay().getSystemColor(PERMISSION_USAGE_COLOR));
 					}
 				}
 			}
@@ -479,17 +465,16 @@ public class PermissionUsageView extends ViewPart {
 			methodItem.setData(method);
 			// add call sites of the permission method
 			Q methodQ = Common.toQ(Common.toGraph(method));
-			Q callEdges = Common.universe().edgesTaggedWithAny(XCSG.Call).retainEdges();
-			Q callsites = callEdges.predecessors(methodQ).nodesTaggedWithAny(XCSG.ControlFlow_Node).difference(callsiteFilter);
-			for (Node callsite : callsites.eval().nodes()) {
+			Q call = Common.universe().edgesTaggedWithAny(XCSG.Call).retainEdges();
+			for (Edge callEdge : call.reverseStep(methodQ).eval().edges()) {
 				hasCallsites = true;
 				methodItem.setForeground(methodItem.getDisplay().getSystemColor(PERMISSION_USAGE_COLOR));
 				if(expandTreeEnabled) methodItem.setExpanded(true);
-				String qualifiedCallerName = StandardQueries.getQualifiedMethodName(callsite);
-				TreeItem callsiteItem = new TreeItem(methodItem, SWT.NONE);
-				callsiteItem.setText(qualifiedCallerName);
-				callsiteItem.setData(callsite);
-				callsiteItem.setForeground(methodItem.getDisplay().getSystemColor(PERMISSION_USAGE_COLOR));
+				String qualifiedCallerName = StandardQueries.getQualifiedMethodName(callEdge.from());
+				TreeItem item = new TreeItem(methodItem, SWT.NONE);
+				item.setText(qualifiedCallerName);
+				item.setData(callEdge);
+				item.setForeground(methodItem.getDisplay().getSystemColor(PERMISSION_USAGE_COLOR));
 			}
 		}
 		return hasCallsites;
