@@ -32,7 +32,7 @@ Double clicking on a callsite in the Permission Usage View opens an Atlas graph 
 ## Example Analysis
 The following example code exists in the `android.essentials.example.toolbox` project, which can be downloaded [here](/android-essentials-toolbox/android.essentials.example.toolbox.zip). The `android.essentials.example.toolbox` project contains Java examples that can be invoked on the Atlas Shell.
 
-Import the `android.essentials.example.toolbox` project into the Eclipse workspace. and add it to the Atlas Shell dependencies as described in the previous steps. To invoke the examples from the Atlas Shell project run the following commands. Assume that the workspace contains an indexed Android Eclipse project named ConnectBot.
+Import the `android.essentials.example.toolbox` project into the Eclipse workspace and add it to the Atlas Shell dependencies as described in the previous steps. To invoke the examples from the Atlas Shell project run the following commands. Assume that the workspace contains an indexed Android Eclipse project named ConnectBot.
 
 	import toolbox.analysis._
 	var targetSDKVersion = Example0.getApplicationTargetSDKVersion("ConnectBot")
