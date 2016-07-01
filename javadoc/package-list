@@ -1,5 +1,8 @@
-com.ensoftcorp.open
 com.ensoftcorp.open.android.essentials
+com.ensoftcorp.open.android.essentials.handlers
+com.ensoftcorp.open.android.essentials.log
 com.ensoftcorp.open.android.essentials.permissions
 com.ensoftcorp.open.android.essentials.permissions.mappings
-com.ensoftcorp.open.android.essentials.views
+com.ensoftcorp.open.android.essentials.preferences
+com.ensoftcorp.open.android.essentials.ui
+com.ensoftcorp.open.android.essentials.ui.views
