@@ -74,6 +74,7 @@ To avoid manually entering the API levels, we can use the `AndroidManifest` obje
 		AndroidManifest manifest = new AndroidManifest(AndroidManifest.getManifestFile(projectName));
 		return manifest.getTargetSDKVersion();
 	}
+
 ### Example 1: Permission analysis
 Determining if a permission is used (if a direct CALL edge exists to the API protected method in the program graph from a method in the application) we can write a simple graph traversal.
 
