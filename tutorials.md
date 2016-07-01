@@ -23,11 +23,11 @@ To open the Permission Usage View navigate to `Window` &gt; `Show View` &gt; `Ot
 
 By default the Permission Usage View shows used permissions in red, categorized by permission group and protection level. At the lowest level of the tree is the callsite of the application method that called the permission protected method. The Permission Usage View contains options for filtering by usage and collapsing nodes in the tree by pressing the filter buttons located in the top right hand corner of the view. You can also enable keyword searching by selecting the `Filter by Permission` checkbox.
 
-![Permission Usage View 1](./images/PermissionUsageView1.png)
+![Permission Usage View 1](/android-essentials-toolbox/images/PermissionUsageView1.png)
 
 Double clicking on a callsite in the Permission Usage View opens an Atlas graph window, which can be clicked to jump to the corresponding source code.
 
-![Permission Usage View 2](./images/PermissionUsageView2.png)
+![Permission Usage View 2](/android-essentials-toolbox/images/PermissionUsageView2.png)
 
 ## Example Analysis
 The following example code exists in the `android.essentials.example.toolbox` project, which can be downloaded [here](/android-essentials-toolbox/android.essentials.example.toolbox.zip). The `android.essentials.example.toolbox` project contains Java examples that can be invoked on the Atlas Shell.
