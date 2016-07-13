@@ -79,7 +79,7 @@
       <view
             category="com.ensoftcorp.open.commons.views.categories.toolbox"
             class="com.ensoftcorp.open.android.essentials.ui.views.PermissionUsageView"
-            icon="icons/toolbox.gif"
+            icon="icons/permissions.gif"
             id="com.ensoftcorp.open.android.essentials.ui.views.PermissionUsageView"
             name="Android Permission Usage">
       </view>
