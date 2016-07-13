@@ -14,7 +14,7 @@ public class AndroidEssentialsPreferencesHandler extends AbstractHandler {
 	public AndroidEssentialsPreferencesHandler() {}
 
 	/**
-	 * Runs the purity analysis
+	 * Opens the preferences menu
 	 */
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		String id = "com.ensoftcorp.open.android.essentials.ui.preferences";

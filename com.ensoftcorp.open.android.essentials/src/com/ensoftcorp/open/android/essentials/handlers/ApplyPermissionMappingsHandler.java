@@ -22,7 +22,7 @@ public class ApplyPermissionMappingsHandler extends AbstractHandler {
 	public ApplyPermissionMappingsHandler() {}
 
 	/**
-	 * Runs the purity analysis
+	 * Applies the permission mappings
 	 */
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		String prefix = "";

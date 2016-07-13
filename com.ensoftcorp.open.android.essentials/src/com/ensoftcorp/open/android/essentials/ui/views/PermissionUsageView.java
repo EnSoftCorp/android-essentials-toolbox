@@ -51,7 +51,7 @@ public class PermissionUsageView extends ViewPart {
 	/**
 	 * The ID of the view as specified by the extension.
 	 */
-	public static final String ID = "com.ensoftcorp.open.android.essentials.views.PermissionUsageView";
+	public static final String ID = "com.ensoftcorp.open.android.essentials.ui.views.PermissionUsageView";
 	
 	private boolean usageFilterEnabled = false;
 	private boolean expandTreeEnabled = true;
