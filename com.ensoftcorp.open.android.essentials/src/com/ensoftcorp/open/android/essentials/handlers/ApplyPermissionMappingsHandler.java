@@ -4,6 +4,7 @@ import java.util.HashMap;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.swt.widgets.Display;
 
 import com.ensoftcorp.atlas.core.db.graph.GraphElement;
 import com.ensoftcorp.atlas.core.db.set.AtlasHashSet;
@@ -25,21 +26,26 @@ public class ApplyPermissionMappingsHandler extends AbstractHandler {
 	 * Applies the permission mappings
 	 */
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		String prefix = "";
-		String appliedVersions = "";
-		for(Integer apiVersion : PermissionMapping.getAvailableMappings()){
-			if(AndroidEssentialsPreferences.isMappingEnabled(apiVersion)){
-				HashMap<Permission, AtlasHashSet<GraphElement>> result = PermissionMapping.applyTags(apiVersion);
-				long totalNodesTagged = 0;
-				for(AtlasHashSet<GraphElement> nodes : result.values()){
-					totalNodesTagged += nodes.size();
+		Display.getDefault().asyncExec(new Runnable(){
+			@Override
+			public void run() {
+				String prefix = "";
+				String appliedVersions = "";
+				for(Integer apiVersion : PermissionMapping.getAvailableMappings()){
+					if(AndroidEssentialsPreferences.isMappingEnabled(apiVersion)){
+						HashMap<Permission, AtlasHashSet<GraphElement>> result = PermissionMapping.applyTags(apiVersion);
+						long totalNodesTagged = 0;
+						for(AtlasHashSet<GraphElement> nodes : result.values()){
+							totalNodesTagged += nodes.size();
+						}
+						Log.info("Applied " + totalNodesTagged + " tags for Android API version " + apiVersion);
+						appliedVersions += (prefix + apiVersion);
+						prefix = ", ";
+					}
 				}
-				Log.info("Applied " + totalNodesTagged + " tags for Android API version " + apiVersion);
-				appliedVersions += (prefix + apiVersion);
-				prefix = ", ";
+				DisplayUtils.showMessage("Applied permission tags for Android APIs: [" + appliedVersions + "].");
 			}
-		}
-		DisplayUtils.showMessage("Applied permission tags for Android APIs: [" + appliedVersions + "].");
+		});
 		return null;
 	}
 	

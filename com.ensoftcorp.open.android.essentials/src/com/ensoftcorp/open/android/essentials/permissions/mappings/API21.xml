@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- API level: 21, version: 5.0.2 R1, code name: Lollipop -->
+<!-- API level: 21, version: 5.0.2 R1, code name: Lollipop, source: Modified PScout1 (https://github.com/benjholla/pscout): https://github.com/EnSoftCorp/AnalyzableAndroid/blob/master/Android21/pscout/publishedapimapping -->
 <permissions>
   <permission name="android.permission.READ_CONTACTS">
     <call>

@@ -17,6 +17,7 @@ import com.ensoftcorp.atlas.core.db.graph.GraphElement;
 import com.ensoftcorp.atlas.core.db.set.AtlasHashSet;
 import com.ensoftcorp.atlas.core.query.Q;
 import com.ensoftcorp.atlas.java.core.script.Common;
+import com.ensoftcorp.open.android.essentials.log.Log;
 import com.ensoftcorp.open.android.essentials.permissions.Permission;
 import com.ensoftcorp.open.android.essentials.permissions.PermissionGroup;
 import com.ensoftcorp.open.android.essentials.permissions.ProtectionLevel;
@@ -32,7 +33,7 @@ public class PermissionMapping {
 	 * Defines the highest available permission mapping, if no mapping can be found 
 	 * for the requested version this is the default.
 	 */
-	public static final int HIGHEST_AVAILABLE_MAPPING = 21;
+	public static final int HIGHEST_AVAILABLE_MAPPING = 22;
 	
 	private static final String MAPPING_FILENAME_PREFIX = "API";
 	private static final ArrayList<InputStream> PERMISSION_MAPPING_RESOURCES = findPermissionMappingResources();
@@ -159,6 +160,7 @@ public class PermissionMapping {
 	 * Permission mapping will switch to the next available version.
 	 */
 	public static HashMap<Permission, AtlasHashSet<GraphElement>> applyTags(int apiVersion) {
+		Log.info("Applying tags for permission mapping " + apiVersion + "...");
 		// based on the input API version, round up to the nearest available API mapping
 		apiVersion = getBestAvailableMapping(apiVersion);
 		
