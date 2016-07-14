@@ -31,5 +31,29 @@ If you want to install from source for bleeding edge changes, first grab a copy 
 ## Changelog
 Note that version numbers are based off [Atlas](http://www.ensoftcorp.com/atlas/download/) version numbers.
 
+### 3.0.8
+- Version bump, icon updates
+
 ### 3.0.7
 - Atlas 3.0 release, added permission mapping preferences and menu handlers, general refactoring
+
+### 2.5.2
+- Atlas updates
+
+### 2.4.3
+- Atlas updates
+
+### 2.2.6
+- Updates to multiple permission mappings, guard logic for safely applying permissions
+
+### 2.1.2
+- Updates for Eclipse Luna
+
+### 2.0.6
+- Version bump, bug fixes for formatted source correspondents
+
+### 2.0.5
+- Version bump, bug fixes
+
+### 2.0.2
+- Intial release
