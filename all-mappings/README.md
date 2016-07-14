@@ -1,0 +1,2 @@
+# All Mappings
+Generally, we just care about the "published" mappings, that is the protected API methods which are publicly exposed. However, it is possible to apply permission mappings for all API methods, which may be useful for some analysis tasks. This directory contains a collection of the complete mappings.
