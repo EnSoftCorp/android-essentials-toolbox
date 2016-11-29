@@ -9,7 +9,7 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 import com.ensoftcorp.open.android.essentials.ui.views.PermissionUsageView;
-import com.ensoftcorp.open.commons.utils.DisplayUtils;
+import com.ensoftcorp.open.commons.utilities.DisplayUtils;
 
 /**
  * A menu selection handler for opening the preferences page

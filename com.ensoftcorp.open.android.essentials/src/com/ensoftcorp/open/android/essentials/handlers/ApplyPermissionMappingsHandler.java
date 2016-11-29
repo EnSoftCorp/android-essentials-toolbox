@@ -12,7 +12,7 @@ import com.ensoftcorp.open.android.essentials.log.Log;
 import com.ensoftcorp.open.android.essentials.permissions.Permission;
 import com.ensoftcorp.open.android.essentials.permissions.mappings.PermissionMapping;
 import com.ensoftcorp.open.android.essentials.preferences.AndroidEssentialsPreferences;
-import com.ensoftcorp.open.commons.utils.DisplayUtils;
+import com.ensoftcorp.open.commons.utilities.DisplayUtils;
 
 /**
  * A menu selection handler for running permission mapping logic

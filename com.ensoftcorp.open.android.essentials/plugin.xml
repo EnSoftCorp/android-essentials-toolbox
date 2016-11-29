@@ -19,14 +19,6 @@
 	   </handler>
 	</extension>
 	
-	<extension
-	      point="org.eclipse.ui.handlers">
-	   <handler
-	         commandId="com.ensoftcorp.open.android.essentials.menus.editAndroidEssentialsPreferencesCommand"
-	         class="com.ensoftcorp.open.android.essentials.handlers.AndroidEssentialsPreferencesHandler">
-	   </handler>
-	</extension>
-	
 	<!-- extend the Atlas Toolbox menu with a new submenu for purity analysis -->
 	<extension
 	      point="org.eclipse.ui.menus">
@@ -44,12 +36,6 @@
 	               label="Open Permission Usage View"
 	               commandId="com.ensoftcorp.open.android.essentials.menus.openPermissionUsageViewCommand"
 	               id="com.ensoftcorp.open.android.essentials.menus.openPermissionUsageViewHandlerdMenuItem">
-	         </command>
-	         <separator name="com.bogus.separator1" visible="true" />
-	         <command
-	               label="Edit Preferences"
-	               commandId="com.ensoftcorp.open.android.essentials.menus.editAndroidEssentialsPreferencesCommand"
-	               id="com.ensoftcorp.open.android.essentials.menus.editAndroidEssentialsPreferencesCommandMenuItem">
 	         </command>
 	      </menu>
 	   </menuContribution>
@@ -69,7 +55,8 @@
       <page
             class="com.ensoftcorp.open.android.essentials.ui.AndroidEssentialsPreferencesPage"
             id="com.ensoftcorp.open.android.essentials.ui.preferences"
-            name="Android Essentials Toolbox">
+            name="Android Essentials Toolbox"
+            category="com.ensoftcorp.open.commons.ui.toolbox.preferences">
       </page>
    </extension>
 
