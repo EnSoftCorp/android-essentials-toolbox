@@ -5,13 +5,13 @@ package com.ensoftcorp.open.android.essentials.subsystems.advertisements;
  * Reference: http://arxiv.org/pdf/1303.0857.pdf
  * @author Ben Holland
  */
-public class AdMobSubsystem extends AndroidAdvertisementSubsystem {
+public class EverBadgeSubsystem extends AndroidAdvertisementSubsystem {
 
-	public static final String TAG = "ADMOB_SUBSYSTEM";
+	public static final String TAG = "EVER_BADGE_SUBSYSTEM";
 
 	@Override
 	public String getName() {
-		return "AdMob (com.admob)";
+		return "EverBadge";
 	}
 
 	@Override
@@ -26,7 +26,7 @@ public class AdMobSubsystem extends AndroidAdvertisementSubsystem {
 
 	@Override
 	public String[] getNamespaces() {
-		return getNestedPackages("com.admob");
+		return getNestedPackages("com.everbadge");
 	}
 	
 }

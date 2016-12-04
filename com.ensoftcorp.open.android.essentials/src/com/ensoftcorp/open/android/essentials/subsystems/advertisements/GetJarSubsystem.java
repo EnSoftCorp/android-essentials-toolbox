@@ -5,13 +5,13 @@ package com.ensoftcorp.open.android.essentials.subsystems.advertisements;
  * Reference: http://arxiv.org/pdf/1303.0857.pdf
  * @author Ben Holland
  */
-public class AdMobSubsystem extends AndroidAdvertisementSubsystem {
+public class GetJarSubsystem extends AndroidAdvertisementSubsystem {
 
-	public static final String TAG = "ADMOB_SUBSYSTEM";
+	public static final String TAG = "GET_JAR_SUBSYSTEM";
 
 	@Override
 	public String getName() {
-		return "AdMob (com.admob)";
+		return "GetJar";
 	}
 
 	@Override
@@ -26,7 +26,7 @@ public class AdMobSubsystem extends AndroidAdvertisementSubsystem {
 
 	@Override
 	public String[] getNamespaces() {
-		return getNestedPackages("com.admob");
+		return getNestedPackages("com.getjar");
 	}
 	
 }

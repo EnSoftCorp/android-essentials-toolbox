@@ -98,7 +98,7 @@
       <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.AndroidAdvertisementSubsystem"></subsystem>
    </extension>
    <extension point="com.ensoftcorp.open.commons.subsystem">
-      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.AdMobSubsystem"></subsystem>
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.AdMobGoogleSubsystem"></subsystem>
    </extension>
    <extension point="com.ensoftcorp.open.commons.subsystem">
       <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.FlurrySubsystem"></subsystem>
@@ -106,5 +106,194 @@
    <extension point="com.ensoftcorp.open.commons.subsystem">
       <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.InMobiSubsystem"></subsystem>
    </extension>
-   
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.TapJoySubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.MobClixSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.ChartBoostSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.AdWhirlSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.MoPubSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.GreyStripeSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.JumpTapSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.GoogleAnalyticsSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.AdMobSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.BurstlySubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.SponsorPaySubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.CaulySubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.MobFoxSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.VponSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.AppBrainSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.DaumSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.AdMarvelSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.AppLovinSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.AdfonicSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.MdotMSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.GetJarSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.NexAgeSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.InnerActiveSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.PontiflexSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.ZestAdzSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.MadHouseSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.SmaatoSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.YouMiSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.MAdvertiseDESubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.DoMobCNSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.JirboAdColonySubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.RevMobSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.SendDroidSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.AirPushSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.TapitSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.MedialetsSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.MedibaSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.PapayaSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.HuntMobileAdsSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.RhythmNewMediaSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.TapForTapSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.AdKnowledgeSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.MetapsSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.WiYunSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.VdopiaSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.WapsSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.AdWoSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.MoboSquareSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.VservSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.WooBooSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.EverBadgeSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.AirAdSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.NoqoushAdFalconSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.MoolahSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.KuguoSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.BuzzCitySubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.AdsMogoSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.SellaRingSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.StartAppSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.AdModaSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.MobPartnerSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.QuClixSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.LDevelopSubsystem"></subsystem>
+   </extension>
+
 </plugin>
