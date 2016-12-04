@@ -72,4 +72,39 @@
       </view>
    </extension>
    
+   <!-- add android subsystem root tagging instruction -->
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.AndroidSubsystem"></subsystem>
+   </extension>
+   
+   <!-- add android runtime subsystem tagging instructions -->
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.runtime.AndroidRuntimeSubsystem"></subsystem>
+   </extension>
+   
+   <!-- add android support subsystem tagging instructions -->
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.support.AndroidSupportSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.support.AppCompatV4Subsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.support.AppCompatV7Subsystem"></subsystem>
+   </extension>
+   
+   <!-- add android advertisements subsystem tagging instructions -->
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.AndroidAdvertisementSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.AdMobSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.FlurrySubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.advertisements.InMobiSubsystem"></subsystem>
+   </extension>
+   
 </plugin>
