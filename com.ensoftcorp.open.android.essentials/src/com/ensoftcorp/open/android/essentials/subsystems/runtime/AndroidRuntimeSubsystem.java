@@ -10,7 +10,12 @@ import com.ensoftcorp.open.android.essentials.subsystems.AndroidSubsystem;
 public class AndroidRuntimeSubsystem extends AndroidSubsystem {
 
 	public static final String TAG = "ANDROID_RUNTIME_SUBSYSTEM";
-	
+
+	@Override
+	public String getName() {
+		return "Android Core";
+	}
+
 	@Override
 	public String getTag() {
 		return TAG;
@@ -19,6 +24,13 @@ public class AndroidRuntimeSubsystem extends AndroidSubsystem {
 	@Override
 	public String[] getParentTags() {
 		return new String[] { AndroidSubsystem.TAG };
+	}
+
+	@Override
+	public String[] getNamespaces() {
+		return new String[] { "android.app", "android.app.backup", "android.content", "android.content.pm",
+				"android.os", "android.os.storage", "android.security", "android.service.dreams",
+				"android.service.notification", "android.service.textservice" };
 	}
 	
 }

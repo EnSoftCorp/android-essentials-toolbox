@@ -26,6 +26,11 @@ public static final String TAG = "ANDROID_SUPPORT_SUBSYSTEM";
 		return new String[] { AndroidSubsystem.TAG };
 	}
 	
+	@Override
+	public String getDescription() {
+		return getName() + " support libraries";
+	}
+	
 	/**
 	 * Returns all packages starting with the given package prefixes
 	 * @param rootPackages

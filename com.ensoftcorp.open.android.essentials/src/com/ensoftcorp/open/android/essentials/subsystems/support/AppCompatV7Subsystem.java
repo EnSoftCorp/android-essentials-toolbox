@@ -8,7 +8,7 @@ package com.ensoftcorp.open.android.essentials.subsystems.support;
  */
 public class AppCompatV7Subsystem extends AndroidSupportSubsystem {
 
-	public static final String TAG = "APPCOMPATV7_SUBSYSTEM";
+	public static final String TAG = "ANDROID_APPCOMPATV7_SUBSYSTEM";
 
 	@Override
 	public String getName() {

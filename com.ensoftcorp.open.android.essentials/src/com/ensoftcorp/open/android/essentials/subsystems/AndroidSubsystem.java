@@ -23,7 +23,7 @@ public class AndroidSubsystem extends Subsystem {
 
 	@Override
 	public String getDescription() {
-		return "Android libraries";
+		return getName() + " libraries";
 	}
 
 	@Override

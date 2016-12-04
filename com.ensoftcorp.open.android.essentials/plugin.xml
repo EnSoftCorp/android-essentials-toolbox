@@ -81,7 +81,52 @@
    <extension point="com.ensoftcorp.open.commons.subsystem">
       <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.runtime.AndroidRuntimeSubsystem"></subsystem>
    </extension>
-   
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.runtime.AccountsSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.runtime.AdministrationSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.runtime.ApplicationResourcesSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.runtime.DatabaseSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.runtime.HardwareSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.runtime.IntrospectionSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.runtime.IOSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.runtime.LocationSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.runtime.MediaSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.runtime.NetworkSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.runtime.PreferencesSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.runtime.ProviderSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.runtime.TestSubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.runtime.UISubsystem"></subsystem>
+   </extension>
+   <extension point="com.ensoftcorp.open.commons.subsystem">
+      <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.runtime.UtilSubsystem"></subsystem>
+   </extension>
+
    <!-- add android support subsystem tagging instructions -->
    <extension point="com.ensoftcorp.open.commons.subsystem">
       <subsystem class="com.ensoftcorp.open.android.essentials.subsystems.support.AndroidSupportSubsystem"></subsystem>
