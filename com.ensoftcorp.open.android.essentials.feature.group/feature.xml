@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.ensoftcorp.open.android.essentials.feature.group"
+      label="Android Essentials Toolbox"
+      version="3.0.13.qualifier"
+      provider-name="EnSoft Corp.">
+
+   <description url="https://ensoftcorp.github.io/android-essentials-toolbox">
+      The Android Essentials Toolbox is a collection program analysis tools specifically developed for analyzing Android applications. The toolbox aids in mapping Android Permission Groups and Protection Levels to Permissions as well as Permissions to the respective permission protected Android APIs. These relationships are encoded in the tool and seamlessly applied to a program graph by leveraging the Atlas framework.
+   </description>
+
+   <copyright url="https://ensoftcorp.github.io/android-essentials-toolbox">
+      Copyright 2016 EnSoft Corp.
+   </copyright>
+
+   <license url="https://raw.githubusercontent.com/EnSoftCorp/android-essentials-toolbox/master/LICENSE">
+      The MIT License (MIT)
+
+Copyright (c) 2016 EnSoft Corp.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+   </license>
+
+   <url>
+      <update label="ensoftcorp.github.io" url="https://ensoftcorp.github.io/android-essentials-toolbox/updates/"/>
+      <discovery label="Android Essentials Toolbox" url="https://ensoftcorp.github.io/android-essentials-toolbox/updates/"/>
+      <discovery label="Toolbox Commons" url="https://ensoftcorp.github.io/toolbox-commons/updates/"/>
+      <discovery label="Atlas" url="http://download.ensoftcorp.com/atlas/eclipse"/>
+   </url>
+
+   <requires>
+      <import plugin="org.eclipse.debug.ui"/>
+      <import plugin="com.ensoftcorp.open.commons" version="3.0.13" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="com.ensoftcorp.open.android.essentials"
+         download-size="0"
+         install-size="0"
+         version="3.0.13.qualifier"
+         unpack="false"/>
+
+</feature>
