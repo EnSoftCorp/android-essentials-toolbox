@@ -10,7 +10,7 @@
    </description>
 
    <copyright url="https://ensoftcorp.github.io/android-essentials-toolbox">
-      Copyright 2016 EnSoft Corp.
+      Copyright (c) 2016 EnSoft Corp.
    </copyright>
 
    <license url="https://raw.githubusercontent.com/EnSoftCorp/android-essentials-toolbox/master/LICENSE">
@@ -39,8 +39,6 @@ SOFTWARE.
 
    <url>
       <update label="ensoftcorp.github.io" url="https://ensoftcorp.github.io/android-essentials-toolbox/updates/"/>
-      <discovery label="Android Essentials Toolbox" url="https://ensoftcorp.github.io/android-essentials-toolbox/updates/"/>
-      <discovery label="Toolbox Commons" url="https://ensoftcorp.github.io/toolbox-commons/updates/"/>
       <discovery label="Atlas" url="http://download.ensoftcorp.com/atlas/eclipse"/>
    </url>
 
