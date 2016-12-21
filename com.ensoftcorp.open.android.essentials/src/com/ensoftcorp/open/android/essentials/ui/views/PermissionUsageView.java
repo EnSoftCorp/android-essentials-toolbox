@@ -12,6 +12,7 @@ import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -122,25 +123,33 @@ public class PermissionUsageView extends ViewPart {
 					} else {
 						repopulatePermissionsTree(tree, detailsText);
 					}
-				} else {
-					if(Character.isLetter(key.character)){
-						searchBar.setListVisible(false); // hide the list we are going to modify the values
-						String searchText = searchBar.getText();
+				} else if(key.keyCode == SWT.ARROW_DOWN){
+					searchBar.setListVisible(true); // show the drop down list
+				} else if(Character.isLetter(key.character)){
+					searchBar.setListVisible(false); // hide the list we are going to modify the values
+					String searchText = searchBar.getText();
 
-						// remove all items
-						// note: doing this the hard way because removeAll method also clears the text
-						for(String item : searchBar.getItems()){
-							searchBar.remove(item);
-						}
+					// remove all items
+					// note: doing this the hard way because removeAll method also clears the text
+					for(String item : searchBar.getItems()){
+						searchBar.remove(item);
+					}
 
-						// add the autocomplete suggestions for each matching permission
-						for(Permission permission : Permission.getAllPermissions()){
-							if(permission.getQualifiedName().toLowerCase().contains(searchText.toLowerCase())){
-								searchBar.add(permission.getQualifiedName());
-							}
+					// add the autocomplete suggestions for each matching permission
+					for(Permission permission : Permission.getAllPermissions()){
+						if(permission.getQualifiedName().toLowerCase().contains(searchText.toLowerCase())){
+							searchBar.add(permission.getQualifiedName());
 						}
 					}
+					
+					// for some reason the previous actions are clearing the search text on some OS's so restoring it now
+					searchBar.setText(searchText);
+					// make sure the cursor selection is at the end
+					searchBar.setSelection(new Point(searchText.length(), searchText.length()));
 				}
+				
+				// refresh the permission tree
+				repopulatePermissionTreeWithSearchResults(tree, detailsText, searchBar);
 			}
 		});
 
