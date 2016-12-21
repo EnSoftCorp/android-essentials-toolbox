@@ -94,9 +94,7 @@ public class PermissionUsageView extends ViewPart {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				if(searchBarEnabledCheckbox.getSelection()){
-					if(searchBarEnabledCheckbox.getSelection()){
-						repopulatePermissionTreeWithSearchResults(tree, detailsText, searchBar);
-					}
+					repopulatePermissionTreeWithSearchResults(tree, detailsText, searchBar);
 				}		
 			}
 		});
