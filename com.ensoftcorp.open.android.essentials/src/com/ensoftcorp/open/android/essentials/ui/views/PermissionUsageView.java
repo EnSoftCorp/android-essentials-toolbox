@@ -123,8 +123,6 @@ public class PermissionUsageView extends ViewPart {
 					} else {
 						repopulatePermissionsTree(tree, detailsText);
 					}
-				} else if(key.keyCode == SWT.ARROW_DOWN){
-					searchBar.setListVisible(true); // show the drop down list
 				} else if(Character.isLetter(key.character)){
 					searchBar.setListVisible(false); // hide the list we are going to modify the values
 					String searchText = searchBar.getText();
