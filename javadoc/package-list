@@ -4,5 +4,9 @@ com.ensoftcorp.open.android.essentials.log
 com.ensoftcorp.open.android.essentials.permissions
 com.ensoftcorp.open.android.essentials.permissions.mappings
 com.ensoftcorp.open.android.essentials.preferences
+com.ensoftcorp.open.android.essentials.subsystems
+com.ensoftcorp.open.android.essentials.subsystems.advertisements
+com.ensoftcorp.open.android.essentials.subsystems.runtime
+com.ensoftcorp.open.android.essentials.subsystems.support
 com.ensoftcorp.open.android.essentials.ui
 com.ensoftcorp.open.android.essentials.ui.views

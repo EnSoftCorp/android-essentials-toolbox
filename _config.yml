@@ -82,11 +82,8 @@ exclude:
     - .gitignore
     - .DS_Store
     - Thumbs.db
-    - android.essentials.example.toolbox/
 
 # Include the following files and directories
 include:
     - updates/
-    - atlas2-updates/
     - javadoc/
-    - android.essentials.example.toolbox.zip

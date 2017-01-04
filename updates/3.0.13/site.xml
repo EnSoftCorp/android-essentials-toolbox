@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.ensoftcorp.open.android.essentials.feature.group_3.0.13.201701041702.jar" id="com.ensoftcorp.open.android.essentials.feature.group" version="3.0.13.201701041702">
+      <category name="com.ensoftcorp.open.android.essentials.category"/>
+   </feature>
+   <category-def name="com.ensoftcorp.open.android.essentials.category" label="Android Essentials Toolbox">
+      <description>
+         The Android Essentials Toolbox is a collection program analysis tools specifically developed for analyzing Android applications. The toolbox aids in mapping Android Permission Groups and Protection Levels to Permissions as well as Permissions to the respective permission protected Android APIs.
+      </description>
+   </category-def>
+</site>
