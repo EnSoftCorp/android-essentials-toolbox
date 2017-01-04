@@ -37,11 +37,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
    </license>
 
-   <url>
-      <update label="ensoftcorp.github.io" url="https://ensoftcorp.github.io/android-essentials-toolbox/updates/"/>
-      <discovery label="Atlas" url="http://download.ensoftcorp.com/atlas/eclipse"/>
-   </url>
-
    <requires>
       <import plugin="org.eclipse.debug.ui"/>
       <import plugin="com.ensoftcorp.open.commons" version="3.0.13" match="greaterOrEqual"/>
