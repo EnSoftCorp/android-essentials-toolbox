@@ -2,9 +2,8 @@ package com.ensoftcorp.open.android.essentials.ui.views;
 
 import java.io.IOException;
 
-import org.eclipse.debug.internal.ui.DebugPluginImages;
-import org.eclipse.debug.internal.ui.IInternalDebugUIConstants;
 import org.eclipse.jface.action.Action;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.SashForm;
 import org.eclipse.swt.custom.StyledText;
@@ -25,6 +24,7 @@ import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
+import org.eclipse.wb.swt.ResourceManager;
 
 import com.ensoftcorp.atlas.core.db.graph.Edge;
 import com.ensoftcorp.atlas.core.db.graph.GraphElement;
@@ -43,7 +43,6 @@ import com.ensoftcorp.open.commons.utilities.FormattedSourceCorrespondence;
  * An Eclipse view for searching and viewing apply permission mapping values in the Atlas index
  * @author Ben Holland
  */
-@SuppressWarnings("restriction")
 public class PermissionUsageView extends ViewPart {
 	public PermissionUsageView() {}
 
@@ -214,10 +213,14 @@ public class PermissionUsageView extends ViewPart {
 		};
 		refreshAction.setText("Refresh");
 		refreshAction.setToolTipText("Refresh");
-		refreshAction.setImageDescriptor(DebugPluginImages.getImageDescriptor(IInternalDebugUIConstants.IMG_ELCL_TERMINATE_AND_RELAUNCH));
-		refreshAction.setDisabledImageDescriptor(DebugPluginImages.getImageDescriptor(IInternalDebugUIConstants.IMG_DLCL_TERMINATE_AND_RELAUNCH));
-		refreshAction.setHoverImageDescriptor(DebugPluginImages.getImageDescriptor(IInternalDebugUIConstants.IMG_ELCL_TERMINATE_AND_RELAUNCH));
+		ImageDescriptor enabledRelaunchIcon = ImageDescriptor.createFromImage(ResourceManager.getPluginImage("com.ensoftcorp.open.android.essentials", "icons/enabled_relaunch_button.png"));
+		ImageDescriptor disabledRelaunchIcon = ImageDescriptor.createFromImage(ResourceManager.getPluginImage("com.ensoftcorp.open.android.essentials", "icons/disabled_relaunch_button.png"));
+		refreshAction.setImageDescriptor(enabledRelaunchIcon);
+		refreshAction.setDisabledImageDescriptor(disabledRelaunchIcon);
+		refreshAction.setHoverImageDescriptor(enabledRelaunchIcon);
 		getViewSite().getActionBars().getToolBarManager().add(refreshAction);
+
+		ImageDescriptor enabledContentProviderIcon = ImageDescriptor.createFromImage(ResourceManager.getPluginImage("com.ensoftcorp.open.android.essentials", "icons/enabled_content_provider_button.png"));
 
 		// add expand/collapse tree action
 		final Action expandTreeToggleAction = new Action() {
@@ -225,7 +228,7 @@ public class PermissionUsageView extends ViewPart {
 				if (expandTreeEnabled) {
 					this.setText("Expand by usage");
 					this.setToolTipText("Expand by usage");
-					this.setImageDescriptor(DebugPluginImages.getImageDescriptor(IInternalDebugUIConstants.IMG_ELCL_SHOW_LOGICAL_STRUCTURE));
+					this.setImageDescriptor(enabledContentProviderIcon);
 				} else {
 					this.setText("Collapse tree");
 					this.setToolTipText("Collapse tree");
