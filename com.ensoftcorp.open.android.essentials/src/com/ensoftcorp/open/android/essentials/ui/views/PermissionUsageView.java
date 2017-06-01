@@ -35,7 +35,7 @@ import com.ensoftcorp.atlas.java.core.script.Common;
 import com.ensoftcorp.open.android.essentials.permissions.Permission;
 import com.ensoftcorp.open.android.essentials.permissions.PermissionGroup;
 import com.ensoftcorp.open.android.essentials.permissions.ProtectionLevel;
-import com.ensoftcorp.open.commons.analysis.StandardQueries;
+import com.ensoftcorp.open.commons.analysis.CommonQueries;
 import com.ensoftcorp.open.commons.utilities.DisplayUtils;
 import com.ensoftcorp.open.commons.utilities.FormattedSourceCorrespondence;
 
@@ -295,7 +295,7 @@ public class PermissionUsageView extends ViewPart {
 				permissionItem.setData(permission);
 				Q methods = Common.universe().nodesTaggedWithAny(permission.getQualifiedName()).retainNodes();
 				for (Node method : methods.eval().nodes()) {
-					String qualifiedMethodName = StandardQueries.getQualifiedFunctionName(method);
+					String qualifiedMethodName = CommonQueries.getQualifiedFunctionName(method);
 					TreeItem methodItem = new TreeItem(permissionItem, SWT.NONE);
 					methodItem.setText(qualifiedMethodName);
 					methodItem.setData(method);
@@ -303,7 +303,7 @@ public class PermissionUsageView extends ViewPart {
 					Q methodQ = Common.toQ(Common.toGraph(method));
 					Q callEdges = Common.universe().edgesTaggedWithAny(XCSG.Call).retainEdges();
 					for (Edge call : callEdges.reverseStep(methodQ).eval().edges()) {
-						String qualifiedCallerName = StandardQueries.getQualifiedFunctionName(call.from());
+						String qualifiedCallerName = CommonQueries.getQualifiedFunctionName(call.from());
 						TreeItem item = new TreeItem(methodItem, SWT.NONE);
 						item.setText(qualifiedCallerName);
 						item.setData(call);
@@ -467,7 +467,7 @@ public class PermissionUsageView extends ViewPart {
 		boolean hasCallsites = false;
 		Q methods = Common.universe().nodesTaggedWithAny(permission.getQualifiedName()).retainNodes();
 		for (Node method : methods.eval().nodes()) {
-			String qualifiedMethodName = StandardQueries.getQualifiedFunctionName(method);
+			String qualifiedMethodName = CommonQueries.getQualifiedFunctionName(method);
 			TreeItem methodItem = new TreeItem(permissionItem, SWT.NONE);
 			methodItem.setText(qualifiedMethodName);
 			methodItem.setData(method);
@@ -478,7 +478,7 @@ public class PermissionUsageView extends ViewPart {
 				hasCallsites = true;
 				methodItem.setForeground(methodItem.getDisplay().getSystemColor(PERMISSION_USAGE_COLOR));
 				if(expandTreeEnabled) methodItem.setExpanded(true);
-				String qualifiedCallerName = StandardQueries.getQualifiedFunctionName(callEdge.from());
+				String qualifiedCallerName = CommonQueries.getQualifiedFunctionName(callEdge.from());
 				TreeItem item = new TreeItem(methodItem, SWT.NONE);
 				item.setText(qualifiedCallerName);
 				item.setData(callEdge);

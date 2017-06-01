@@ -2,11 +2,11 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Example Android Analysis
 Bundle-SymbolicName: android.essentials.example.toolbox;singleton:=true
-Bundle-Version: 3.0.13.qualifier
+Bundle-Version: 3.1.0.qualifier
 Bundle-Vendor: EnSoft Corp.
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: 
- com.ensoftcorp.open.commons;bundle-version="3.0.13",
- com.ensoftcorp.open.android.essentials;bundle-version="3.0.13";visibility:=reexport
+ com.ensoftcorp.open.commons;bundle-version="3.1.0",
+ com.ensoftcorp.open.android.essentials;bundle-version="3.1.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .
