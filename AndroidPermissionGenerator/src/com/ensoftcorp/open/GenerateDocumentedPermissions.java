@@ -25,58 +25,52 @@ public class GenerateDocumentedPermissions {
 		// parse documented permission
 		Document doc = Jsoup.connect(DOCUMENTED_PERMISSIONS_REFERENCE).get();
 		Elements documentedPermissionsTable = doc.select("#constants"); // webpage has a table element with id "constants"
+		
+		int counted = 0;
+		
 		for(Element row : documentedPermissionsTable.select("tr.api")){ // select table rows with class of "api" for each entry
+			
+			counted++;
 			
 			// get the api level
 			int addedInAPILevel = -1;
 			for(String className : row.classNames()){
 				if(className.startsWith("apilevel-")){
-					addedInAPILevel = Integer.parseInt(className.substring("apilevel-".length()));
+					String value = className.substring("apilevel-".length());
+					if(value.equalsIgnoreCase("O")){
+						// O is 0?? antiscraper code?
+						value = "0";
+					}
+					addedInAPILevel = Integer.parseInt(value);
 				}
 			}
 			
 			// get the constant's name and reference link
-			String simpleName = "";
-			String reference = "";
-			Element link = row.children().select("td.jd-linkcol").first().child(0);
-			simpleName = link.text().trim();
-			reference = "https://developer.android.com" + link.attr("href");
+			Element link = row.children().select("td").last().child(0);
+			String simpleName = link.text();
+			String reference = "https://developer.android.com/reference/android/Manifest.permission.html#" + simpleName;
 			
 			// get the constant's qualified name and full description
 			String description = "";
 			String qualifiedName = "";
-			for(Element detailDiv : doc.select("div.jd-details.api")){ // expanded details are in a div with classes "jd-details" and "api"
+			for(Element detailDiv : doc.select("div.api")){ // expanded details are in a div with classes "api"
 				// note use of ownText method excludes text in inner span
-				if(detailDiv.children().select("h4.jd-details-title").first().ownText().trim().equals(simpleName)){
-					// qualified name is in a span without a class in a div with the class "jd-tagdata" inside a div with the class "jd-details-descr"
-					for(Element jdTagDataDiv : detailDiv.children().select("div.jd-details-descr").first().children().select("div.jd-tagdata")){						
-						// we want the div that only has the jd-tagdata class
-						if(jdTagDataDiv.className().equals("jd-tagdata")){
-							for(Element span : jdTagDataDiv.children().select("span")){
-								if(span.className().equals("")){
-									qualifiedName = span.text().replaceAll("\"", "").trim();
-								}
-							}
+				if(detailDiv.children().select("h3.api-name").text().trim().equals(simpleName)){
+					for(Element p : detailDiv.select("p")){
+						if(p.hasClass("api-signature")){
+							continue;
+						} else if(p.text().contains("Constant Value:")){
+							qualifiedName = p.text().substring(p.text().indexOf("\"")+1, p.text().lastIndexOf("\"")).trim();
+						} else {
+							description += p.text().trim() + "\n";
 						}
 					}
 					
-					// description is in multiple paragraph elements nested inside a div with classes "jd-tagdata" and "jd-tagdescr" 
-					// within a div with the class "jd-details-descr"
-					for(Element paragraph : detailDiv.children().select("div.jd-details-descr").first().children()
-							.select("div.jd-tagdata.jd-tagdescr").first().children()
-							.select("p")){
-						description += "\n" + paragraph.text().trim();
-						description = description.trim();
-						// some descriptions are missing a period, adding one to be consistent
-						if(!description.isEmpty() && (!description.endsWith(".") && !description.endsWith("!"))){
-							description += ".";
-						}
-					}
-					// description may be for a deprecated method, in which case some info is in a special paragraph with a "caution" class
-					for(Element paragraph : detailDiv.children().select("div.jd-details-descr").first().children()
-							.select("p.caution")){
-						description += "\n" + paragraph.text().trim();
-						description = description.trim();
+					description = description.trim();
+
+					// some descriptions are missing a period, adding one to be consistent
+					if(!description.isEmpty() && (!description.endsWith(".") && !description.endsWith("!"))){
+						description += ".";
 					}
 				}
 			}
@@ -130,6 +124,9 @@ public class GenerateDocumentedPermissions {
 		for(String permission : permissions){
 			System.out.println("allDocumentedPermissions.add(" + permission + ");");
 		}
+		
+		System.out.println("\n-------------------------\n");
+		System.out.println("Counted " + counted + " permissions");
 	}
 
 }

@@ -28,6 +28,7 @@ import com.ensoftcorp.open.android.essentials.permissions.Permission;
 public class GenerateUndocumentedPermissions {
 
 	// pulls from latest raw version on master of Android github mirror
+	// https://github.com/android/platform_frameworks_base/blob/master/core/res/AndroidManifest.xml
 	public static String ANDROID_SOURCE_MANIFEST = "https://raw.githubusercontent.com/android/platform_frameworks_base/master/core/res/AndroidManifest.xml";
 
 	public static void main(String[] args) throws Exception {

@@ -33,7 +33,7 @@ public class PermissionMapping {
 	 * Defines the highest available permission mapping, if no mapping can be found 
 	 * for the requested version this is the default.
 	 */
-	public static final int HIGHEST_AVAILABLE_MAPPING = 22;
+	public static final int HIGHEST_AVAILABLE_MAPPING = 23;
 	
 	private static final String MAPPING_FILENAME_PREFIX = "API";
 	private static final ArrayList<InputStream> PERMISSION_MAPPING_RESOURCES = findPermissionMappingResources();
