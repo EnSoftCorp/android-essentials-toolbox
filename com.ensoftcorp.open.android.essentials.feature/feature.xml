@@ -2,7 +2,7 @@
 <feature
       id="com.ensoftcorp.open.android.essentials.feature"
       label="Android Essentials Toolbox"
-      version="3.3.0.qualifier"
+      version="3.6.0.qualifier"
       provider-name="EnSoft Corp.">
 
    <description url="https://ensoftcorp.github.io/android-essentials-toolbox">
@@ -10,13 +10,13 @@
    </description>
 
    <copyright url="https://ensoftcorp.github.io/android-essentials-toolbox">
-      Copyright (c) 2017 EnSoft Corp.
+      Copyright (c) 2014, 2020 EnSoft Corp.
    </copyright>
 
    <license url="https://raw.githubusercontent.com/EnSoftCorp/android-essentials-toolbox/master/LICENSE">
       MIT License (MIT)
 
-Copyright (c) 2017 EnSoft Corp.
+Copyright (c) 2014, 2020 EnSoft Corp.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the &quot;Software&quot;), to deal
@@ -39,14 +39,14 @@ SOFTWARE.
 
    <requires>
       <import plugin="org.eclipse.debug.ui"/>
-      <import plugin="com.ensoftcorp.open.commons" version="3.3.0" match="greaterOrEqual"/>
+      <import plugin="com.ensoftcorp.open.commons" version="3.6.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
          id="com.ensoftcorp.open.android.essentials"
          download-size="0"
          install-size="0"
-         version="3.3.0.qualifier"
+         version="3.6.0.qualifier"
          unpack="false"/>
 
 </feature>
